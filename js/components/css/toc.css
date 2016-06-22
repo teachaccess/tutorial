@@ -1,0 +1,105 @@
+/*
+ * Copyright (c) 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+
+#toc {
+  background-color: #F4F4F4;
+  border-right: 1px solid #CCC;
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  min-width: 20em;
+}
+
+#toc.collapsed {
+  background-color: inherit;
+  border-right: none;
+  min-width: 0;
+  position: absolute;
+  z-index: 100;
+}
+
+#toc ol {
+  margin: 0;
+}
+#toc > h2,
+#toc.collapsed > #toc-list {
+  display: none;
+}
+
+#toc > .toggleButton {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  color: #AAA;
+  flex-shrink: 0;
+  outline-width: thin;
+  padding: 0.5rem;
+}
+
+#toc > .toggleButton:hover {
+  color: inherit;
+}
+
+#toc #toc-list,
+#toc #toc-list .slides {
+  counter-reset: item;
+  overflow-y: auto;
+  margin-left: 0.6em;
+}
+
+#toc > #toc-list > * {
+  margin-bottom: 1em;
+}
+
+#toc > #toc-list > :first-child {
+  margin-top: 0;
+}
+
+#toc .slide,
+#toc .chapter {
+  display: block;
+}
+
+#toc .chapter::before,
+#toc .slide::before {
+  content: counters(item, '.') ". ";
+  counter-increment: item;
+}
+
+#toc .chapter > .title {
+  display: inline-block;
+  margin: 0;
+}
+
+#toc #toc-list > .slide::before,
+#toc #toc-list > .slide,
+#toc .chapter::before,
+#toc .chapter > .title {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#toc .slide {
+}
+
+#toc .slide > a {
+  color: inherit;
+}
+
+
+#toc .slide,
+#toc .slide > a {
+  text-decoration: none;
+  outline-width: thin;
+}
+
+#toc .slide.active,
+#toc .slide.active > a,
+#toc .slide:hover {
+  color: #428bca;
+}

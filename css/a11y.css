@@ -1,0 +1,90 @@
+.editor {
+  font-size: 0.8em;
+}
+
+.htmlExercise > .example > .editorWithPreview {
+  border: 1px solid #DDD;
+}
+
+.htmlExercise > .example > .editorWithPreview > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.editorWithPreview > .preview,
+.editorWithPreview > .editor .CodeMirror {
+  min-height: 70px;
+  height: auto
+}
+
+.editorWithPreview > .editor .CodeMirror-scroll {
+  min-height: 70px;
+}
+
+.editorWithPreview > .editor {
+  width: 70%;
+  font-size: 0.8em;
+}
+
+.editorWithPreview > .preview {
+  width: 30%;
+  padding-left: 20px;
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.htmlExercise > .example > .verify {
+  margin-top: 10px;
+}
+
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #CCC;
+  font-size: 0.7em;
+  background-color: #FFF;
+  color: #333;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #FFF inset;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0px 0.1em;
+  text-shadow: 0px 1px 0px #FFF;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.popupMenuWidget {
+  padding: 1em;
+  position: relative;
+}
+
+.popupMenuWidget [role="button"] {
+  border: 1px solid black;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 1px 3px;
+  position: relative;
+  z-index: 2;
+}
+
+.popupMenuWidget [role="button"]:hover,
+.popupMenuWidget [role="button"]:focus {
+  text-decoration: none;
+}
+
+.popupMenuWidget [role="menu"] {
+  border: 1px solid black;
+  display: none;
+  position: relative;
+  top: -1px;
+  z-index: 1;
+}
+
+.popupMenuWidget [role="menu"] > a {
+  display: block;
+  padding: 0px 3px;
+}
+
+.popupMenuWidget [role="menuitem"]:focus {
+  background-color: #428bca;
+  color: white;
+}

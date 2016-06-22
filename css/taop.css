@@ -1,0 +1,61 @@
+.accessible_elem {
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+#toolbar {
+  color: #888;
+}
+
+html .editorWithPreview input[type=text],
+html .editorWithPreview input[type=number],
+html .editorWithPreview textarea {
+  display: inline-block;;
+  box-sizing: border-box;
+  width: auto;;
+  height: auto;
+  padding: 1px;
+  border: 1px inset;
+  margin: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: auto;
+  background-color: auto;
+  box-shadow: none;
+  border-radius: 0;
+  transition: none;
+}
+
+html .editorWithPreview button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  background-color: rgb(192, 192, 192);
+  padding: 2px 6px 3px 6px;
+  border: 2px outset buttonface;
+  line-height: inherit;
+}
+
+#slide h2 {
+  font-size: 1.3em;
+  margin: 1.1em 0 0.8em 0;
+  font-weight: bold;
+}
+
+#slide .previewHeading {
+    margin: 0 0 1.1em;
+    color: grey;
+}
+#slide h3 {
+    font-size: 1.1em;
+}
+
+@media screen and (min-width: 40em) {
+  #slide h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+  }
+}

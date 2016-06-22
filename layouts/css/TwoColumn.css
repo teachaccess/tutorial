@@ -1,0 +1,19 @@
+.TwoColumn-wrapper {
+  display: flex;
+}
+
+.TwoColumn-column {
+  flex: 1;
+  padding: 10px;
+}
+
+.TwoColumn-column.TwoColumn-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.TwoColumn-column.TwoColumn-image > img {
+  flex-shrink: 0;
+}
