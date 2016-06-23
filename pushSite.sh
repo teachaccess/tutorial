@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 TARGETPATH="../$(basename $(pwd))_gh_pages"
 REMOTE=$(git remote -v | grep origin | grep "(push)" | cut -f 2 | cut -d ' ' -f 1)
@@ -8,14 +9,16 @@ if ! git diff --quiet && git diff --cached --quiet; then
   exit 1
 fi
 
-if [ ! -d "$TARGETPATH" ]; then
-  echo "Cloning into '$TARGETPATH'..."
-  git clone ./ "$TARGETPATH"
-  cd "$TARGETPATH"
-  git checkout gh-pages
-  git remote set-url --push origin $REMOTE
-  cd - > /dev/null
+if [ -d "$TARGETPATH" ]; then
+  rm -rf "$TARGETPATH"
 fi
+
+echo "Cloning into '$TARGETPATH'..."
+git clone ./ "$TARGETPATH"
+cd "$TARGETPATH"
+git checkout gh-pages
+git remote set-url --push origin $REMOTE
+cd - > /dev/null
 
 # Updating
 echo "Clear target..."
