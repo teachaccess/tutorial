@@ -39,6 +39,15 @@ export default function MasterLayout(props) {
     <div id="page" className={className}>
       <TOC {...restProps} togglable={true} />
       <div id="main" className="flex-column">
+        {slide.__path__ ? // for debugging
+          <div
+            role="region"
+            aria-label="File path of current slide"
+            className="__exerslide__file_path flex-item-fix">
+            File path: {slide.__path__}
+          </div> :
+          null
+        }
         <img style={{alignSelf: 'flex-end', width: 122, margin: 10}} src="logo-teach-access.svg" alt="Teach Access Bridge" />
         {children}
         <Toolbar
@@ -67,3 +76,4 @@ MasterLayout.propTypes = {
    */
   className: React.PropTypes.string,
 };
+
