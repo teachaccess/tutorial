@@ -2,19 +2,19 @@
 title: FAQs
 chapter: Introduction
 ---
-Got questions about Teach Access and the Teach Access Learning Portal? Fire away!
+Got questions about Teach Access and the Teach Access Tutorial? Fire away!
 
 **What is Teach Access?**
 
 Teach Access is a collective of leading tech companies, academic institutions and advocacy organizations working together to embed accessibility into higher education and learning experiences for students of technology.
 
-**What is the Teach Access Learning Portal?**
+**What is the Teach Access Tutorial?**
 
-The Teach Access Learning Portal is a hands-on tutorial that covers some best practices for writing accessible software and designing inclusive experiences.
+The Teach Access Tutorial is a hands-on tutorial that covers some best practices for writing accessible software and designing inclusive experiences.
 
-**What assistive technologies can I use with this portal?**
+**What assistive technologies can I use with this tutorial?**
 
-The portal should work with most assistive technologies, but Apple's VoiceOver is the recommended desktop screen reader for the training exercises.
+The tutorial should work with most assistive technologies, but Apple's VoiceOver is the recommended desktop screen reader for the training exercises.
 
 **Where can I find more information on accessibility?**
 
