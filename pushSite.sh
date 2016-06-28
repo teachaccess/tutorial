@@ -13,7 +13,11 @@ if [ -d "$TARGETPATH" ]; then
   rm -rf "$TARGETPATH"
 fi
 
-echo "Cloning into '$TARGETPATH'..."
+# Get latest changes from GitHub
+git checkout gh-pages
+git pull origin gh-pages
+git checkout master
+
 git clone ./ "$TARGETPATH"
 cd "$TARGETPATH"
 git checkout gh-pages
