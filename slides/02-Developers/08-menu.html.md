@@ -7,10 +7,46 @@ style: |
     height: 100px;
   }
 
-layoutData:
-  description: |
-    Menus, like dialogs, rely on a few key principles to render them usable with the keyboard or screen reader.
+  .popupMenuWidget {
+    padding: 1em;
+    position: relative;
+  }
 
+  .popupMenuWidget [role="button"] {
+    border: 1px solid black;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 1px 3px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .popupMenuWidget [role="button"]:hover,
+  .popupMenuWidget [role="button"]:focus {
+    text-decoration: none;
+  }
+
+  .popupMenuWidget [role="menu"] {
+    border: 1px solid black;
+    display: none;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+    list-style: none;
+    margin: 0;
+  }
+
+  .popupMenuWidget [role="menu"]  a {
+    display: block;
+    padding: 0px 5px;
+  }
+
+  .popupMenuWidget [role="menuitem"]:focus {
+    background-color: #428bca;
+    color: white;
+  }
+
+layout_data:
   examples:
     - title: Accessible Menu
       description: |
@@ -175,3 +211,6 @@ layoutData:
         );
 
 ---
+Menus, like dialogs, rely on a few key principles to render them usable with 
+the keyboard or screen reader.
+

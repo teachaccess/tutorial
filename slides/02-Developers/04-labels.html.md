@@ -12,7 +12,6 @@ style: |
 
     #composer {
       border: 1px solid #1466F2;
-      width: 200px;
     }
 
     #description {
@@ -23,16 +22,7 @@ style: |
       font-size: 13px;
     }
 
-layoutData:
-  description: |
-    Accessible labels are necessary to make several other types of elements understandable,
-    such as inputs, widgets, and ARIA landmark regions.
-    Accessible labels that create a delightful experience are:
-    1. Concise -- 1 to 3 simple words. Only occasionally as many as 5 words.
-    2. Meaningful -- accurately convey the purpose of the element.
-
-    There are many ways to label an interactive element such as a button or an input field, which you will see below. You can check the results of adding the various label types by testing in your screen reader too!
-
+layout_data:
   examples:
     - title: Self-labeled
       description: |
@@ -150,3 +140,13 @@ layoutData:
           "It doesn't look like you added an aria-describedby to the input field"
         );
 ---
+Accessible labels are necessary to make several other types of elements 
+understandable,
+such as inputs, widgets, and ARIA landmark regions.
+Accessible labels that create a delightful experience are:
+
+1. Concise -- 1 to 3 simple words. Only occasionally as many as 5 words.
+2. Meaningful -- accurately convey the purpose of the element.
+
+There are many ways to label an interactive element such as a button or an input field, which you will see below. You can check the results of adding the various label types by testing in your screen reader too!
+

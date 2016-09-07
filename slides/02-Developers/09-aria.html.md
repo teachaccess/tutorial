@@ -14,12 +14,8 @@ style: |
     display: none;
   }
 
-layoutData:
+layout_data:
   description: |
-    ARIA or <a href="http://www.w3.org/WAI/intro/aria.php">Accessible Rich Internet
-    Applications</a> provides a framework of roles, properties, and guidelines to help
-    develop accessible user interactions.
-
   examples:
     - title: ARIA
       description:
@@ -55,28 +51,33 @@ layoutData:
 
         There are several types of landmark roles. Some of them are:
 
-        `<main> = <div role=”main”>`  - Equivalent to “directing the gaze” of the screen
-          reader user. Should contain only the primary content of the page.
+        - `<main>`,`<div role="main">` -- Equivalent to “directing the gaze” of 
+        the screen reader user. Should contain only the primary content of the 
+        page.
 
-        `<nav> = <div role=”navigation”>` - contains a set of links or elements for
-          navigating the site
+        - `<nav>`,`<div role="navigation">` -- contains a set of links or 
+        elements for navigating the site
 
-        `<aside> = <div role=”complementary”>` - content that supplements the main
-          content
+        - `<aside>`, `<div role="complementary">` - content that supplements 
+        the main content
 
-        `<div role=”search”>` - search widget
+        - `<div role="search">` - search widget
 
-        `<header> = <div role=”banner”>` - the banner of the page
+        - `<header>`, `<div role="banner">` - the banner of the page
 
-        `<footer> = <div role=”contentinfo”>` - information about the page such as
-          copyright, help, and information links that appear in the footer
+        - `<footer>`, `<div role="contentinfo">` - information about the page 
+        such as copyright, help, and information links that appear in the 
+        footer
 
-        <a href='http://www.w3.org/TR/wai-aria/roles#document_structure_roles'>
-          Other ARIA roles are documented in the WCAG spec.
-        </a>
+        [Other ARIA roles are documented in the WCAG 
+        spec.](http://www.w3.org/TR/wai-aria/roles#document_structure_roles)
 
-        <a href='http://www.w3.org/TR/wai-aria/states_and_properties#state_prop_def'>
-          More about ARIA states and properties
-        </a>
+        [More about ARIA states and 
+        properties](http://www.w3.org/TR/wai-aria/states_and_properties#state_prop_def)
 
 ---
+ARIA or [Accessible Rich Internet
+Applications](http://www.w3.org/WAI/intro/aria.php) provides a framework of 
+roles, properties, and guidelines to help
+develop accessible user interactions.
+

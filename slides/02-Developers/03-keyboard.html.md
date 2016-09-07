@@ -13,13 +13,7 @@ style: |
     text-align: center;
   }
 
-layoutData:
-  description: |
-    Make all interactive elements work with  a keyboard. For example, make sure a button that you activate
-    with a click is also in the keyboard tab sequence and that pressing enter or space
-    activates it. Set the tabindex attribute to 0 to include an element in the browser's keyboard tab sequence.  If you want an element out of sequence, set its tabindex to -1 and use Javascript to control its focus and tab sequence, and related keyboard events. We do not recommend using tabindex values
-    greater than 0 even though browsers support them. Note that HTML links and input elements have an implied tabindex of 0.
-
+layout_data:
   examples:
     - title: Semantic Button
       description: |
@@ -37,9 +31,9 @@ layoutData:
       description: |
         The button below is constructed using an unsemantic div. The easiest way to
         make this semantic is to use a real button or input tag. Here is another way. In the
-        example below,
-        1. Add `role` = 'button'.
-        2. `tabindex` = '0'.
+        example below, add
+        1. `role='button'`
+        2. `tabindex='0'`
 
         Verify with VoiceOver that you can tab to the button and hear the button name and the fact
         that it is a button element. Note that you would need to add an onkeypress or onkeydown handler to the button so you
@@ -63,3 +57,12 @@ layoutData:
         );
 
 ---
+Make all interactive elements work with  a keyboard. For example, make sure a 
+button that you activate
+with a click is also in the keyboard tab sequence and that pressing enter or space
+activates it. Set the `tabindex` attribute to `0` to include an element in the 
+browser's keyboard tab sequence.  If you want an element out of sequence, set 
+its `tabindex` to `-1` and use JavaScript to control its focus and tab 
+sequence, and related keyboard events. We do not recommend using `tabindex` 
+values greater than `0` even though browsers support them. Note that HTML links 
+and input elements have an implied `tabindex` of `0`.

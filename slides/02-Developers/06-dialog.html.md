@@ -15,6 +15,8 @@ style: |
     text-align:center;
     z-index: 1000;
     background-color: rgba(0, 0, 0, .4);
+    align-items: center;
+    justify-content: center;
   }
 
   #container, #container2 {
@@ -22,15 +24,6 @@ style: |
     background-color: #fff;
     border:1px solid #000;
     padding:15px;
-    text-align:center;
-  }
-
-  #container {
-    margin: 400px auto;
-  }
-
-  #container2 {
-    margin: 400px auto;
   }
 
   label {
@@ -63,10 +56,7 @@ style: |
     margin: 10px 0;
   }
 
-layoutData:
-  description: |
-    Dialogs are a little bit trickier to make accessible, but with a few key principles, they can be made keyboard navigable and usable with screen readers.
-
+layout_data:
   examples:
     - title: Semantic Dialog
       description: |
@@ -183,3 +173,5 @@ layoutData:
         );
 
 ---
+Dialogs are a little bit trickier to make accessible, but with a few key 
+principles, they can be made keyboard navigable and usable with screen readers.

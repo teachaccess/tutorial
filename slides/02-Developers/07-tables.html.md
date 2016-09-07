@@ -7,6 +7,7 @@ style: |
   .editorWithPreview > .editor,
   .editorWithPreview > .preview {
     width: 50%;
+    max-width: 50%;
   }
 
   table, th, td {
@@ -48,12 +49,7 @@ style: |
     display: table-row-group;
   }
 
-layoutData:
-  description: |
-    Tables help screen readers process information presented in a tabular format.
-    When information is presented using table markup, screen reader users can
-    read down columns and across rows, and even hear column and row headings as they do so.
-
+layout_data:
   examples:
     - title: Semantic Table
       description: |
@@ -132,3 +128,7 @@ layoutData:
           "Are you using semantic td tags?"
         );
 ---
+Tables help screen readers process information presented in a tabular format.
+When information is presented using table markup, screen reader users can
+read down columns and across rows, and even hear column and row headings as they do so.
+
