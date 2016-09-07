@@ -40,7 +40,7 @@ layout_data:
         can tab to the button and press enter to activate it using just the keyboard.
 
       code: |
-        <div class="customButton">
+        <div class="customButton" style="width: 120px;">
           Submit
         </div>
 
