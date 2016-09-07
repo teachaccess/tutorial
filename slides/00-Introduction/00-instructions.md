@@ -10,13 +10,17 @@ Welcome to the Teach Access Tutorial! This resource is part of the Teach Access 
 use the verify button to check whether your solution is correct.
 
 3. You can also verify the code sample output using VoiceOver - Apple's built-in screen reader (other screen readers work too). Here are some instructions for navigating with VoiceOver:
-  * <kbd>cmd</kbd> + <kbd>F5</kbd> turns VoiceOver on/off
-  * <kbd>tab</kbd> navigates to an interactive element
-  * <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>right arrow</kbd> (repeatedly) navigates to the next element
-  * <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>cmd</kbd> + <kbd>h</kbd> (repeatedly) navigates by headings
-<br><br>
+    * <kbd>cmd</kbd> + <kbd>F5</kbd> turns VoiceOver on/off
+    * <kbd>tab</kbd> navigates to an interactive element
+    * <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>right arrow</kbd> (repeatedly) 
+    navigates to the next element
+    * <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>cmd</kbd> + <kbd>h</kbd> 
+    (repeatedly) navigates by headings
+    <br/><br/>
+
 4. When verifying with VoiceOver, use Chrome on a Mac for the best experience. However, the "Verify" button provided after each exercise will work with any browser/OS combination.
 
-5.     ARIA stands for Accessible Rich Internet Applications, a W3C standard for building accessible user interfaces on the web.
+5. ARIA stands for Accessible Rich Internet Applications, a W3C standard for 
+   building accessible user interfaces on the web.
 
 Happy learning! <i class="fa fa-smile-o"><i class="accessible_elem">Smiley Icon</i></i>

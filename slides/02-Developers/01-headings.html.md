@@ -9,15 +9,11 @@ style: |
     margin: 0;
   }
 
-  #slide h3 {
+  .exerslide-slide h3 {
     margin: 5px;
   }
 
-layoutData:
-  description: |
-    Headings provide structure to a page. A person using a screen reader can
-    navigate a page quickly using headings on the page if the headings used are
-    semantic. Semantic headings include real heading tags such as `h1`, `h2`.
+layout_data:
   examples:
     - title: Semantic Heading
       description: |
@@ -43,3 +39,6 @@ layoutData:
         );
 
 ---
+Headings provide structure to a page. A person using a screen reader can
+navigate a page quickly using headings on the page if the headings used are
+semantic. Semantic headings include real heading tags such as `h1`, `h2`.

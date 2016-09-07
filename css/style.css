@@ -17,13 +17,24 @@
  * so that it is easy to overwrite them.
  */
 
+html, body {
+  /**
+   * Disables inertia effects 
+   */
+  height: 100%;
+  overflow: hidden;
+  font-family: Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   color: #333;
   margin: 0;
   padding: 0;
 }
 
-#loader {
+#exerslide-loader {
   align-items: center;
   display: flex;
   font-size: 4em;
@@ -31,10 +42,11 @@ body {
   justify-content: center;
 }
 
-#page {
+#exerslide-page {
   bottom: 0;
   display: flex;
   left: 0;
+  line-height: 1;
   position: absolute;
   right: 0;
   top: 0;
@@ -59,100 +71,126 @@ body {
 
 /* CODE */
 
-pre > code {
+#exerslide-slide  code,
+#exerslide-slide p > code {
   background: #f9f9f9;
-  display: block;
-  font-size: 0.9em;
-  overflow-x: auto;
-  padding: 1rem;
 }
 
-pre {
-  margin-bottom: 1.5rem;
+#exerslide-slide pre + :not(hr) {
+  margin-top: 1rem;
+}
+
+#exerslide-slide pre > code {
+  display: block;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  padding: 0.5rem;
 }
 
 /* MAIN CONTENT */
 
-#slide {
+#exerslide-slide {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex: 2;
   overflow-y: auto;
-  padding: 1.5em;
+  padding: 1rem;
   position: relative;
   width: 100%;
 }
 
-#slide-content {
-  width: 100%;
+#exerslide-slide > * {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  line-height: 1.6;
   /**
    * This is the default max width of the slide content. However, since
    * exerslide allows the content width to be configured via slides, this is
    * not going to have any effect, unless auto-scaling is disabled completely
    * (via scale: false in the meta data section of the first slide)
+   *
+   * We cannot just use `width: 45em` because we want the slide to be responsive
+   * when the viewport shrinks.
    */
   max-width: 45em;
-  flex: 1;
-  flex-direction: column;
-  display: flex;
+  /**
+   * This ensures that slides with little content (i.e. without a full line of
+   * content) are still positioned correclty.
+   */
+  width: 100%;
 }
 
-#slide h1,
-#slide-title {
+
+#exerslide-slide h1,
+#exerslide-slide h2,
+#exerslide-slide h3,
+#exerslide-slide h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#exerslide-slide h1,
+#exerslide-slide-title {
+  margin-top: 0;
   flex-shrink: 0;
-  margin-bottom: 1rem;
   text-align: center;
 }
 
-#slide-title:focus {
+#exerslide-slide h1:focus,
+#exerslide-slide-title:focus {
   outline: none;
 }
 
-/* This ensures that embedded images are scaled down to the width of the main
- * column.
- */
-#slide img {
-  max-width: 100%;
+#exerslide-slide h1 {
+  font-size: 1.8rem;
 }
 
-/* DEBUG information */
+#exerslide-slide h2 {
+  font-size: 1.4rem;
+}
 
-.__exerslide__file_path {
-  background-color: #EEE;
-  line-height: 1em;
-  padding: 0.5em;
-  text-align: center;
-  width: 100%;
+#exerslide-slide h3 {
+  font-size: 1.2rem;
+}
+
+#exerslide-slide h4 {
+  font-size: 1.1rem;
+}
+
+#exerslide-slide h2 + p,
+#exerslide-slide h3 + p,
+#exerslide-slide h4 + p {
+  margin-top: 0.3rem;
+}
+
+/**
+ * Responsive images.
+ */
+#exerslide-slide img {
+  max-width: 100%;
 }
 
 /* MOBILE */
 
 @media(max-width: 768px) {
+  html, body {
+    overflow: auto;
+  }
+
   /*
    * Makes navigation bar move to the end of the content instead of sticking to
    * the bottom of the screen
    */
-  #page {
+  #exerslide-page {
     bottom: initial;
+    min-height: 100vh;
   }
 
   /* Makes the page look better when the menu is TOC is expanded */
-  #main {
+  #exerslide-main {
     overflow-x: hidden;
-  }
-}
-
-@media screen and (min-width: 40em) {
-  #slide h1 {
-    font-size: 2.2em;
-  }
-
-  #slide h2 {
-    font-size: 1.8em;
-  }
-
-  #slide h3 {
-    font-size: 1.4em;
   }
 }

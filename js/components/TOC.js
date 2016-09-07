@@ -7,10 +7,8 @@
  */
 
 import React from 'react';
-import {groupByChapter} from 'exerslide/js/chapterHelper';
-import {IS_MOBILE} from 'exerslide/js/deviceHelper';
-import {getOptions} from 'exerslide/js/optionHelper';
-import {getSlideURL} from 'exerslide/js/url';
+import * as exerslide from 'exerslide/browser';
+const {groupByChapter, IS_MOBILE} = exerslide;
 
 import './css/toc.css';
 
@@ -32,27 +30,28 @@ class Entry extends React.Component {
   render() {
     const {slideIndex, slides, active} = this.props;
     const slide = slides[slideIndex];
-    const slideOptions = getOptions(slides, slideIndex);
-    const classes = 'slide' + (active ? ' active' : '');
-    const Layout = slide.layout;
-    const layoutClasses =
-      Layout && Layout.getClassNames && Layout.getClassNames(slideIndex);
+    const slideOptions = slide.options;
+    let classes = ['exerslide-toc-entry'];
+    const layout = slide.layout;
+    if (layout && layout.getClassNames) {
+      classes = classes.concat(layout.getClassNames(slideIndex, exerslide));
+    }
     const title = slideOptions.toc || slideOptions.title ||
       `Slide ${slideIndex + 1}`;
     const props = {};
     if (active) {
+      classes.push('active');
       props['aria-current'] = 'page';
     }
 
     return (
-      <li
-        className={classes + ' ' + layoutClasses}>
+      <li className={classes.join(' ')}>
         <a
           {...props}
           ref="anchor"
           tabIndex={active ? 0 : -1}
           title={title}
-          href={getSlideURL(slideIndex)}>
+          href={slide.url}>
           <span className="title">{title}</span>
         </a>
       </li>
@@ -71,34 +70,34 @@ Entry.propTypes = {
  */
 
 export default class TOC extends React.Component {
-  constructor(props) {
-    super(props);
-    const slideOptions = getOptions(props.slides, props.slideIndex);
+  constructor(props, context) {
+    super(props, context);
+    const slideOptions = context.slide.options;
     let collapsed = false;
     if (props.togglable) {
       // On mobile devices we collapse the TOC by default
       if (IS_MOBILE) {
         collapsed = true;
-      } else if (slideOptions.hasOwnProperty('hidetoc')) {
-        collapsed = slideOptions.hidetoc;
+      } else if (slideOptions.hasOwnProperty('hideTOC')) {
+        collapsed = slideOptions.hideTOC;
       }
     }
     this.state = {
-      groupedSlides: groupByChapter(props.slides),
+      groupedSlides: groupByChapter(context.slides),
       collapsed,
       explicitlyToggled: false,
     };
     this._onToggle = this._onToggle.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.slides !== this.props.slides) {
-      this.setState({groupedSlides: groupByChapter(nextProps.slides)});
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextContext.slides !== this.context.slides) {
+      this.setState({groupedSlides: groupByChapter(nextContext.slides)});
     }
-    if (nextProps.slideIndex !== this.props.slideIndex) {
-      const slideOptions = getOptions(nextProps.slides, nextProps.slideIndex);
+    if (nextContext.slide !== this.context.slide) {
+      const slideOptions = nextContext.slide.options;
       if (!this.state.explicitlyToggled) {
-        let collapsed = IS_MOBILE ? true : Boolean(slideOptions.hidetoc);
+        let collapsed = IS_MOBILE ? true : Boolean(slideOptions.hideTOC);
         this.setState(
           {
             collapsed,
@@ -121,29 +120,30 @@ export default class TOC extends React.Component {
 
   render() {
     let slideIndex = 0;
-    const {slides, togglable} = this.props;
+    const {togglable} = this.props;
+    const {slides} = this.context;
     const {collapsed} = this.state;
     const chapters = this.state.groupedSlides.map(chapter => {
       let entry;
       if (Array.isArray(chapter)) {
-        const isActive = this.props.slideIndex >= slideIndex &&
-          this.props.slideIndex < slideIndex + chapter.length;
+        const isActive = this.context.slideIndex >= slideIndex &&
+          this.context.slideIndex < slideIndex + chapter.length;
         entry = chapter.map((slide, index) =>
           <Entry
             key={slideIndex + index}
             slideIndex={slideIndex + index}
             slides={slides}
-            active={this.props.slideIndex === slideIndex + index}
+            active={this.context.slideIndex === slideIndex + index}
           />
         );
         entry =
           <li
             key={chapter[0].options.chapter}
-            className={'chapter' + (isActive ? ' actice' : '')}>
-            <h3 className="title">
+            className={'exerslide-toc-chapter' + (isActive ? ' active' : '')}>
+            <h3 className="exerslide-toc-title">
               {chapter[0].options.chapter}
             </h3>
-            <ol className="slides">{entry}</ol>
+            <ol className="exerslide-toc-entries">{entry}</ol>
           </li>;
         slideIndex += chapter.length;
       } else {
@@ -152,39 +152,42 @@ export default class TOC extends React.Component {
             key={slideIndex}
             slideIndex={slideIndex}
             slides={slides}
-            active={this.props.slideIndex === slideIndex}
+            active={this.context.slideIndex === slideIndex}
           />;
         slideIndex += 1;
       }
       return entry;
     });
 
+    const icon =
+      <i
+        className={'fa fa-lg ' + (collapsed ? 'fa-bars' : 'fa-chevron-left')}
+        aria-hidden={true}
+      />;
+
     return (
       <div
         role="navigation"
-        id={this.props.id || 'toc'}
-        className={collapsed ? 'collapsed' : ''}>
-        <h2 id="toc-title">Table of Contents</h2>
+        className={'exerslide-toc-container' + (collapsed ? ' collapsed' : '')}>
+        <h2 id="exerslide-toc-title">Table of Contents</h2>
         {togglable ?
+          /* This goes against the code formatting guidelines because VoiceOver
+           * is not able to announce this button properly if there is a line
+           * break in it.
+           */
           <button
-            className="toggleButton"
+            className="exerslide-toc-toggleButton"
             type="button"
-            aria-controls="toc-list"
+            aria-controls="exerslide-toc-list"
             aria-expanded={!collapsed}
             aria-label="Table of Contents"
-            onClick={this._onToggle}>
-            <i
-              className={
-                'fa fa-lg ' + (collapsed ? 'fa-bars' : 'fa-chevron-left')
-              }
-            />
-          </button> :
+            onClick={this._onToggle}>{icon}</button> :
           null
         }
         <ol
-          id="toc-list"
+          id="exerslide-toc-list"
           aria-controls="main"
-          aria-labelledby="toc-title">
+          aria-labelledby="exerrslide-toc-title">
           {chapters}
         </ol>
       </div>
@@ -194,16 +197,6 @@ export default class TOC extends React.Component {
 
 TOC.propTypes = {
   /**
-   * Index of the currently shown slide.
-   */
-  slideIndex: React.PropTypes.number,
-
-  /**
-   * All slides.
-   */
-  slides: React.PropTypes.array,
-
-  /**
    * Whether to show a toggle button or not.
    */
   togglable: React.PropTypes.bool,
@@ -212,6 +205,23 @@ TOC.propTypes = {
    * Callback called when TOC is shown or hidden.
    */
   onToggle: React.PropTypes.func,
+};
+
+TOC.contextTypes = {
+  /**
+   * Current slide.
+   */
+  slide: React.PropTypes.object,
+
+  /**
+   * Index of the currently shown slide.
+   */
+  slideIndex: React.PropTypes.number,
+
+  /**
+   * All slides.
+   */
+  slides: React.PropTypes.array,
 };
 
 TOC.defaultProps = {

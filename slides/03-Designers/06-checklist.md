@@ -15,6 +15,6 @@ We've covered a bunch of ground related to improving the accessibility of visual
 
 There are also a number of free tools available for assessing the accessibility:
 
-- WAVE by WebAIM for general website accessibility: http://wave.webaim.org/
-- Juicy Studio's Readability Test: http://juicystudio.com/services/readability.php
-- Vischeck's Color Blindness Checker: http://www.vischeck.com/
+- WAVE by WebAIM for general website accessibility: <http://wave.webaim.org/>
+- Juicy Studio's Readability Test: <http://juicystudio.com/services/readability.php>
+- Vischeck's Color Blindness Checker: <http://www.vischeck.com/>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Editor from 'exerslide/components/Editor';
+import ContentRenderer from 'exerslide/components/ContentRenderer';
 import '../js/scriptHelper';
 
 import 'codemirror/mode/htmlmixed/htmlmixed';
@@ -77,11 +78,11 @@ class Example extends React.Component {
               </i> :
               null
             }
-            &nbsp;{title}
+          {' '}{title}
           </h2> :
           null
         }
-        {description ? this.props.contentConverter(description) : null}
+        {description ? <ContentRenderer value={description} /> : null}
         {this.props.code ?
           <div className="editorWithPreview">
             <Editor
@@ -91,8 +92,8 @@ class Example extends React.Component {
               config={{
                 extraKeys: {
                   Tab: false,
-                  'Shift-Tab': false
-                }
+                  'Shift-Tab': false,
+                },
               }}
               onChange={this._onChange.bind(this)}
             />
@@ -129,7 +130,7 @@ class Example extends React.Component {
         }
         {this.props.note ?
           <div className="note">
-            {this.props.contentConverter(description)}
+            <ContentRenderer value={this.props.note} />
           </div> :
           null
         }
@@ -140,20 +141,22 @@ class Example extends React.Component {
 
 export default class HTMLExercise extends React.Component {
   componentDidMount() {
-    let {layoutData: {description, examples}, slideIndex} = this.props;
+    /*
     if (slideIndex == 14) {
       exerslide.platFormFn(document, 'script', 'facebook-jssdk');
     }
+    */
   }
 
   render(element: ReactElement, container: DOMElement) {
-    let {layoutData: {description, examples}, slideIndex} = this.props;
+    let {title, layoutData: {examples}, content} = this.props;
 
     return (
       <div className="htmlExercise">
-        {description ? this.props.contentConverter(description) : null}
+        {title}
+        {content ? <ContentRenderer value={content} /> : null}
         {examples && examples.map(
-          (example, i) => <Example key={slideIndex + i} contentConverter={this.props.contentConverter} {...example} />
+          (example, i) => <Example key={i}  {...example} />
         )}
       </div>
     );

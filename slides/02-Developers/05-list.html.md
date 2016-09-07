@@ -8,16 +8,12 @@ style: |
     height: 100px;
   }
 
-layoutData:
-  description: |
-    Semantic lists help screen readers understand the type of the element and the number of items in the element, and provide
-    easier navigation via list commands specific to screen readers.
-
+layout_data:
   examples:
     - title: Semantic Lists Using HTML
       description: |
         HTML provides tags that express lists. Most likely you are already familiar with the
-        ```ul``` (unordered list) and ```ol``` (ordered list) tags.
+        `ul` (unordered list) and `ol` (ordered list) tags.
 
         In the example below, the list is correctly announced by screen readers as a list with three items.
 
@@ -78,3 +74,7 @@ layoutData:
           "Wrap the items in an 'li' element or in a 'span' OR 'div' with the role 'listitem'."
         );
 ---
+Semantic lists help screen readers understand the type of the element and the 
+number of items in the element, and provide
+easier navigation via list commands specific to screen readers.
+

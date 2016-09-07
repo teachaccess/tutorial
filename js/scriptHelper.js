@@ -38,12 +38,12 @@ global.showHideDialog = function(ev) {
       document.getElementById('inputfield').focus();
     }
   }
-  if (el.style.display == "block") {
+  if (el.style.display == "flex") {
     el.style.display = "none";
     document.getElementById('sourceLink').focus();
     document.body.style.overflow = 'initial';
   } else {
-    el.style.display = "block";
+    el.style.display = "flex";
     document.getElementById('inputfield').focus();
     document.body.style.overflow = 'hidden';
   }
@@ -58,12 +58,12 @@ global.showHideDialog2 = function(ev) {
       document.getElementById('inputfield2').focus();
     }
   }
-  if (el.style.display == "block") {
+  if (el.style.display == "flex") {
     el.style.display = "none";
     document.getElementById('sourceLink2').focus();
     document.body.style.overflow = 'initial';
   } else {
-    el.style.display = "block";
+    el.style.display = "flex";
     document.getElementById('inputfield2').focus();
     document.body.style.overflow = 'hidden';
   }
@@ -89,9 +89,9 @@ global.closeDialog2 = function(ev) {
 // Menu example code.
 global.menuExample = {
   onClick: function (event) {
-    var isOpen = this.toggleMenu(event.currentTarget.parentNode);
+    var isOpen = this.toggleMenu(event.currentTarget);
     if (isOpen) {
-      this.setMenuItemFocus(event.currentTarget.parentNode);
+      this.setMenuItemFocus(event.currentTarget);
     }
   },
   // Keep all clicks from escaping the widget.
@@ -231,14 +231,16 @@ global.menuExample = {
 
     this.findButtonElement(menuWidgetElement).focus();
   },
-  getActiveMenuItem: function (menuWidgetElement) {
-    var menuElement = this.findMenuElement(menuWidgetElement);
-    var activeMenuItemElement = menuElement.querySelector('[data-active="true"]');
-  },
   findMenuElement: function (menuWidgetElement) {
-    return menuWidgetElement.querySelector('[role="menu"]');
+    while (menuWidgetElement.className.indexOf('popupMenuWidget') === -1) {
+      menuWidgetElement = menuWidgetElement.parentNode;
+    }
+    return menuWidgetElement.querySelector('[role="menu"],ul');
   },
   findButtonElement: function (menuWidgetElement) {
-    return menuWidgetElement.querySelector('[role="button"]');
+    while (menuWidgetElement.className.indexOf('popupMenuWidget') === -1) {
+      menuWidgetElement = menuWidgetElement.parentNode;
+    }
+    return menuWidgetElement.querySelector('[role="button"],a');
   }
 };

@@ -2,17 +2,11 @@
 title: Color Contrast
 chapter: Design Principles
 style: |
-  #container {
-    background-color: #3a5795;
-    width: 45px;
-    padding: 10px;
-    margin: 10px;
+  .editorWithPreview > .editor {
+    max-width: 65%;
   }
 
-layoutData:
-  description: |
-    Sufficient color contrast allows people to clearly see content on the page.
-
+layout_data:
   examples:
     - title: Color Contrast (C)
       description: |
@@ -32,7 +26,7 @@ layoutData:
 
       code: |
         <div>
-          <div id='container'>
+          <div>
             <img
               src='./images/contrast-bad-2-2.png'
               alt='house with bad contrast' />
@@ -41,7 +35,7 @@ layoutData:
         </div>
 
         <div>
-          <div id='container'>
+          <div>
             <img
               src='./images/contrast-better-4-6.png'
               alt='house with better contrast' />
@@ -50,7 +44,7 @@ layoutData:
         </div>
 
         <div>
-          <div id='container'>
+          <div>
             <img
               src='./images/contrast-good-7-5.png'
               alt='house with good contrast' />
@@ -68,3 +62,5 @@ layoutData:
           "Did you really use the Colour Contrast Check tool? Try again!"
         );
 ---
+Sufficient color contrast allows people to clearly see content on the page.
+

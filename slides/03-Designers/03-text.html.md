@@ -14,12 +14,7 @@ style: |
     display: none;
   }
 
-layoutData:
-  description: |
-    People with low vision use browser zoom tools and assistive technology such
-    as [ZoomText](http://www.aisquared.com/products/zoomtext/) to increase the size of content on the screen. This exercise shows you the difference between
-    zooming all the content versus zooming just the text on the page.
-
+layout_data:
   examples:
     - title: Text Size (T)
       description: |
@@ -28,13 +23,11 @@ layoutData:
         built-in zoom or text-resize feature to zoom and make sure text is still readable.
         If you are building for the mobile web, please don't disable pinch and zoom.
 
-        <a href='http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-scale'>
-          WCAG guidelines recommend allowing zooming up to 200% without loss of content.
-        </a>
+        [WCAG guidelines recommend allowing zooming up to 200% without loss of 
+        content.](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-scale)
 
-        <a href='http://webaim.org/techniques/fonts/#font_size'>
-          More on fonts and accessibility in the WebAIM site.
-        </a>
+        [More on fonts and accessibility in the WebAIM 
+        site.](http://webaim.org/techniques/fonts/#font_size)
 
         For the exercise below, you will need a browser like Safari that allows you to
         increase just the text size instead of zooming in the whole page. On Safari,
@@ -56,3 +49,7 @@ layoutData:
           "It doesn't seem like the height and width are set to the right ems"
         );
 ---
+People with low vision use browser zoom tools and assistive technology such as
+[ZoomText](http://www.aisquared.com/products/zoomtext/) to increase the size of 
+content on the screen. This exercise shows you the difference between zooming 
+all the content versus zooming just the text on the page.

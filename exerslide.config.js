@@ -49,11 +49,11 @@ module.exports = {
    * A list of module names (exerslide-plugin-* can be omitted) or paths.
    */
   plugins: [
+    'bulletlist-layout',
     'center-layout',
     'column-layout',
     'html-converter',
     'markdown-converter',
-    'shared-urls',
   ],
 
   /** Advanced configuration options **/
@@ -61,7 +61,7 @@ module.exports = {
   /**
    * Absolute path to save the built presentation.
    */
-  out: path.join(__dirname, './out'),
+  out: path.join(__dirname, './docs'),
 
   /**
    * File path patterns used to watch slides for changes while creating the
