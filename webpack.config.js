@@ -18,6 +18,7 @@ const PROD = process.env.NODE_ENV === 'production';
 
 const plugins = [
   new webpack.DefinePlugin({
+    '__DEV__': !PROD,
     'process.env.NODE_ENV':
     JSON.stringify(process.env.NODE_ENV || 'development'),
   }),
@@ -27,6 +28,9 @@ const plugins = [
 if (PROD) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({
     sourceMap: false,
+    compress: {
+      warnings: false,
+    },
   }));
 }
 
@@ -51,7 +55,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        exclude: /node_modules\/(?!exerslide\/)/,
+        exclude: /node_modules\/(?!exerslide\b)/,
         query: {
           presets: [
             require.resolve('babel-preset-es2015'),
@@ -62,6 +66,10 @@ module.exports = {
             require.resolve('babel-plugin-transform-runtime'),
           ],
         },
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
       },
       {
         test: /\.css$/,
@@ -93,8 +101,8 @@ module.exports = {
        * slides. If you don't want to auto-copy them at all, remove this
        * transform.
        */
-      exerslide.transforms.extractAssetPaths({
-        pattern: /(?:\.{1,2}\/)+[-_\/a-z\d.]+\.(?:png|jpe?g|gif|svg)\b/ig,
+      exerslide.transforms.requireAssets({
+        // pattern: /(?:\.{1,2}\/)+[-_\/a-z\d.]+\.(?:png|jpe?g|gif|svg)\b/ig,
       }),
     ],
   },

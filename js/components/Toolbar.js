@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import {nextSlide, previousSlide} from 'exerslide/js/navigation';
-import {getContentWidthStyle} from 'exerslide/js/layoutHelper';
+import ExtensionPoint from 'exerslide/components/ExtensionPoint';
+import {forward, back} from 'exerslide/browser';
 
 import './css/toolbar.css';
 
@@ -16,47 +16,55 @@ import './css/toolbar.css';
  * This components generates a previous and next buttons (rendered as arrows,
  * using Font Awesome) to navigate the presentation.
  */
-export default function Toolbar(props) {
-  const {slideIndex} = props;
+export default function Toolbar({className}, {slideIndex, slides}) {
+  const numberOfSlides = slides.length;
+
   return (
-    <div
-      role="navigation"
-      id="toolbar"
-      className={props.className}
-      style={getContentWidthStyle()}
-      aria-label="Slide">
-      <button
-        type="button"
-        aria-label="previous"
-        onClick={previousSlide}
-        disabled={slideIndex === 0}>
-        <i className="fa fa-lg fa-chevron-left"></i>
-      </button>
-      <span
-        aria-label={
-          'Slide ' + (slideIndex + 1) + ' of ' + props.numberOfSlides
-        }>
-        {' ' + (slideIndex + 1) + '/' + props.numberOfSlides + ' '}
-      </span>
-      <button
-        type="button"
-        aria-label="next"
-        onClick={nextSlide}
-        disabled={slideIndex + 1 === props.numberOfSlides}>
-        <i className="fa fa-lg fa-chevron-right"></i>
-      </button>
-    </div>
+    <ExtensionPoint tags={['toolbar', 'content']}>
+      <div
+        role="navigation"
+        className={'exerslide-toolbar ' + className}
+        aria-label="Slide">
+        <button
+          className="exerslide-toolbar-button"
+          type="button"
+          aria-label="previous"
+          onClick={back}
+          disabled={slideIndex === 0}>
+          <i className="fa fa-lg fa-chevron-left"></i>
+        </button>
+        <span
+          aria-label={
+            'Slide ' + (slideIndex + 1) + ' of ' + numberOfSlides
+          }
+          className="exerslide-toolbar-text">
+          {' ' + (slideIndex + 1) + '/' + numberOfSlides + ' '}
+        </span>
+        <button
+          className="exerslide-toolbar-button"
+          type="button"
+          aria-label="next"
+          onClick={forward}
+          disabled={slideIndex + 1 === numberOfSlides}>
+          <i className="fa fa-lg fa-chevron-right"></i>
+        </button>
+      </div>
+    </ExtensionPoint>
   );
 }
 
 Toolbar.propTypes = {
+  className: React.PropTypes.string,
+};
+
+Toolbar.contextTypes = {
   /**
    * This index of the current slide.
    */
   slideIndex: React.PropTypes.number.isRequired,
+
   /**
    * Number of slides.
    */
-  numberOfSlides: React.PropTypes.number.isRequired,
+  slides: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
-

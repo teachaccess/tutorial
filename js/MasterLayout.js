@@ -6,6 +6,7 @@
  * the root directory of this source tree.
  */
 
+import ExtensionPoint from 'exerslide/components/ExtensionPoint';
 import React from 'react';
 import TOC from './components/TOC';
 import Toolbar from './components/Toolbar';
@@ -32,48 +33,30 @@ import Toolbar from './components/Toolbar';
  * +----------------------------------------+
  *
  */
-export default function MasterLayout(props) {
-  const slide = props.slides[props.slideIndex];
-  const {className, children, ...restProps} = props;
+export default function MasterLayout({className, children}) {
   return (
-    <div id="page" className={className}>
-      <TOC {...restProps} togglable={true} />
-      <div id="main" className="flex-column">
-        {slide.__path__ ? // for debugging
-          <div
-            role="region"
-            aria-label="File path of current slide"
-            className="__exerslide__file_path flex-item-fix">
-            File path: {slide.__path__}
-          </div> :
-          null
-        }
-        <img style={{alignSelf: 'flex-end', width: 122, margin: 10}} src="logo-teach-access.svg" alt="Teach Access Bridge" />
-        {children}
-        <Toolbar
-          className="flex-item-fix"
-          slideIndex={props.slideIndex}
-          numberOfSlides={props.slides.length}
-        />
-      </div>
+    <div id="exerslide-page" className={className}>
+      <TOC togglable={true} />
+      <ExtensionPoint tags={['main']}>
+        <div id="exerslide-main" className="flex-column">
+          <img style={{alignSelf: 'flex-end', width: 122, margin: 10}} src="logo-teach-access.svg" alt="Teach Access Bridge" />
+          {children}
+          <Toolbar className="flex-item-fix" />
+        </div>
+      </ExtensionPoint>
     </div>
   );
 }
 
 MasterLayout.propTypes = {
   /**
-   * The index of the current slide
-   */
-  slideIndex: React.PropTypes.number,
-
-  /**
-   * All slides
-   */
-  slides: React.PropTypes.array,
-
-  /**
    * CSS class names to add to the page.
    */
   className: React.PropTypes.string,
+
+  /**
+   * The rendered slide is passed as child to the master layout.
+   */
+  children: React.PropTypes.node,
 };
 

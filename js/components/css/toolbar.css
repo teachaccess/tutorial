@@ -6,7 +6,7 @@
  * the root directory of this source tree.
  */
 
-#toolbar {
+.exerslide-toolbar {
   box-sizing: border-box;
   color: #BBB;
   padding: 0 1.5em;
@@ -14,33 +14,35 @@
   width: 100%;
 }
 
-#toolbar > * {
-  font-size: 1.05em;
-  max-width: 45em;
+.exerslide-toolbar-button,
+.exerslide-toolbar-text {
+  font-size: 1.05rem;
 }
-
-#toolbar button {
+.exerslide-toolbar-button {
   background-color: transparent;
+  cursor: pointer;
+  color: #BBB;
   border: none;
   padding: 10px;
 }
 
-#toolbar button:focus,
-#toolbar button:hover {
+.exerslide-toolbar-button:focus,
+.exerslide-toolbar-button:hover {
   color: #555;
 }
 
-#toolbar button[disabled] {
+.exerslide-toolbar-button[disabled] {
   visibility: hidden;
 }
 
 @media(max-width: 768px) {
-  #toolbar {
+  .exerslide-toolbar {
     text-align: center;
     margin-bottom: 1em;
   }
 
-  #toolbar > * {
-    font-size: 1.5em;
+  .exerslide-toolbar-button,
+  .exerslide-toolbar-text {
+    font-size: 1.5rem;
   }
 }

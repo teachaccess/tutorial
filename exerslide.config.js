@@ -49,11 +49,11 @@ module.exports = {
    * A list of module names (exerslide-plugin-* can be omitted) or paths.
    */
   plugins: [
+    'bulletlist-layout',
     'center-layout',
     'column-layout',
     'html-converter',
     'markdown-converter',
-    'shared-urls',
   ],
 
   /** Advanced configuration options **/
