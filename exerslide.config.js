@@ -61,7 +61,7 @@ module.exports = {
   /**
    * Absolute path to save the built presentation.
    */
-  out: path.join(__dirname, './out'),
+  out: path.join(__dirname, './docs'),
 
   /**
    * File path patterns used to watch slides for changes while creating the
