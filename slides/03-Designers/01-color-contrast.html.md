@@ -1,6 +1,6 @@
 ---
 title: Color Contrast
-chapter: Design Principles
+chapter: Designers
 style: |
   .editorWithPreview > .editor {
     max-width: 65%;
