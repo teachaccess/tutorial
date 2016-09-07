@@ -1,6 +1,6 @@
 ---
 title: Photos & Videos
-chapter: Design Principles
+chapter: Designers
 ---
 While alt-text can make a static photo or graphic accessible to screen reader users, when an image is dynamic (e.g., animated GIF or video) and contains audio, additional support is required for users who are blind or deaf.
 

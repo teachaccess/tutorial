@@ -1,6 +1,6 @@
 ---
 title: Checklist
-chapter: Design Principles
+chapter: Designers
 ---
 We've covered a bunch of ground related to improving the accessibility of visual designs. One of the most important steps you can take to ensuring you create accessible experiences is accounting for accessibility at the start and throughout the design process. To that end, use the following checklist when you begin to formalize your visual designs for a website or application:
 

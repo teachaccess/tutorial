@@ -1,6 +1,6 @@
 ---
 title: Color Contrast
-chapter: Design Principles
+chapter: Designers
 style: |
   #container {
     background-color: #3a5795;
