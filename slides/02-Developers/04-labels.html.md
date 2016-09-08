@@ -1,5 +1,5 @@
 ---
-title: Labeling Form Controls and Interactive Elements
+title: Labels
 toc: Labels
 chapter: Writing Code
 style: |
