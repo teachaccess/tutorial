@@ -34,7 +34,7 @@ layout_data:
           "It doesn't look like you added an alt to your image."
         );
 ---
-Screen readers interact with text on the screen. So, to convey the meaning of 
+Screen readers interact with text on the screen.  So to convey the meaning of 
 an image to screen reader users,
 we put an accessible text label in the HTML. If an image is decorative, we can hide it from screen
 reader users by giving it an empty label (`alt=""`). After the completing the 
