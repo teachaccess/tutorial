@@ -23,18 +23,18 @@ layout_data:
         built-in zoom or text-resize feature to zoom and make sure text is still readable.
         If you are building for the mobile web, please don't disable pinch and zoom.
 
-        [WCAG guidelines recommend allowing zooming up to 200% without loss of 
+        [WCAG guidelines recommend allowing zooming up to 200% without loss of
         content.](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-scale)
 
-        [More on fonts and accessibility in the WebAIM 
+        [More on fonts and accessibility in the WebAIM
         site.](http://webaim.org/techniques/fonts/#font_size)
 
         For the exercise below, you will need a browser like Safari that allows you to
         increase just the text size instead of zooming in the whole page. On Safari,
         go to View and Zoom Text Only and then select Zoom In from the same menu. You
         will notice that the words bleed outside the box below. Try fixing this example
-        by specifying the width and height as relative units, such as ems. Set the height
-        to 3em and width to 10em and verify your answers.
+        by specifying the `width` and `height` as relative units, such as ems. Set the `height`
+        to 3em and `width` to 10em and verify your answers.
 
       code: |
         <div
@@ -50,6 +50,6 @@ layout_data:
         );
 ---
 People with low vision use browser zoom tools and assistive technology such as
-[ZoomText](http://www.aisquared.com/products/zoomtext/) to increase the size of 
-content on the screen. This exercise shows you the difference between zooming 
+[ZoomText](http://www.aisquared.com/products/zoomtext/) to increase the size of
+content on the screen. This exercise shows you the difference between zooming
 all the content versus zooming just the text on the page.
