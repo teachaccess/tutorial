@@ -20,7 +20,7 @@ layout_data:
     - title: Inaccessible Inline Image exercise
       description: |
         This is an image without alt text. Turn on VoiceOver and listen to how it is read. Add an `alt`
-        attribute "Facebook logo" to this image to make it accessible and test it again with VoiceOver.
+        attribute "Teach Access Bridge logo" to this image to make it accessible and test it again with VoiceOver.
       code: |
         <img
           src="./images/inline-image.png"
