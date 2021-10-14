@@ -37,7 +37,7 @@ layout_data:
 Screen readers interact with text on the screen. So, to convey the meaning of 
 an image to screen reader users,
 we put an accessible text label in the HTML. If an image is decorative, we can hide it from screen
-reader users by giving it an empty label (`alt=""`). After the completing the 
+reader users by giving it an empty label (`alt=""`). After completing the 
 exercise below, you can learn a lot more about writing good alt text for images 
 by checking out [WebAIM's resource on the 
 topic](http://webaim.org/techniques/alttext/).
