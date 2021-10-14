@@ -23,19 +23,18 @@ layout_data:
         landmark regions help screen reader users do what others do when they
         glance at a page, i.e., see its different parts from a bird's-eye view. They also
         make it easy to move the screen reader's reading cursor to different locations on the page.
-        Instructions for this exercise are in the comment block in the editor below.
+       
+        1. Turn on VoiceOver.
+        2. Press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>u</kbd>.
+        3. Press right arrow until you hear "Landmarks".
+        4. Press down arrow to read the landmark list.
+        5. Press enter to move the VoiceOver reading cursor
+           to the beginning of one of the landmark regions.
 
       code: |
 
         <h3>ARIA Landmarks Exercise</h3>
-        <!--
-             1. Turn on VoiceOver.
-             2. Press ctrl-opt-u.
-             3. Press right arrow until you hear "Landmarks".
-             4. Press down arrow to read the landmark list.
-             5. Press enter to move the VoiceOver reading cursor
-                to the beginning of one of the landmark regions.
-        -->
+       
         How many landmarks did you find on the page?
         <input type="text" id="landmarks">
 
