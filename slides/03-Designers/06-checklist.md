@@ -20,5 +20,5 @@ There are also a number of free tools available for assessing the accessibility:
 - Vischeck's Color Blindness Checker: <http://www.vischeck.com/>
 - Functional Accessibility Evaluator 2.2: <https://fae.disability.illinois.edu>
 - AInspector Sidebar for Firefox: <http://ainspector.github.io>
-- Pa11y <http://pa11y.org>
-- Koa11y <https://open-indy.github.io/Koa11y>
+- Pa11y: <http://pa11y.org>
+- Koa11y: <https://open-indy.github.io/Koa11y>
