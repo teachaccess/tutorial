@@ -1,6 +1,7 @@
 ---
 title: Color Contrast
 chapter: Design Principles
+content_type: text/x-markdown
 style: |
   .editorWithPreview > .editor {
     max-width: 65%;

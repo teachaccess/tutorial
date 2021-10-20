@@ -1,6 +1,7 @@
 ---
 title: FAQs
 chapter: Introduction
+content_type: text/x-markdown
 ---
 Got questions about Teach Access and the Teach Access Tutorial? Fire away!
 

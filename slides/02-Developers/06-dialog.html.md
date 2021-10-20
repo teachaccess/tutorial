@@ -1,6 +1,7 @@
 ---
 title: Dialogs
 chapter: Writing Code
+content_type: text/x-markdown
 style: |
   #slide {
     position: initial;

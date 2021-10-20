@@ -1,6 +1,7 @@
 ---
 title: Checklist
 chapter: Writing Code
+content_type: text/x-markdown
 ---
 We've covered a bunch of ground related to accessible software development. One of the most important steps you can take is accounting for accessibility throughout the development process (not just at the end!). To aid in that process, use the following checklist as you develop your website or application:
 

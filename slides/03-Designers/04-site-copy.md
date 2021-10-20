@@ -1,6 +1,7 @@
 ---
 title: Copy Writing
 chapter: Designers
+content_type: text/x-markdown
 ---
 The content you write for your website or application matters a great deal for 
 its usability and accessibility. The Web Content Accessibility Guidelines 

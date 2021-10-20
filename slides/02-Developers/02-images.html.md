@@ -1,6 +1,7 @@
 ---
 title: Images
 chapter: Writing Code
+content_type: text/x-markdown
 
 layout_data:
   description: |

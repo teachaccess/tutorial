@@ -1,6 +1,7 @@
 ---
 title: Conveying Meaning through Color
 chapter: Designers
+content_type: text/x-markdown
 style: |
   figcaption {
     text-align: center;
