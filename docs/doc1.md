@@ -1,7 +1,8 @@
 ---
 id: doc1
-title: Latin-ish
+title: Using this tutorial
 ---
+
 Welcome to the Teach Access Tutorial! This resource is part of the Teach Access Initiative, and provides best practices for making accessible mobile and web apps. This tutorial currently provides basic training for developers and designers, with more disciplines to come! If you are new to accessibility, you've come to the right place - the following material will help you get a solid footing on accessibility via hands-on exercises and useful reference guides. Follow the instructions below for using and interacting with the tutorial.
 
 1.  You can use the left and right arrow keys to navigate through the slides.
@@ -11,13 +12,13 @@ Welcome to the Teach Access Tutorial! This resource is part of the Teach Access 
 
 3.  You can also verify the code sample output using VoiceOver - Apple's built-in screen reader (other screen readers work too). Here are some instructions for navigating with VoiceOver:
 
-    -   <kbd>cmd</kbd> + <kbd>F5</kbd> turns VoiceOver on/off
-    -   <kbd>tab</kbd> navigates to an interactive element
-    -   <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>right arrow</kbd> (repeatedly)
-        navigates to the next element
-    -   <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>cmd</kbd> + <kbd>h</kbd>
-        (repeatedly) navigates by headings
-        <br /><br />
+    - <kbd>cmd</kbd> + <kbd>F5</kbd> turns VoiceOver on/off
+    - <kbd>tab</kbd> navigates to an interactive element
+    - <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>right arrow</kbd> (repeatedly)
+      navigates to the next element
+    - <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>cmd</kbd> + <kbd>h</kbd>
+      (repeatedly) navigates by headings
+      <br /><br />
 
 4.  When verifying with VoiceOver, use Chrome on a Mac for the best experience. However, the "Verify" button provided after each exercise will work with any browser/OS combination.
 
