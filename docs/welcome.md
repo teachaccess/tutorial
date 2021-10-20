@@ -1,5 +1,5 @@
 ---
-id: doc1
+id: welcome
 title: Using this tutorial
 ---
 

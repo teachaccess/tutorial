@@ -1,9 +1,9 @@
-module.exports = {
+const config = {
   title: "Teach Access",
   tagline: "A website for testing",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
-  organizationName: "facebook",
+  organizationName: "Teach Access",
   projectName: "test-site",
   scripts: ["https://buttons.github.io/buttons.js"],
   favicon: "img/favicon.svg",
@@ -17,14 +17,13 @@ module.exports = {
       },
     ],
   },
-  onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "log",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
   presets: [
     [
       "@docusaurus/preset-classic",
       {
         docs: {
-          homePageId: "doc1",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           path: "../docs",
@@ -44,10 +43,11 @@ module.exports = {
     navbar: {
       logo: {
         src: "img/favicon.svg",
+        alt: "Teach Access",
       },
       items: [
         {
-          to: "docs/",
+          to: "docs/welcome",
           label: "Tutorial",
           position: "left",
         },
@@ -73,3 +73,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = config;
