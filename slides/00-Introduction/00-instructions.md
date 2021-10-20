@@ -1,6 +1,7 @@
 ---
 title: Using this Tutorial
 chapter: Introduction
+content_type: text/x-markdown
 ---
 Welcome to the Teach Access Tutorial! This resource is part of the Teach Access Initiative, and provides best practices for making accessible mobile and web apps. This tutorial currently provides basic training for developers and designers, with more disciplines to come! If you are new to accessibility, you've come to the right place - the following material will help you get a solid footing on accessibility via hands-on exercises and useful reference guides. Follow the instructions below for using and interacting with the tutorial.
 

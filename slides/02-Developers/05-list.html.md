@@ -1,6 +1,7 @@
 ---
 title: Lists
 chapter: Writing Code
+content_type: text/x-markdown
 
 style: |
   img {

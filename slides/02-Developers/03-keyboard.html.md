@@ -1,6 +1,7 @@
 ---
 title: Keyboard Navigation
 chapter: Writing Code
+content_type: text/x-markdown
 style: |
   img {
     width: 100px;

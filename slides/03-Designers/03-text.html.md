@@ -1,6 +1,7 @@
 ---
 title: Text Size
 chapter: Designers
+content_type: text/x-markdown
 style: |
   #container {
     font-size: 100%

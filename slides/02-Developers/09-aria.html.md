@@ -1,6 +1,7 @@
 ---
 title: ARIA
 chapter: Writing Code
+content_type: text/x-markdown
 
 style: |
   .container {

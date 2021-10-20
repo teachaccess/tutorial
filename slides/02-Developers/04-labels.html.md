@@ -2,6 +2,7 @@
 title: Labels
 toc: Labels
 chapter: Writing Code
+content_type: text/x-markdown
 style: |
     .searchBtn {
       background-image: url('./images/search_icon.png');
