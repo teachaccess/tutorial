@@ -1,12 +1,12 @@
 module.exports = {
-  title: "Test Site",
+  title: "Teach Access",
   tagline: "A website for testing",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   organizationName: "facebook",
   projectName: "test-site",
   scripts: ["https://buttons.github.io/buttons.js"],
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
   customFields: {
     users: [
       {
@@ -42,14 +42,13 @@ module.exports = {
   plugins: [],
   themeConfig: {
     navbar: {
-      title: "Test Site",
       logo: {
-        src: "img/favicon.ico",
+        src: "img/favicon.svg",
       },
       items: [
         {
           to: "docs/",
-          label: "Docs",
+          label: "Tutorial",
           position: "left",
         },
         {
@@ -69,7 +68,7 @@ module.exports = {
       links: [],
       copyright: "Copyright © 2021 Your Name or Your Company Name",
       logo: {
-        src: "img/favicon.ico",
+        src: "img/favicon.svg",
       },
     },
   },
