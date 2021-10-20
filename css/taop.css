@@ -9,13 +9,13 @@
 
 .exerslide-toolbar-text,
 .exerslide-toolbar-button {
-  color: #888;
+  color: #666;
 }
 
-html .editorWithPreview input[type=text],
-html .editorWithPreview input[type=number],
+html .editorWithPreview input[type='text'],
+html .editorWithPreview input[type='number'],
 html .editorWithPreview textarea {
-  display: inline-block;;
+  display: inline-block;
   box-sizing: border-box;
   width: initial;
   max-width: 100%;
@@ -56,16 +56,16 @@ html .editorWithPreview button {
 }
 
 #exerslide-slide .previewHeading {
-    margin: 0 0 1.1em;
-    color: grey;
+  margin: 0 0 1.1em;
+  color: grey;
 }
 #exerslide-slide h3 {
-    font-size: 1.1em;
+  font-size: 1.1em;
 }
 
 @media screen and (min-width: 40em) {
   #exerslide-slide h1 {
-      font-size: 1.8em;
-      font-weight: bold;
+    font-size: 1.8em;
+    font-weight: bold;
   }
 }
