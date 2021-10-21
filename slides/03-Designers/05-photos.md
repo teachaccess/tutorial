@@ -17,7 +17,7 @@ When providing video, via either an embedded or standalone video player, the con
 - <https://www.w3.org/WAI/GL/wiki/Using_the_track_element_to_provide_audio_descriptions>
 - <http://www.ssbbartgroup.com/blog/cvaa-video-programming-requirements-video-description/>
 
-Closed captioning involves the addition of text to synchronized to a video's audio by either embedding caption data in your video or adding a "sidecar" closed caption file to your server. There are a variety of caption formats used by content providers as well as tools for creating captions. Many vendors are available to provide captions in the format that works for your video player's needs. Resources for captioning media:
+Closed captioning involves the addition of text synchronized to a video's audio by either embedding caption data in your video or adding a "sidecar" closed caption file to your server. There are a variety of caption formats used by content providers as well as tools for creating captions. Many vendors are available to provide captions in the format that works for your video player's needs. Resources for captioning media:
 
 - <http://webaim.org/techniques/captions/>
 - <http://info.3playmedia.com/wp-best-practices.html>
