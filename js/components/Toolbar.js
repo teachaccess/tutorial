@@ -16,7 +16,7 @@ import './css/toolbar.css';
  * This components generates a previous and next buttons (rendered as arrows,
  * using Font Awesome) to navigate the presentation.
  */
-export default function Toolbar({className, scrollToTop}, {slideIndex, slides}) {
+export default function Toolbar({className}, {slideIndex, slides}) {
   const numberOfSlides = slides.length;
 
   return (
