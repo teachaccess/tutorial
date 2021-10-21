@@ -1,7 +1,7 @@
 {
   "docs": {
-    "Introduction": ["welcome", "faq"],
-    "Writing Code": ["ui-introduction", "headings"],
+    "Introduction": ["using-this-tutorial", "faq"],
+    "Writing Code": ["ui-introduction", "headings", "images"],
     "Design Principles": ["design-introduction"]
   }
 }
