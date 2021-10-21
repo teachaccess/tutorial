@@ -1,0 +1,55 @@
+---
+title: Headings
+id: headings
+---
+
+import { useState } from "react";
+
+export const Verify = ({ error, onClick }) => {
+  const [isValid, setIsValid] = useState(null);
+  return (
+    <div className="verify">
+      <button
+        type="button"
+        className="button"
+        onClick={() => onClick(setIsValid)}
+      >
+        Verify
+      </button>
+      {isValid !== null && (
+        <span className={isValid ? "success" : "error"} role="alert">
+          {isValid ? "Well done!" : error}
+        </span>
+      )}
+    </div>
+  );
+};
+
+Headings provide structure to a page. A person using a screen reader can
+navigate a page quickly using headings on the page if the headings used are
+semantic. Semantic headings include real heading tags such as `h1`, `h2`.
+
+## Semantic Heading
+
+The heading below is a real heading and uses an `<h3>` tag. If you are on a Mac, turn on VoiceOver with <kbd>Cmd</kbd> + <kbd>F5</kbd> and then press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Cmd</kbd> + <kbd>h</kbd> to jump to a heading.
+
+```jsx live
+<h3>A real heading</h3>
+```
+
+## Unsemantic Heading exercise
+
+The heading below is a fake heading made to look like a heading with an unsemantic `<div>`. Change the `<div>` below to use an `<h3>` tag. Now verify your semantic heading using the Verify button as well as with VoiceOver.
+
+```jsx live
+<div className="fakeHeading">A fake heading</div>
+```
+
+<Verify
+  error="It doesn't look like you converted the div to a real heading."
+  onClick={(setIsValid) => {
+    const h3s = document.querySelectorAll("h3");
+    const isValid = h3s.length === 2;
+    setIsValid(isValid);
+  }}
+></Verify>
