@@ -7,4 +7,17 @@
   --ifm-color-primary-darker: #514a81;
   --ifm-color-primary-darkest: #423d6a;
 }
+
+.fakeHeading {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h3 {
+  margin: 5px;
+}
+
+.verify > .button {
+  background: green;
 }
