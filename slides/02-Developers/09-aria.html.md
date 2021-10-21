@@ -16,33 +16,31 @@ style: |
   }
 
 layout_data:
-  description: |
   examples:
     - title: ARIA
-      description:
+      description: |
         For this exercise, we will focus on one small part of WAI-ARIA called landmark regions.
-        landmark regions help screen reader users do what others do when they
+        Landmark regions help screen reader users do what others do when they
         glance at a page, i.e., see its different parts from a bird's-eye view. They also
         make it easy to move the screen reader's reading cursor to different locations on the page.
-       
+
         1. Turn on VoiceOver.
         2. Press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>u</kbd>.
         3. Press right arrow until you hear "Landmarks".
         4. Press down arrow to read the landmark list.
-        5. Press enter to move the VoiceOver reading cursor
-           to the beginning of one of the landmark regions.
+        5. Press enter to move the VoiceOver reading cursor to the beginning of one of the landmark regions.
 
       code: |
 
         <h3>ARIA Landmarks Exercise</h3>
-       
+
         How many landmarks did you find on the page?
         <input type="text" id="landmarks">
 
       assertion: |
         var link = document.getElementById('landmarks');
         assert(
-          link.value === '3' || link.value === 'three',
+          link.value === '4' || link.value === 'four',
           "That is not the right number of landmarks on the page!"
         );
 
