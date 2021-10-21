@@ -19,11 +19,6 @@ import './css/toolbar.css';
 export default function Toolbar({className, scrollToTop}, {slideIndex, slides}) {
   const numberOfSlides = slides.length;
 
-  const handleOnClick = (direction) => {
-    direction();
-    scrollToTop();
-  };
-
   return (
     <ExtensionPoint tags={['toolbar', 'content']}>
       <div
@@ -34,7 +29,7 @@ export default function Toolbar({className, scrollToTop}, {slideIndex, slides}) 
           className="exerslide-toolbar-button"
           type="button"
           aria-label="previous"
-          onClick={handleOnClick.bind(null, back)}
+          onClick={back}
           disabled={slideIndex === 0}>
           <i className="fa fa-lg fa-chevron-left"></i>
         </button>
@@ -49,7 +44,7 @@ export default function Toolbar({className, scrollToTop}, {slideIndex, slides}) 
           className="exerslide-toolbar-button"
           type="button"
           aria-label="next"
-          onClick={handleOnClick.bind(null, forward)}
+          onClick={forward}
           disabled={slideIndex + 1 === numberOfSlides}>
           <i className="fa fa-lg fa-chevron-right"></i>
         </button>

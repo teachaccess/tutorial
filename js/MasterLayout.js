@@ -34,20 +34,14 @@ import Toolbar from './components/Toolbar';
  *
  */
 export default function MasterLayout({className, children}) {
-  let main = null;
-
-  const handleScrollToTop = () => {
-    main.scrollTop = 0;
-  };
-
   return (
     <div id="exerslide-page" className={className}>
       <TOC togglable={true} />
       <ExtensionPoint tags={['main']}>
-        <div id="exerslide-main" className="flex-column" ref={(ref) => main = ref}>
+        <div id="exerslide-main" className="flex-column">
           <img style={{alignSelf: 'flex-end', width: 122, margin: 10}} src="logo-teach-access.svg" alt="Teach Access Bridge" />
           {children}
-          <Toolbar className="flex-item-fix" scrollToTop={handleScrollToTop} />
+          <Toolbar className="flex-item-fix"/>
         </div>
       </ExtensionPoint>
     </div>
