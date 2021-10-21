@@ -35,7 +35,7 @@ layout_data:
 
     - title: Semantic List Using ARIA Roles
       description: |
-        The list below uses ARIA roles to express the semantics of a list from a generic div structure.
+        The list below uses ARIA roles to express the semantics of a list from a generic `div` structure.
         This approach to expressing list structure can be used if it is not possible to use the native
         HTML list tags.
 

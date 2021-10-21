@@ -56,11 +56,11 @@ layout_data:
         It also demonstrates the JavaScript functionality you need to create the
         appropriate keyboard interaction.
 
-        1. You can move focus to the button by pressing tab.
-        2. Pressing enter with focus on the button opens the menu and moves focus to the first menu item.
+        1. You can move focus to the button by pressing <kbd>tab</kbd>.
+        2. Pressing <kbd>enter</kbd> with focus on the button opens the menu and moves focus to the first menu item.
         3. Up and down arrows navigate the menu.
-        4. Escape closes the menu, returning focus to the button.
-        5. If actions were implemented, pressing enter on a menu item would perform the action.
+        4. <kbd>escape</kbd> closes the menu, returning focus to the button.
+        5. If actions were implemented, pressing <kbd>enter</kbd> on a menu item would perform the action.
 
       code: |
         <!-- `menuExample` is a global object
@@ -121,8 +121,8 @@ layout_data:
         2. The `a` tag with the ID `menuTrigger` should be marked up as a button with the role `button`.
         3. The `a` tag with the ID `menuTrigger` should be tabbable. Add an explicit `tabindex="0"` to it.
         4. The `ul` tag with the ID 'actionsMenu' should be marked up as a menu with the role `menu`.
-        5. The `a` tags inside the div with the ID `actionsMenu` are menu items. Mark them up with the role `menuitem`.
-        6. The `a` tags inside the div with the ID `actionsMenu` should not be tabbable. Add an explicit `tabindex="-1"` to each of them.
+        5. The `a` tags inside the ul with the ID `actionsMenu` are menu items. Mark them up with the role `menuitem`.
+        6. The `a` tags inside the ul with the ID `actionsMenu` should not be tabbable. Add an explicit `tabindex="-1"` to each of them.
 
       code: |
 

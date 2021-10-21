@@ -18,7 +18,7 @@ layout_data:
   examples:
     - title: Semantic Button
       description: |
-        The button below uses a semantic button tag and is correctly announced by
+        The button below uses a semantic `button` tag and is correctly announced by
         screen readers. If you are on a Mac, turn on VoiceOver and tab to the
         button. You will hear the name of the element and the element type announced
         by VoiceOver.
@@ -30,15 +30,15 @@ layout_data:
 
     - title: Unsemantic Button exercise
       description: |
-        The button below is constructed using an unsemantic div. The easiest way to
-        make this semantic is to use a real button or input tag. Here is another way. In the
+        The button below is constructed using an unsemantic `div`. The easiest way to
+        make this semantic is to use a real `button` or `input` tag. Here is another way. In the
         example below, add
         1. `role='button'`
         2. `tabindex='0'`
 
         Verify with VoiceOver that you can tab to the button and hear the button name and the fact
-        that it is a button element. Note that you would need to add an onkeypress or onkeydown handler to the button so you
-        can tab to the button and press enter to activate it using just the keyboard.
+        that it is a button element. Note that you would need to add an `onkeypress` or `onkeydown` handler to the button so you
+        can tab to the button and press <kbd>enter</kbd> to activate it using just the keyboard.
 
       code: |
         <div class="customButton">

@@ -54,12 +54,12 @@ layout_data:
   examples:
     - title: Semantic Table
       description: |
-        The following table uses semantic table markup. HTML provides many elements and attributes to create fully
+        The following table uses semantic `table` markup. HTML provides many elements and attributes to create fully
         accessible tables. Note: ARIA 1.0 does not include HTML table equivalence; that is coming in ARIA 1.1. So
         it is best to stick to native HTML unless you are building an interactive grid that includes two-dimensional
         arrow key navigation of the table content. To test the table below with VoiceOver:
 
-        1. Press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Cmd</kbd> + <kbd>h</kbd> repeatedly until you reach the Editor Output region.
+        1. Press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Cmd</kbd> + <kbd>h</kbd> repeatedly until you reach the "Editor Output" region.
         2. Now press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Right Arrow</kbd> repeatedly to navigate the table cells.
 
         At this time, VoiceOver does not read the column headers in Chrome. However, VoiceOver does read them in Safari. Windows screen readers typically read column and row headers as well.
