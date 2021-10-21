@@ -7,16 +7,6 @@ const config = {
   projectName: "test-site",
   scripts: ["https://buttons.github.io/buttons.js"],
   favicon: "img/favicon.svg",
-  customFields: {
-    users: [
-      {
-        caption: "User1",
-        image: "/img/undraw_open_source.svg",
-        infoLink: "https://www.facebook.com",
-        pinned: true,
-      },
-    ],
-  },
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   presets: [
