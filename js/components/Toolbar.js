@@ -16,8 +16,13 @@ import './css/toolbar.css';
  * This components generates a previous and next buttons (rendered as arrows,
  * using Font Awesome) to navigate the presentation.
  */
-export default function Toolbar({className}, {slideIndex, slides}) {
+export default function Toolbar({className, scrollToTop}, {slideIndex, slides}) {
   const numberOfSlides = slides.length;
+
+  const handleOnClick = (direction) => {
+    direction();
+    scrollToTop();
+  };
 
   return (
     <ExtensionPoint tags={['toolbar', 'content']}>
@@ -29,7 +34,7 @@ export default function Toolbar({className}, {slideIndex, slides}) {
           className="exerslide-toolbar-button"
           type="button"
           aria-label="previous"
-          onClick={back}
+          onClick={handleOnClick.bind(null, back)}
           disabled={slideIndex === 0}>
           <i className="fa fa-lg fa-chevron-left"></i>
         </button>
@@ -44,7 +49,7 @@ export default function Toolbar({className}, {slideIndex, slides}) {
           className="exerslide-toolbar-button"
           type="button"
           aria-label="next"
-          onClick={forward}
+          onClick={handleOnClick.bind(null, forward)}
           disabled={slideIndex + 1 === numberOfSlides}>
           <i className="fa fa-lg fa-chevron-right"></i>
         </button>
