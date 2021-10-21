@@ -5,7 +5,14 @@
       "ui-introduction",
       "headings",
       "images",
-      "keyboard-navigation"
+      "keyboard-navigation",
+      "labels",
+      "lists",
+      "dialogs",
+      "tables",
+      "menus",
+      "aria",
+      "checklist"
     ],
     "Design Principles": ["design-introduction"]
   }
