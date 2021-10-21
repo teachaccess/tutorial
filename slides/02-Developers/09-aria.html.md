@@ -67,11 +67,19 @@ layout_data:
         such as copyright, help, and information links that appear in the 
         footer
 
-        [Other ARIA roles are documented in the WCAG 
-        spec.](http://www.w3.org/TR/wai-aria/roles#document_structure_roles)
+          More Informative Resources : 
+          
+          [Introduction to ARIA](https://developers.google.com/web/fundamentals/accessibility/semantics-aria)
 
-        [More about ARIA states and 
-        properties](http://www.w3.org/TR/wai-aria/states_and_properties#state_prop_def)
+          [Top 5 Rules of ARIA ](https://www.deque.com/blog/top-5-rules-of-aria/)
+
+          [Other ARIA roles are documented in the WCAG 
+          spec.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
+
+          [More about ARIA states and 
+          properties](https://www.w3.org/TR/wai-aria-1.1/#states_and_properties)
+
+          [More about Authoring Practices ](https://www.w3.org/TR/wai-aria-practices-1.1/)
 
 ---
 ARIA or [Accessible Rich Internet
