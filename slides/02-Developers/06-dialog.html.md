@@ -61,7 +61,7 @@ layout_data:
   examples:
     - title: Semantic Dialog
       description: |
-        Start VoiceOver if you are on your Mac and press enter on the Show Dialog button. You will notice that:
+        Start VoiceOver if you are on your Mac and press enter on the **Show Dialog** button. You will notice that:
         1. VoiceOver announces that a dialog is opened and the name of the dialog because
         we have a `role` of 'dialog' with a label associated using `aria-labelledby`.
         2. When the dialog opens, focus lands in the first focusable element in
@@ -116,8 +116,8 @@ layout_data:
 
         To fix these issues:
         1. Change the `<b>` to a semantic `h2` tag.
-        2. To the div with `id` container2, add a `role` of 'dialog'.
-        3. To the div with `id` container2, add `aria-labelledby`='dialog-title'.
+        2. To the div with `id` "container2", add a `role` of 'dialog'.
+        3. To the div with `id` "container2", add `aria-labelledby`='dialog-title'.
 
         Verify with VoiceOver.
 

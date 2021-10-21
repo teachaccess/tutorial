@@ -8,10 +8,10 @@ layout_data:
   examples:
     - title: An Accessible Inline Image
       description: |
-        This is an image with an alt text. Turn on VoiceOver if you are on a Mac, tab
+        This is an image with an `alt` attribute. Turn on VoiceOver if you are on a Mac, tab
         to the Editor Output section, and use <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Right Arrow</kbd>
-        to navigate to these images. VoiceOver will announce the alt text. For the second image below, VoiceOver
-        will not announce anything meaningful since there is no alt text.
+        to navigate to these images. VoiceOver will announce the `alt` text. For the second image below, VoiceOver
+        will not announce anything meaningful since there is no `alt` text.
       code: |
         <img
           alt="Teach Access Bridge logo"
@@ -20,7 +20,7 @@ layout_data:
 
     - title: Inaccessible Inline Image exercise
       description: |
-        This is an image without alt text. Turn on VoiceOver and listen to how it is read. Add an `alt`
+        This is an image without `alt` text. Turn on VoiceOver and listen to how it is read. Add an `alt`
         attribute "Facebook logo" to this image to make it accessible and test it again with VoiceOver.
       code: |
         <img
