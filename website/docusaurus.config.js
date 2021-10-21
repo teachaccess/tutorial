@@ -29,16 +29,13 @@ const config = {
           path: "../docs",
           sidebarPath: "../website/sidebars.json",
         },
-        blog: {
-          path: "blog",
-        },
         theme: {
           customCss: "../src/css/customTheme.css",
         },
       },
     ],
   ],
-  plugins: [],
+  plugins: ["@docusaurus/theme-live-codeblock"],
   themeConfig: {
     navbar: {
       logo: {
