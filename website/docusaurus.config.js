@@ -52,11 +52,6 @@ const config = {
           position: "left",
         },
         {
-          to: "docs/doc4",
-          label: "API",
-          position: "left",
-        },
-        {
           to: "/help",
           label: "Help",
           position: "left",

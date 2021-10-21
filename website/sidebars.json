@@ -1,9 +1,7 @@
 {
   "docs": {
     "Introduction": ["welcome", "faq"],
-    "Writing Code": ["ui-introduction"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "Writing Code": ["ui-introduction", "headings"],
+    "Design Principles": ["design-introduction"]
   }
 }
