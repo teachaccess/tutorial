@@ -2,7 +2,7 @@
 title: Images
 ---
 
-import { Verify } from "./headings.mdx";
+import { Verify } from "./01_headings.mdx";
 
 Screen readers interact with text on the screen. So, to convey the meaning of an image to screen reader users, we put an accessible text label in the HTML. If an image is decorative, we can hide it from screenreader users by giving it an empty label (`alt=""`). After completing the exercise below, you can learn a lot more about writing good alt text for images by checking out [WebAIM's resource on the topic](http://webaim.org/techniques/alttext/).
 
@@ -25,8 +25,8 @@ This is an image without alt text. Turn on VoiceOver and listen to how it is rea
 <Verify
   error="It doesn't look like you added an alt to your image."
   onClick={(setIsValid) => {
-    const images = document.querySelectorAll(image);
-    const isValid = images.every((image) => image.hasAttribute("alt"));
+    const images = Array.from(document.getElementsByTagName("img"));
+    const isValid = images.every((image) => Boolean(image.alt));
     setIsValid(isValid);
   }}
 ></Verify>
