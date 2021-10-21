@@ -21,3 +21,10 @@ h3 {
 .verify > .button {
   background: green;
 }
+
+.customButton {
+  border: 1px solid black;
+  width: 65px;
+  background-color: lightgray;
+  text-align: center;
+}
