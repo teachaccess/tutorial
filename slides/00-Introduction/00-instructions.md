@@ -18,6 +18,7 @@ use the verify button to check whether your solution is correct.
     * <kbd>ctrl</kbd> + <kbd>opt</kbd> + <kbd>cmd</kbd> + <kbd>h</kbd> 
     (repeatedly) navigates by headings
     <br/><br/>
+**Please note:** the majority of people who use a screen reader [prefer JAWS or NVDA on a Windows machine](https://webaim.org/projects/screenreadersurvey9/#primary). WebAim has great articles about testing your code with [NVDA](https://webaim.org/articles/nvda/) and [JAWS.](https://webaim.org/articles/jaws/)
 
 4. When verifying with VoiceOver, use Chrome on a Mac for the best experience. However, the "Verify" button provided after each exercise will work with any browser/OS combination.
 
