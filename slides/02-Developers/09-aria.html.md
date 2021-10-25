@@ -17,7 +17,7 @@ style: |
 
 layout_data:
   examples:
-    - title: ARIA
+    - title: ARIA Landmarks
       description: |
         For this exercise, we will focus on one small part of WAI-ARIA called landmark regions.
         Landmark regions help screen reader users do what others do when they
