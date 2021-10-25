@@ -1,5 +1,5 @@
 ---
-title: Design introduction
+title: Design Introduction
 id: introduction
 ---
 
