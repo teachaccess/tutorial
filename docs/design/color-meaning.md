@@ -15,7 +15,7 @@ state.
 Here's an example where providing a very simple texture to a bar chart will aid in readability and understanding for someone with decreased color perception.
 
 <figure>
-  <img src="./images/color-meaning-solid.png" alt="Chart showing bar graph without texture"/>
+  <img src="../../website/static/img/color-meaning-solid.png" alt="Chart showing bar graph without texture"/>
   <figcaption>Figure A: Chart without Texture</figcaption>
 </figure>
 

@@ -28,3 +28,22 @@ h3 {
   background-color: lightgray;
   text-align: center;
 }
+
+.searchBtn {
+  background-image: url("../../static/img/search_icon.png");
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
+}
+
+#composer {
+  border: 1px solid #1466f2;
+}
+
+#description {
+  font-size: 12px;
+}
+
+#dateFormat {
+  font-size: 13px;
+}
