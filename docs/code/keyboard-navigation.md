@@ -21,7 +21,7 @@ button. You will hear the name of the element and the element type announced
 by VoiceOver.
 
 ```jsx live
-<button onclick="alert('Take a HIKE!')">Submit</button>
+<button onClick={() => alert("Take a HIKE!")}>Submit</button>
 ```
 
 ## Unsemantic Button exercise
@@ -38,5 +38,5 @@ that it is a button element. Note that you would need to add an onkeypress or on
 can tab to the button and press enter to activate it using just the keyboard.
 
 ```jsx live
-<div class="customButton">Submit</div>
+<div className="customButton">Submit</div>
 ```
