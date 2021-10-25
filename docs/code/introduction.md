@@ -1,5 +1,5 @@
 ---
-title: Code Introduction
+title: Introduction
 id: introduction
 ---
 
