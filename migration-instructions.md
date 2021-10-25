@@ -13,4 +13,4 @@ The [Teach Access tutorial](https://teachaccess.github.io/tutorial/) was built i
 1. If using VSCode, add this [MDX extension](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx) for syntax highlighting
 1. Open PR against `docusaurus` 🎉
 
-Check out the Headings slide for an example of live code exercises in docusaurus. See [before](https://github.com/teachaccess/tutorial/blob/master/slides/02-Developers/01-headings.html.md) and [after](https://github.com/teachaccess/tutorial/blob/docusaurus/docs/code/headings.mdx)
+Check out the Headings slide for an example ([before](https://github.com/teachaccess/tutorial/blob/master/slides/02-Developers/01-headings.html.md) and [after](https://github.com/teachaccess/tutorial/blob/docusaurus/docs/code/headings.mdx))
