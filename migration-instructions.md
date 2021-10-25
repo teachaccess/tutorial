@@ -1,4 +1,4 @@
-# Docsaurus migration challenge 🚀
+# Docusaurus migration challenge 🚀
 
 The [Teach Access tutorial](https://teachaccess.github.io/tutorial/) was built in the [exerslide](https://github.com/facebookarchive/exerslide) framework, which was archived several years ago. In the last week of Hacktoberfest, we're making a challenge to migrate to [Docusaurus](https://github.com/facebook/docusaurus)!
 
