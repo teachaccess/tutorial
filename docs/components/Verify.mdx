@@ -1,0 +1,21 @@
+import { useState } from "react";
+
+export const Verify = ({ error, onClick }) => {
+  const [isValid, setIsValid] = useState(null);
+  return (
+    <div className="verify">
+      <button
+        type="button"
+        className="button"
+        onClick={() => onClick(setIsValid)}
+      >
+        Verify
+      </button>
+      {isValid !== null && (
+        <span className={isValid ? "success" : "error"} role="alert">
+          {isValid ? "Well done!" : error}
+        </span>
+      )}
+    </div>
+  );
+};
