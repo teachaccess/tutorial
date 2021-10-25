@@ -1,6 +1,6 @@
 ---
-id: faq
 title: FAQs
+id: faq
 ---
 
 Got questions about Teach Access and the Teach Access Tutorial? Fire away!
