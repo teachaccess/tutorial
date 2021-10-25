@@ -2,18 +2,18 @@
   "docs": {
     "Introduction": ["introduction/using-this-tutorial", "introduction/faq"],
     "Writing Code": [
-      "ui-introduction",
-      "headings",
-      "images",
-      "keyboard-navigation",
-      "labels",
-      "lists",
-      "dialogs",
-      "tables",
-      "menus",
-      "aria",
-      "checklist"
+      "code/introduction",
+      "code/headings",
+      "code/images",
+      "code/keyboard-navigation",
+      "code/labels",
+      "code/lists",
+      "code/dialogs",
+      "code/tables",
+      "code/menus",
+      "code/aria",
+      "code/checklist"
     ],
-    "Design Principles": ["design-introduction"]
+    "Design Principles": ["design/introduction"]
   }
 }
