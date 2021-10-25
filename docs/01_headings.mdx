@@ -3,7 +3,7 @@ title: Headings
 id: headings
 ---
 
-import { Verify } from "./components/Verify.mdx";
+import { VerifyButton } from "./components/VerifyButton.mdx";
 
 Headings provide structure to a page. A person using a screen reader can
 navigate a page quickly using headings on the page if the headings used are
@@ -25,11 +25,10 @@ The heading below is a fake heading made to look like a heading with an unsemant
 <div className="fakeHeading">A fake heading</div>
 ```
 
-<Verify
+<VerifyButton
   error="It doesn't look like you converted the div to a real heading."
-  onClick={(setIsValid) => {
+  checkExercise={() => {
     const h3s = document.querySelectorAll("h3");
-    const isValid = h3s.length === 2;
-    setIsValid(isValid);
+    return h3s.length === 2;
   }}
-></Verify>
+></VerifyButton>

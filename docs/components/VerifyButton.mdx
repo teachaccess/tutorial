@@ -1,0 +1,30 @@
+import { useState } from "react";
+
+export const VerifyButton = ({ error, checkExercise }) => {
+  const [isValid, setIsValid] = useState(null);
+  const onClick = () => {
+    const result = checkExercise();
+    setIsValid(result);
+  };
+  const renderButton = () => (
+    <button type="button" className="button" onClick={onClick}>
+      Verify
+    </button>
+  );
+  const renderMessage = () => {
+    if (isValid === null) {
+      return null;
+    }
+    return (
+      <span className={isValid ? "success" : "error"} role="alert">
+        {isValid ? "Well done!" : error}
+      </span>
+    );
+  };
+  return (
+    <div className="verify">
+      {renderButton()}
+      {renderMessage()}
+    </div>
+  );
+};
