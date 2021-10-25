@@ -48,7 +48,7 @@ const config = {
     image: "img/undraw_online.svg",
     footer: {
       links: [],
-      copyright: "Copyright © 2021 Your Name or Your Company Name",
+      copyright: "Copyright © 2021 Teach Access",
       logo: {
         src: "img/favicon.svg",
       },
