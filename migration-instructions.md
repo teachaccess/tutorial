@@ -9,7 +9,7 @@ The [Teach Access tutorial](https://teachaccess.github.io/tutorial/) was built i
 1. `yarn start` (you should now see the docusaurus tutorial load in your browser)
 1. Locate the [current implementation in GitHub](https://github.com/teachaccess/tutorial/tree/master/slides) for the slide you're updating
 1. Locate the live version in the [tutorial](https://teachaccess.github.io/tutorial/)
-1. Recreate the same functionality in [docusaurus](https://github.com/teachaccess/tutorial/tree/docusaurus/docs)
+1. Recreate the same functionality with [docusaurus](https://github.com/teachaccess/tutorial/tree/docusaurus/docs)
 1. If using VSCode, add this [MDX extension](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx) for syntax highlighting
 1. Open PR against `docusaurus` 🎉
 
