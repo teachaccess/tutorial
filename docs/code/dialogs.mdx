@@ -108,17 +108,18 @@ Verify with VoiceOver.
     </div>
 </>
 ```
-
 import { VerifyButton } from "../_util/VerifyButton.mdx";
 
 <VerifyButton
-  error="That is not the right number of landmarks on the page!"
+  error="It doesn't look like you added a role of 'dialog'."
   checkExercise={() => {
-    const link = document.getElementById("landmarks");
+    const container = document.getElementById("container2");
     return (
-      link.value === '4' ||
-      link.value === 'four'
-    );
+      container.hasAttribute("role") &&
+      container.getAttribute("role") === "dialog" &&
+      container.hasAttribute("aria-labelledby") &&
+      container.getAttribute("aria-labelledby") === "dialog-title"
+       );
   }}
 />
 
