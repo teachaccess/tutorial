@@ -56,12 +56,12 @@ Update the example below so that the items are expressed as a list. The easiest 
 import { VerifyButton } from "../_util/VerifyButton.mdx";
 
 <VerifyButton
-  error="That is not the right number of landmarks on the page!"
+  error="You should create a wrapping element for the list. Either a 'ul', 'li' OR a 'div' with the role 'list'."
   checkExercise={() => {
-    const link = document.getElementById("landmarks");
-    return (
-      link.value === '4' ||
-      link.value === 'four'
-    );
+    const divs = document.querySelectorAll('div[role="list"]');
+    const spans = document.querySelectorAll('div[role="listitem"]');
+    const uls = document.querySelectorAll("ul");
+    const lis = document.querySelectorAll("li");
+        return (divs.length === 2 && spans.length === 3) || (uls.length == 5 && lis.length == 24);
   }}
 />
