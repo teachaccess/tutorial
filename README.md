@@ -36,3 +36,8 @@ If you want to generate the presentation on your compute, you need to
 
 Now you can generate the presentation. `exerslide serve` will start local 
 webserver and automatically regenerate the presentation when you update slides.
+
+
+### CONTRIBUTING
+
+This project is a community effort and lives off your contributions, be it in the form of bug reports, feature requests, discussions, or fixes and other code changes. Please refer to our organization's [contributing guidelines](CONTRIBUTING.md) if you are interested to contribute. 
