@@ -7,4 +7,61 @@ Semantic lists help screen readers understand the type of the element and the
 number of items in the element, and provide
 easier navigation via list commands specific to screen readers.
 
-## TODO: Add live code exercises (layout_data)
+## Semantic Lists Using HTML
+
+HTML provides tags that express lists. Most likely you are already familiar with the `ul` (unordered list) and `ol` (ordered list) tags.
+
+In the example below, the list is correctly announced by screen readers as a list with three items.
+
+1. Turn on VoiceOver with `Cmd` + `F5`.
+2. Press `Ctrl` + `Opt` + `Cmd` + `h` repeatedly until you have jumped to the Editor Output heading.
+3. Press `Ctrl` + `Opt` + `Right Arrow`.
+
+VoiceOver will announce ‘List 3 items’.
+```jsx live
+<ul>
+  <li>Eggs</li>
+  <li>Milk</li>
+  <li>Bread</li>
+</ul>
+```
+
+## Semantic List Using ARIA Roles
+The list below uses ARIA roles to express the semantics of a list from a generic `div` structure. This approach to expressing list structure can be used if it is not possible to use the native HTML list tags.
+
+Notice that the default list styling is not applied. That is because the browser’s default stylesheet targets `ul` and `ol` tags.
+
+In the example below, the list is correctly announced by screen readers as a list with three items.
+
+```jsx live
+<div role="list">
+  <div role="listitem">Sea</div>
+  <div role="listitem">Surf</div>
+  <div role="listitem">Sun</div>
+</div>
+```
+
+## Unsemantic List exercise
+
+Update the example below so that the items are expressed as a list. The easiest way to make this semantic is to use a list tag. If that is not possible, wrap the elements in a container and give it a role of `list`. The individual items will need to be identified with a role of `listitem`.
+
+```jsx live
+<div>
+  <span>A house of straw</span>
+  <span>A house of sticks</span>
+  <span>A house of bricks</span>
+</div>
+```
+
+import { VerifyButton } from "../_util/VerifyButton.mdx";
+
+<VerifyButton
+  error="That is not the right number of landmarks on the page!"
+  checkExercise={() => {
+    const link = document.getElementById("landmarks");
+    return (
+      link.value === '4' ||
+      link.value === 'four'
+    );
+  }}
+/>
