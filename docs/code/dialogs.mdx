@@ -2,23 +2,17 @@
 title: Dialogs
 id: dialogs
 ---
-
 Dialogs are a little bit trickier to make accessible, but with a few key
 principles, they can be made keyboard navigable and usable with screen readers.
-
 ## Semantic Dialog
-
 Start VoiceOver if you are on your Mac and press enter on the **Show Dialog** button.
 You will notice that:
-
-1. VoiceOver announces that a dialog is opened and the name of the dialog because we have a `role` of ‘dialog’ with a label associated using `aria-labelledby`.
+1. VoiceOver announces that a dialog is opened and the name of the dialog because we have a `role` of 'dialog' with a label associated using `aria-labelledby`.
 2. When the dialog opens, focus lands in the first focusable element in the dialog.
 3. Tabbing keeps focus within the dialog. Note that you have to write code to restrict the tab sequence to the dialog.
 4. Closing the dialog places focus back on the source button.
 5. Pressing the `esc` key closes the dialog and places the focus back on the source button. Note that for widgets like typeaheads, pressing `esc` should close the typeahead and not the dialog.
-
 Note that if you have textual content in the dialog besides labels, you should associate it with an `aria-describedby` to the right input field so it gets announced when you tab to the input field.
-
 ```jsx live
 <>
     <button onclick='showHideDialog(event)' id="sourceLink">
@@ -55,22 +49,15 @@ Note that if you have textual content in the dialog besides labels, you should a
     </div>
 </>
 ```
-
 ## Unsemantic Dialog exercise
-
 The dialog below is unsemantic:
-
 1. The fact that a dialog opened up is not announced to VoiceOver.
 2. The heading that labels the dialog is not announced when the dialog is opened.
-
 To fix these issues:
-
 1. Change the `<b>` to a semantic `h2` tag.
-2. To the div with `id` “container2”, add a `role` of ‘dialog’.
-3. To the div with `id` “container2”, add `aria-labelledby`=‘dialog-title’.
-
+2. To the div with `id` "container2", add a `role` of 'dialog'.
+3. To the div with `id` "container2", add `aria-labelledby`='dialog-title'.
 Verify with VoiceOver.
-
 ```jsx live
 <>
     <button
@@ -108,6 +95,7 @@ Verify with VoiceOver.
     </div>
 </>
 ```
+
 import { VerifyButton } from "../_util/VerifyButton.mdx";
 
 <VerifyButton
@@ -121,5 +109,4 @@ import { VerifyButton } from "../_util/VerifyButton.mdx";
       container.getAttribute("aria-labelledby") === "dialog-title"
        );
   }}
-/>
-
+></VerifyButton>
