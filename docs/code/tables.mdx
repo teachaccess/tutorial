@@ -2,8 +2,90 @@
 title: Tables
 id: tables
 ---
+import { VerifyButton } from "../_util/VerifyButton.mdx";
+// import styles from '../website/src/css/tables.module.css';
 
 Tables help screen readers process information presented in a tabular format.
 When information is presented using table markup, screen reader users can read down columns and across rows, and even hear column and row headings as they do so.
 
-## TODO: Add live code exercises (layout_data)
+## Semantic Table
+The following table uses semantic `table` markup. HTML provides many elements and attributes to create fully
+accessible tables. Note: ARIA 1.0 does not include HTML table equivalence; that is coming in ARIA 1.1. So
+it is best to stick to native HTML unless you are building an interactive grid that includes two-dimensional
+arrow key navigation of the table content. To test the table below with VoiceOver:
+
+1. Press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Cmd</kbd> + <kbd>h</kbd> repeatedly until you reach the "Editor Output" region.
+2. Now press <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Right Arrow</kbd> repeatedly to navigate the table cells.
+
+At this time, VoiceOver does not read the column headers in Chrome. However, VoiceOver does read them in Safari. Windows screen readers typically read column and row headers as well.
+
+```jsx live
+<table>
+   <h3>Editor Output</h3>
+   <tr>
+       <td></td>
+       <th>Week1</th>
+       <th>Week2</th>
+   </tr>
+   <tr>
+       <th>Clicks</th>
+       <td>100</td>
+       <td>90</td>
+   </tr>
+   <tr>
+       <th>Likes</th>
+       <td>60</td>
+       <td>55</td>
+   </tr>
+</table>
+```
+
+## Unsemantic Table exercise
+If the information is tabular, using CSS to create the appearance of a table makes the information
+almost impossible for a screen reader user to understand and use. Convert the following tabular data
+into an accessible HTML table.
+
+```jsx live
+<div class="table">
+<div class="tableHeading">
+<div class="tableHead">
+   Month
+</div>
+<div class="tableHead">
+   Mood
+</div>
+</div>
+<div class="tableBody">
+<div class="tableRow">
+   <div class="tableCell">
+   January
+   </div>
+   <div class="tableCell">
+   happy
+   </div>
+</div>
+</div>
+</div>
+```
+
+<VerifyButton
+ checkExercise={() => {
+    const elementTable = document.querySelector("table");
+    if (elementTable == null) {
+        return "Use a semantic table element.";
+    }
+    const elementTR = document.querySelectorAll("tr");
+    if (elementTR.length != 2) {
+        return "Are you using semantic tr tags?";
+    }
+    const elementTH = document.querySelectorAll("th");
+    if (elementTH.length != 2) {
+        return "Are you using semantic th tags?";
+    }
+    const elementTD = document.querySelectorAll("td");
+    if (elementTD.length != 2) {
+        return "Are you using semantic td tags?";
+    }
+ }
+ }
+></VerifyButton>
