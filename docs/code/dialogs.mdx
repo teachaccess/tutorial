@@ -17,23 +17,34 @@ Note that if you have textual content in the dialog besides labels, you should a
 
 function SemanticDialogExercise(props) {
  const [isDialogVisible, setIsDialogVisible] = React.useState(false);
-
+ const inputRef = React.createRef()
+ const sourceLinkRef = React.createRef();
  const toggleDialogVisibility = () => {
    setIsDialogVisible((prevState) => (!prevState));
  };
+
+   React.useEffect(() => {
+    if (isDialogVisible) {
+      inputRef.current.focus();
+    }
+    else {
+      sourceLinkRef.current.focus();
+    }
+  }, [isDialogVisible]);
  return (
    <>
      <button
        type="button"
        onClick={toggleDialogVisibility}
        id="sourceLink"
+       ref={sourceLinkRef}
      >
        Show Dialog
      </button>
-     <div id="overlay" onKeyDown={toggleDialogVisibility}>
+     <div id="overlay">
        <div
-         id="container"
-         style={{ visibility: isDialogVisible ? 'visible' : 'hidden' }}
+ id="container"
+         style={{ visibility: isDialogVisible ? 'visible' : 'hidden',  }}
          role="dialog"
          aria-labelledby="dialog-title"
        >
@@ -46,6 +57,7 @@ function SemanticDialogExercise(props) {
                  type="text"
                  name="Name field"
                  id="inputfield"
+                 ref={inputRef}
                />
              </label>
            </div>
@@ -86,20 +98,32 @@ Verify with VoiceOver.
 function UnsemanticDialogExercise(props) {
 
 const [isDialogVisible, setIsDialogVisible] = React.useState(false);
+const inputRef = React.createRef()
+ const sourceLinkRef = React.createRef();
+ const toggleDialogVisibility = () => {
+   setIsDialogVisible((prevState) => (!prevState));
+ };
 
-  const toggleDialogVisibility = () => {
-    setIsDialogVisible((prevState) => (!prevState));
-  };
+   React.useEffect(() => {
+    if (isDialogVisible) {
+      inputRef.current.focus();
+    }
+    else {
+      sourceLinkRef.current.focus();
+    }
+  }, [isDialogVisible]);
+
   return (
     <>
       <button
         type="button"
         onClick={toggleDialogVisibility}
         id="sourceLink2"
+        ref={sourceLinkRef}
       >
         Show Dialog
       </button>
-      <div id="overlay2" onKeyDown={toggleDialogVisibility} style={{ visibility: isDialogVisible ? 'visible' : 'hidden' }}>
+      <div id="overlay2" style={{ visibility: isDialogVisible ? 'visible' : 'hidden' }}>
         <div id="container2">
           <b id="dialogtitle2">Shipping Address</b>
           <div>
@@ -111,6 +135,7 @@ const [isDialogVisible, setIsDialogVisible] = React.useState(false);
                     type="text"
                     name="Name field"
                     id="inputfield2"
+                    ref={inputRef}
                   />
                 </label>
               </div>
