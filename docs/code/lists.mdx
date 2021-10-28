@@ -58,10 +58,17 @@ import { VerifyButton } from "../_util/VerifyButton.mdx";
 <VerifyButton
   error="You should create a wrapping element for the list. Either a 'ul', 'li' OR a 'div' with the role 'list'."
   checkExercise={() => {
-    const divs = document.querySelectorAll('div[role="list"]');
-    const spans = document.querySelectorAll('div[role="listitem"]');
-    const uls = document.querySelectorAll("ul");
-    const lis = document.querySelectorAll("li");
-        return (divs.length === 1 && spans.length === 3) || (uls.length == 1 && lis.length == 3);
+    const exercise = document.querySelectorAll('[class^="playgroundPreview"]')[2];
+    const hasWrappingElement =
+      exercise.querySelector('[role="list"]') ||
+      exercise.querySelector('ul') ||
+      exercise.querySelector('ol');
+    if (hasWrappingElement === null) {
+      return false;
+    }
+    const areItemsValid =
+      exercise.querySelectorAll('[role="listitem"]').length === 3 ||
+      exercise.querySelectorAll('li').length === 3;
+    return areItemsValid;
   }}
-/>
+></VerifyButton>
