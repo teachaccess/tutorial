@@ -24,9 +24,10 @@ The heading below is a fake heading made to look like a heading with an unsemant
 ```
 
 <VerifyButton
-  error="It doesn't look like you converted the div to a real heading."
   checkExercise={() => {
     const h3s = document.querySelectorAll("h3");
-    return h3s.length === 2;
+    if (h3s.length !== 2) {
+      return "It doesn't look like you converted the div to a real heading.";
+    }
   }}
 ></VerifyButton>
