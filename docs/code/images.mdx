@@ -29,10 +29,12 @@ This is an image without `alt` text. Turn on VoiceOver and listen to how it is r
 ```
 
 <VerifyButton
-  error="It doesn't look like you added an alt to your image."
   checkExercise={() => {
     const exercise = document.querySelectorAll("[class^=playgroundPreview]")[1];
     const images = Array.from(exercise.getElementsByTagName("img"));
-    return images.every((image) => Boolean(image.alt));
+    const missingAltTag = images.some((image) => !image.hasAttribute("alt"));
+    if (missingAltTag) {
+      return "It doesn't look like you added an alt to your image.";
+    }
   }}
 ></VerifyButton>
