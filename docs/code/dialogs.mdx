@@ -17,18 +17,64 @@ Note that if you have textual content in the dialog besides labels, you should a
 
 function SemanticDialogExercise(props) {
  const [isDialogVisible, setIsDialogVisible] = React.useState(false);
- const inputRef = React.createRef()
+ const inputRef = React.createRef();
+ const modalRef = React.createRef();
  const sourceLinkRef = React.createRef();
  const toggleDialogVisibility = () => {
-   setIsDialogVisible((prevState) => (!prevState));
+   setIsDialogVisible((prevState) => {
+     if(prevState == true) {
+      sourceLinkRef.current.focus();
+    }
+    return !prevState;
+   });
  };
+ const handleKeyDown = (event) => {
+   if (!isDialogVisible || event.key !== 'Tab') {
+     return;
+   }
+   const focusableModalElements = modalRef.current.querySelectorAll(
+    'button:not([disabled]), input'
+  )
+    const firstElement = focusableModalElements[0]
+    const lastElement = focusableModalElements[focusableModalElements.length - 1]
+
+    // if going forward by pressing tab and lastElement is active shift focus to first focusable element
+    if (!event.shiftKey && document.activeElement === lastElement) {
+      firstElement.focus()
+      return event.preventDefault()
+    }
+
+    // if going backward by pressing tab and firstElement is active shift focus to last focusable element
+    if (event.shiftKey && document.activeElement === firstElement) {
+      lastElement.focus()
+      event.preventDefault()
+    }
+ }
+ const modalStyle = {
+ display: isDialogVisible ? 'block':'none', /* Hidden by default */
+  position: 'fixed', /* Stay in place */
+  zIndex: 1, /* Sit on top */
+  paddingTop: '100px', /* Location of the box */
+  left: 0,
+  top: 0,
+  width: '100%', /* Full width */
+  height: '100%', /* Full height */
+  overflow: 'auto', /* Enable scroll if needed */
+  backgroundColor: 'rgb(0,0,0)', /* Fallback color */
+  backgroundColor: 'rgba(0,0,0,0.4)', /* Black w/ opacity */
+ }
+
+ const modalContentStyle = {
+  backgroundColor: '#fefefe',
+  margin: 'auto',
+  padding: '20px',
+  border: '1px solid #888',
+  width: '80%',
+ }
 
    React.useEffect(() => {
     if (isDialogVisible) {
       inputRef.current.focus();
-    }
-    else {
-      sourceLinkRef.current.focus();
     }
   }, [isDialogVisible]);
  return (
@@ -41,16 +87,18 @@ function SemanticDialogExercise(props) {
      >
        Show Dialog
      </button>
-     <div id="overlay">
+     <div id="overlay" onKeyDown={handleKeyDown}>
        <div
- id="container"
-         style={{ visibility: isDialogVisible ? 'visible' : 'hidden',  }}
+         id="container"
+         style={modalStyle}
          role="dialog"
          aria-labelledby="dialog-title"
+         ref={modalRef}
        >
-         <h2 id="dialog-title">Shipping Address</h2>
-         <div id="content">
+         <div id="content" style={modalContentStyle}>
            <div>
+                    <h2 id="dialog-title">Shipping Address</h2>
+
              <label htmlFor="inputfield">
                Name
                <input
@@ -60,9 +108,7 @@ function SemanticDialogExercise(props) {
                  ref={inputRef}
                />
              </label>
-           </div>
-         </div>
-         <div>
+            <div>
            <button
              type="submit"
              onClick={toggleDialogVisibility}
@@ -77,6 +123,8 @@ function SemanticDialogExercise(props) {
            >
              Close
            </button>
+         </div>
+           </div>
          </div>
        </div>
      </div>
@@ -98,20 +146,68 @@ Verify with VoiceOver.
 function UnsemanticDialogExercise(props) {
 
 const [isDialogVisible, setIsDialogVisible] = React.useState(false);
-const inputRef = React.createRef()
+ const inputRef = React.createRef()
  const sourceLinkRef = React.createRef();
- const toggleDialogVisibility = () => {
-   setIsDialogVisible((prevState) => (!prevState));
- };
+ const modalRef = React.createRef();
 
-   React.useEffect(() => {
-    if (isDialogVisible) {
-      inputRef.current.focus();
+ const handleKeyDown = (event) => {
+    if (!isDialogVisible || event.key !== 'Tab') {
+      return;
     }
-    else {
+    const focusableModalElements = modalRef.current.querySelectorAll(
+     'button:not([disabled]), input'
+   )
+     const firstElement = focusableModalElements[0]
+     const lastElement = focusableModalElements[focusableModalElements.length - 1]
+
+     // if going forward by pressing tab and lastElement is active shift focus to first focusable element
+     if (!event.shiftKey && document.activeElement === lastElement) {
+       firstElement.focus()
+       return event.preventDefault()
+     }
+
+     // if going backward by pressing tab and firstElement is active shift focus to last focusable element
+     if (event.shiftKey && document.activeElement === firstElement) {
+       lastElement.focus()
+       event.preventDefault()
+     }
+  }
+  const modalStyle = {
+  display: isDialogVisible ? 'block':'none', /* Hidden by default */
+   position: 'fixed', /* Stay in place */
+   zIndex: 1, /* Sit on top */
+   paddingTop: '100px', /* Location of the box */
+   left: 0,
+   top: 0,
+   width: '100%', /* Full width */
+   height: '100%', /* Full height */
+   overflow: 'auto', /* Enable scroll if needed */
+   backgroundColor: 'rgb(0,0,0)', /* Fallback color */
+   backgroundColor: 'rgba(0,0,0,0.4)', /* Black w/ opacity */
+  }
+
+  const modalContentStyle = {
+   backgroundColor: '#fefefe',
+   margin: 'auto',
+   padding: '20px',
+   border: '1px solid #888',
+   width: '80%',
+  }
+
+ const toggleDialogVisibility = () => {
+   setIsDialogVisible((prevState) => {
+     if(prevState == true) {
       sourceLinkRef.current.focus();
     }
-  }, [isDialogVisible]);
+    return !prevState;
+   });
+ };
+
+React.useEffect(() => {
+if (isDialogVisible) {
+  inputRef.current.focus();
+}
+}, [isDialogVisible]);
 
   return (
     <>
@@ -123,11 +219,13 @@ const inputRef = React.createRef()
       >
         Show Dialog
       </button>
-      <div id="overlay2" style={{ visibility: isDialogVisible ? 'visible' : 'hidden' }}>
-        <div id="container2">
+      <div id="overlay2"  onKeyDown={handleKeyDown}>
+        <div id="container2"
+             style={modalStyle}
+             ref={modalRef}>
           <b id="dialogtitle2">Shipping Address</b>
           <div>
-            <div id="content2">
+            <div id="content2" style={modalContentStyle}>
               <div>
                 <label htmlFor="inputfield2">
                   Name
@@ -165,7 +263,6 @@ const inputRef = React.createRef()
 ```
 
 import { VerifyButton } from "../_util/VerifyButton.mdx";
-
 <VerifyButton
   checkExercise={() => {
   const container = document.getElementById('container2');
