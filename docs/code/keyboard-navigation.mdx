@@ -43,13 +43,14 @@ can tab to the button and press <kbd>enter</kbd> to activate it using just the k
 import { VerifyButton } from "../_util/VerifyButton.mdx";
 
 <VerifyButton
-  error="It doesn't look like your custom button is accessible yet."
   checkExercise={() => {
     const [button] = document.getElementsByClassName("customButton");
-    return (
+    const isValid =
       button.hasAttribute("tabindex") &&
       button.getAttribute("tabindex") === "0" &&
-      button.getAttribute("role") === "button"
-    );
+      button.getAttribute("role") === "button";
+    if (!isValid) {
+      return "It doesn't look like your custom button is accessible yet.";
+    }
   }}
 />

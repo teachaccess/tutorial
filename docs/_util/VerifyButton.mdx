@@ -1,30 +1,31 @@
 import { useState } from "react";
 
-export const VerifyButton = ({ error, checkExercise }) => {
-  const [isValid, setIsValid] = useState(null);
+export const VerifyButton = ({ checkExercise }) => {
+  const [feedback, setFeedback] = useState(null);
+  const success = "Well done!";
   const onClick = () => {
-    const result = checkExercise();
-    setIsValid(result);
+    const error = checkExercise();
+    setFeedback(error || success);
   };
   const renderButton = () => (
     <button type="button" className="button" onClick={onClick}>
       Verify
     </button>
   );
-  const renderMessage = () => {
-    if (isValid === null) {
-      return null;
+  const renderFeedback = () => {
+    if (feedback) {
+      const isSuccess = feedback === success;
+      return (
+        <span className={isSuccess ? "success" : "error"} role="alert">
+          {feedback}
+        </span>
+      );
     }
-    return (
-      <span className={isValid ? "success" : "error"} role="alert">
-        {isValid ? "Well done!" : error}
-      </span>
-    );
   };
   return (
     <div className="verify">
       {renderButton()}
-      {renderMessage()}
+      {renderFeedback()}
     </div>
   );
 };
