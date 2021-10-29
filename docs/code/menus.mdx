@@ -3,19 +3,18 @@ title: Menus
 id: menus
 ---
 
-
 Menus, like dialogs, rely on a few key principles to render them usable with
 the keyboard or screen reader.
 
-# Accessible Menu
+## Accessible Menu
 
 The example below shows how to apply ARIA attributes to an unordered list element to give it the semantics screen readers need to announce it as a menu. It also demonstrates the JavaScript functionality you need to create the appropriate keyboard interaction.
 
-- You can move focus to the button by pressing `tab`.
-- Pressing `enter` with focus on the button opens the menu and moves focus to the first menu item.
+- You can move focus to the button by pressing <kbd>tab</kbd>.
+- Pressing <kbd>enter</kbd> with focus on the button opens the menu and moves focus to the first menu item.
 - Up and down arrows navigate the menu.
-- `escape` closes the menu, returning focus to the button.
-- If actions were implemented, pressing `enter` on a menu item would perform the action.
+- <kbd>escape</kbd> closes the menu, returning focus to the button.
+- If actions were implemented, pressing <kbd>enter</kbd> on a menu item would perform the action.
 
 ```jsx live
 // `MenuHelpers` is an imported object that contains the behavior methods for the menu interaction.
@@ -88,7 +87,7 @@ function PopUpMenuExample(props) {
 }
 ```
 
-[Wrench Icon] Inaccessible Menu exercise
+## 🔧 Inaccessible Menu exercise
 Update the example below to include the necessary markup for making this menu accessible. You should address the following issues.
 
 - The `a` tag with the ID `menuTrigger` has an associated popup. Therefore, it should be marked up with `aria-haspopup` and `aria-owns` to make this relationship explicit.
