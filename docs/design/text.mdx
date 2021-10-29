@@ -3,14 +3,7 @@ title: Text
 id: text
 ---
 import { VerifyButton } from "../_util/VerifyButton.mdx";
-import styled from "styled-components";
-export const styling = {all:"none",
-            border:"2px solid green",
-            fontSize: "100%",
-            width: "1000px",
-            height: "50px",
-            border: "thin solid gray",
-            margin: "10px"}
+
 
 People with low vision use browser zoom tools and assistive technology such as
 [ZoomText](http://www.aisquared.com/products/zoomtext/) to increase the size of
@@ -41,10 +34,9 @@ to 3em and width to 10em and verify your answers.
 
 <div
           id='container' 
-          style = {{all:"none",
-            border:"2px solid green",
-            fontSize: "100%",
-            width: "1000px",
+          style = {{
+           fontSize: "100%",
+            width: "80px",
             height: "50px",
             border: "thin solid gray",
             margin: "10px"}}
@@ -57,9 +49,7 @@ to 3em and width to 10em and verify your answers.
 
 <VerifyButton
   error="It doesn't seem like the height and width are set to the right ems"
-  style = {{
-            ...styling
-  }}
+  
   checkExercise={() => {
   
     var container = document.querySelector('#container');
