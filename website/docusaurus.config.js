@@ -30,6 +30,7 @@ const config = {
     navbar: {
       logo: {
         src: "img/favicon.svg",
+        srcDark: "img/favicon-darkmode.svg",
         alt: "Teach Access",
       },
       items: [
@@ -51,6 +52,7 @@ const config = {
       copyright: "Copyright © 2021 Teach Access",
       logo: {
         src: "img/favicon.svg",
+        srcDark: "img/favicon-darkmode2.svg",
       },
     },
   },
