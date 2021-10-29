@@ -3,7 +3,190 @@ title: Menus
 id: menus
 ---
 
+
 Menus, like dialogs, rely on a few key principles to render them usable with
 the keyboard or screen reader.
 
-## TODO: Add live code exercises (layout_data)
+# Accessible Menu
+
+The example below shows how to apply ARIA attributes to an unordered list element to give it the semantics screen readers need to announce it as a menu. It also demonstrates the JavaScript functionality you need to create the appropriate keyboard interaction.
+
+- You can move focus to the button by pressing `tab`.
+- Pressing `enter` with focus on the button opens the menu and moves focus to the first menu item.
+- Up and down arrows navigate the menu.
+- `escape` closes the menu, returning focus to the button.
+- If actions were implemented, pressing `enter` on a menu item would perform the action.
+
+```jsx live
+// `MenuHelpers` is an imported object that contains the behavior methods for the menu interaction.
+
+function PopUpMenuExample(props) {
+
+  return (
+    <>
+      <div
+        id="popupMenuExample"
+        className="popupMenuWidget"
+        onKeyDown={MenuHelpers.onKeyDown}
+        onClick={MenuHelpers.onClickWidget}
+      >
+        <a
+          href="#"
+          role="button"
+          tabIndex="0"
+          aria-haspopup="true"
+          aria-owns="actionsMenu"
+          onClick={MenuHelpers.onClick}
+        >
+          Actions &#9660;
+        </a>
+        <ul
+          id="actionsMenu"
+          role="menu"
+          data-open="false"
+          onMouseOver={MenuHelpers.onMouseoverMenuItem}
+          onClick={MenuHelpers.onClickMenuItem}
+          style={{ display: "none" }}
+        >
+          <li role="presentation">
+            <a
+              id="action_1"
+              href="#"
+              role="menuitem"
+              tabIndex="-1"
+              data-active="false"
+            >
+              Create
+            </a>
+          </li>
+          <li role="presentation">
+            <a
+              id="action_2"
+              href="#"
+              role="menuitem"
+              tabIndex="-1"
+              data-active="false"
+            >
+              Edit
+            </a>
+          </li>
+          <li role="presentation">
+            <a
+              id="action_3"
+              href="#"
+              role="menuitem"
+              tabIndex="-1"
+              data-active="false"
+            >
+              Delete
+            </a>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+}
+```
+
+[Wrench Icon] Inaccessible Menu exercise
+Update the example below to include the necessary markup for making this menu accessible. You should address the following issues.
+
+- The `a` tag with the ID `menuTrigger` has an associated popup. Therefore, it should be marked up with `aria-haspopup` and `aria-owns` to make this relationship explicit.
+- The `a` tag with the ID `menuTrigger` should be marked up as a button with the role `button`.
+- The `a` tag with the ID `menuTrigger` should be tabbable. Add an explicit `tabindex="0"` to it.
+- The `ul` tag with the ID `actionsMenu` should be marked up as a menu with the role `menu`.
+- The `a` tags inside the ul with the ID `actionsMenu` are menu items. Mark them up with the role `menuitem`.
+- The `a` tags inside the ul with the ID `actionsMenu` should not be tabbable. Add an explicit `tabindex="-1"` to each of them.
+
+```jsx live
+// `MenuHelpers` is an imported object that contains the behavior methods for the menu interaction.
+
+function PopUpMenuExample(props) {
+
+  return (
+    <>
+      <div
+        id="popupMenuExampleWithAssertions"
+        class="popupMenuWidget"
+        onKeyDown={MenuHelpers.onKeyDown}
+        onClick={MenuHelpers.onClickWidget}
+      >
+        <a
+          id="menuTrigger"
+          onClick={MenuHelpers.onClick}
+        >
+          Actions &#9660;
+        </a>
+        <ul
+          id="actionsMenu"
+          data-open="false"
+          onMouseOver={MenuHelpers.onMouseoverMenuItem}
+          onClick={MenuHelpers.onClickMenuItem}
+          style={{ display: "none" }}
+        >
+          <li role="presentation">
+            <a id="action_1" href="#" data-active="false">
+              Create
+            </a>
+          </li>
+          <li role="presentation">
+            <a id="action_2" href="#" data-active="false">
+              Edit
+            </a>
+          </li>
+          <li role="presentation">
+            <a id="action_3" href="#" data-active="false">
+              Delete
+            </a>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+}
+```
+
+import { VerifyButton } from "../_util/VerifyButton.mdx";
+
+<VerifyButton
+  checkExercise={() => {
+    const menuWidget = document.getElementById('popupMenuExampleWithAssertions');
+    const menuTrigger = menuWidget.querySelector("#menuTrigger");
+    const actionsMenu = menuWidget.querySelector("#actionsMenu");
+    
+    if (menuTrigger.getAttribute("aria-haspopup") !== "true") {
+      return 'Add the attribute `aria-haspopup="true"` to the element with the ID `menuTrigger`';
+    }
+    if (menuTrigger.getAttribute("aria-owns") !== "actionsMenu") {
+      return 'Add the attribute `aria-owns="actionsMenu"` to the element with the ID `menuTrigger`';
+    }
+    if (menuTrigger.getAttribute("role") !== "button") {
+      return 'Add the attribute `role="button"` to the element with the ID `menuTrigger`';
+    }
+    if (menuTrigger.getAttribute("tabIndex") !== "0") {
+      return 'Add the attribute `tabindex="0"` to the element with the ID `menuTrigger`';
+    }
+    if (actionsMenu.getAttribute("role") !== "menu") {
+      return 'Add the attribute `role="menu"` to the element with the ID `actionsMenu`';
+    }
+    if (
+      [].slice
+        .call(actionsMenu.querySelectorAll("a"))
+        .every((item) => {
+          return item.getAttribute("role") !== "menuitem";
+        })
+    ) {
+      return 'Add the attribute `role="menuitem"` to each of the `a` tag elements in the element with the ID `actionsMenu`';
+    }
+    if (
+      [].slice
+        .call(actionsMenu.querySelectorAll("a"))
+        .every((item) => {
+          return item.getAttribute("tabIndex") !== "-1";
+        })
+    ) {
+      return 'Add the attribute `tabindex="-1"` to each of the `a` tag elements in the element with the ID `actionsMenu`';
+    }
+    return false;
+  }}
+></VerifyButton>
