@@ -21,7 +21,6 @@ At this time, VoiceOver does not read the column headers in Chrome. However, Voi
 
 ```jsx live
 <table>
-   <h3>Editor Output</h3>
    <tr>
        <td></td>
        <th>Week1</th>
@@ -46,21 +45,21 @@ almost impossible for a screen reader user to understand and use. Convert the fo
 into an accessible HTML table.
 
 ```jsx live
-<div class="table">
-<div class="tableHeading">
-<div class="tableHead">
+<div className="table">
+<div className="tableHeading">
+<div className="tableHead">
    Month
 </div>
-<div class="tableHead">
+<div className="tableHead">
    Mood
 </div>
 </div>
-<div class="tableBody">
-<div class="tableRow">
-   <div class="tableCell">
+<div className="tableBody">
+<div className="tableRow">
+   <div className="tableCell">
    January
    </div>
-   <div class="tableCell">
+   <div className="tableCell">
    happy
    </div>
 </div>
@@ -70,20 +69,21 @@ into an accessible HTML table.
 
 <VerifyButton
  checkExercise={() => {
-    const elementTable = document.querySelector("table");
-    if (elementTable == null) {
+    const exercise = document.querySelectorAll("[class^=playgroundPreview]")[1];
+    const elementTable = exercise.querySelector("table");
+    if (!elementTable) {
         return "Use a semantic table element.";
     }
-    const elementTR = document.querySelectorAll("tr");
-    if (elementTR.length != 2) {
+    const elementTR = exercise.querySelectorAll("tr");
+    if (elementTR.length !== 2) {
         return "Are you using semantic tr tags?";
     }
-    const elementTH = document.querySelectorAll("th");
-    if (elementTH.length != 2) {
+    const elementTH = exercise.querySelectorAll("th");
+    if (elementTH.length !== 2) {
         return "Are you using semantic th tags?";
     }
-    const elementTD = document.querySelectorAll("td");
-    if (elementTD.length != 2) {
+    const elementTD = exercise.querySelectorAll("td");
+    if (elementTD.length !== 2) {
         return "Are you using semantic td tags?";
     }
  }
