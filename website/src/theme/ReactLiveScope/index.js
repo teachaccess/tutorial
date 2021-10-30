@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import * as MenuHelpers from '../../../../docs/_util/MenuExample';
+import * as MenuHelpers from './MenuHelpers';
+
 // Add react-live imports you need here
 const ReactLiveScope = {
   React,
@@ -15,3 +16,4 @@ const ReactLiveScope = {
 };
 
 export default ReactLiveScope;
+
