@@ -12,4 +12,114 @@ Accessible labels that create a delightful experience are:
 
 There are many ways to label an interactive element such as a button or an input field, which you will see below. You can check the results of adding the various label types by testing in your screen reader too!
 
-## TODO: Add live code exercises (layout_data)
+## Self-labeled
+
+Some elements, like links and buttons with display text, label themselves. In this case, screen reader users and all other users can perceive the label.
+
+```jsx live
+<div>
+  <button>Submit</button>
+</div>
+```
+
+## Using `<label>`
+
+If we put text on the screen near an input such as a text field, the screen reader cannot reliably pick up on that visual association. It needs to be told which nearby text is the associated label. One way to do this is with the `label` element.
+
+```jsx live
+<div>
+  <label for="lastName">Last name:</label>
+  <input id="lastName" type="text" />
+</div>
+```
+
+## Using 'aria-labelledby'
+
+The HTML label works only for HTML inputs. If we make a control out of other elements by using ARIA, we can instead use `aria-labelledby`.
+
+```jsx live
+<div>
+  <div id="status">What's on your mind?</div>
+  <div
+    aria-labelledby="status"
+    contenteditable
+    id="composer"
+    role="textbox"
+  ></div>
+</div>
+```
+
+## Using 'aria-label'
+
+In rare cases, the purpose of the input is visually obvious in context, but it's not obvious to someone using a screen reader. We can provide contextual detail with `aria-label`.
+
+```jsx live
+<fieldset>
+  <legend>Telephone</legend>
+  <input id="one" type="number" aria-label="Area Code" />
+  <input type="number" aria-label="Exchange Code" />
+  <input type="number" aria-label="Line Number" />
+</fieldset>
+```
+
+## Using 'aria-describedby'
+
+Occasionally, a label by itself is insufficient information. If help text is present in the UI, we can identify it as an accessible description by using `aria-describedby`.
+
+```jsx live
+<div>
+  <label for="hikeDate">HIKE completion date</label>
+  <input id="hikeDate" aria-describedby="dateFormat" type="text" />
+  <p id="dateFormat">Note: This date will be recorded.</p>
+</div>
+```
+
+## Inaccessible Button exercise
+
+Add an `aria-label` to the button below and label it 'search' to make it accessible.
+
+```jsx live
+<button class="searchBtn"></button>
+```
+
+import { VerifyButton } from "../_util/VerifyButton.mdx";
+
+<VerifyButton
+  checkExercise={() => {
+    const btn = document.querySelector("button.searchBtn");
+    console.log(btn.getAttribute("aria-label"));
+    if (!btn.hasAttribute("aria-label")) {
+      return "It doesn't look like you added an aria-label to the button";
+    }
+  }}
+/>
+
+## Inaccessible Interactive Elements exercise
+
+Add an `aria-labelledby` to the input field below and point it to the `id` of the prompt span.
+Also, add an `aria-describedby` to the input field and point it to the description below to
+make it accessible.
+
+```jsx live
+<>
+  <input type="checkbox" class="checkbox" />
+  <span id="prompt">Save Password</span>
+  <p id="description">Your credentials will not be stored.</p>
+</>
+```
+
+<VerifyButton
+  checkExercise={() => {
+    const btn = document.querySelector("input.checkbox");
+    const hasLabelledBy =
+      btn.hasAttribute("aria-labelledby") &&
+      btn.getAttribute("aria-labelledby") === "prompt";
+    const hasDescribedBy =
+      btn.hasAttribute("aria-describedby") &&
+      btn.getAttribute("aria-describedby") === "description";
+    if (!hasLabelledBy)
+      return "It doesn't look like you added an aria-labelledby to the input field";
+    if (!hasDescribedBy)
+      return "It doesn't look like you added an aria-describedby to the input field";
+  }}
+/>
