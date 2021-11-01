@@ -7,12 +7,18 @@
   --ifm-color-primary-darker: #514a81;
   --ifm-color-primary-darkest: #423d6a;
   --verify-bg: green;
+  --logo-color: #405865;
 }
 
 html[data-theme='dark'] {
   --ifm-color-emphasis-0: #121010;
   --ifm-color-primary: #ad9eff;
   --verify-bg: #00bb59;
+  --logo-color: #E6EDF4;
+}
+
+img[src='/img/favicon.svg']{
+  fill: var(--logo-color);
 }
 
 .fakeHeading {
