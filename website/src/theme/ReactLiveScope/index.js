@@ -5,15 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import * as MenuHelpers from './MenuHelpers';
+import React from "react";
+import * as MenuHelpers from "./MenuHelpers";
 
 // Add react-live imports you need here
 const ReactLiveScope = {
   React,
   ...React,
-  MenuHelpers
+  MenuHelpers,
 };
 
 export default ReactLiveScope;
-
