@@ -22,10 +22,15 @@ html[data-theme="dark"] {
   margin: 0;
 }
 
+h1 {
+  text-align: center;
+}
 h3 {
   margin: 5px;
 }
-
+article {
+  margin: 1em;
+}
 .verify > .button {
   background: var(--verify-bg);
 }
@@ -98,4 +103,19 @@ td {
 
 .tableBody {
   display: table-row-group;
+}
+
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #ccc;
+  font-size: 0.7em;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #fff inset;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0px 0.1em;
+  text-shadow: 0px 1px 0px #fff;
+  line-height: 1.4;
+  white-space: nowrap;
 }
