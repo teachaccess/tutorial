@@ -11,6 +11,7 @@
       "code/dialogs",
       "code/tables",
       "code/menus",
+      "code/aria-introduction",
       "code/aria",
       "code/checklist"
     ],

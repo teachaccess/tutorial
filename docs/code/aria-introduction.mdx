@@ -2,15 +2,17 @@
 title: ARIA Introduction
 id: aria-introduction
 ---
-Web sites were simple, accessible documents in the early days of the Internet. But accessibility was lost when web sites became applications. [Accessible Rich Internet Aplications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) extends HTML to create accessible web applications. 
 
-ARIA is a set of HTML attributes for developers to control the information surfaced by assistive technology. ARIA can define an element's  label, state, properties, and role. 
+Web sites were simple, accessible documents in the early days of the Internet. But accessibility was lost when web sites became applications. [Accessible Rich Internet Aplications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) extends HTML to create accessible web applications.
+
+ARIA is a set of HTML attributes for developers to control the information surfaced by assistive technology. ARIA can define an element's label, state, properties, and role.
 
 ARIA is a powerful tool and must be used with care. The [first rule of ARIA](https://www.w3.org/TR/using-aria/#rule1) is to not use ARIA. Use semantic HTML and augment with ARIA. However, we often need to use ARIA to extend HTML or fix inaccessible code. Understanding ARIA is critical for today's web developers.
 
-ARIA does not make your application accessible. It makes it understandable. You can't put role="button" on a div and expect it to work with a keyboard and screen reader. Adding role="button" simply tells assistive technology to expect the div is actually a button. You would still need to make the div focusable and listen for onkeypress of <kbd>enter</kbd> and <kbd>spacebar</kbd>. Which is why it's always better to start with a semantic button. 
+ARIA does not make your application accessible. It makes it understandable. You can't put role="button" on a div and expect it to work with a keyboard and screen reader. Adding role="button" simply tells assistive technology to expect the div is actually a button. You would still need to make the div focusable and listen for onkeypress of <kbd>enter</kbd> and <kbd>spacebar</kbd>. Which is why it's always better to start with a semantic button.
 
 ### Commonly used ARIA attributes
+
 - [Roles](https://www.w3.org/TR/wai-aria-1.1/#roles): button, img, link
 - [Properties](https://www.w3.org/TR/wai-aria-1.1/#global_states): aria-label, aria-live, aria-haspopup
 - [States](https://www.w3.org/TR/wai-aria-1.1/#global_states): aria-required, aria-selected, aria-expanded

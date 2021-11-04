@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import Layout from "@theme/Layout";
+
 const React = require("react");
 
 const CompLibrary = {
-  Container: (props) => <div {...props}></div>,
-  GridBlock: (props) => <div {...props}></div>,
-  MarkdownBlock: (props) => <div {...props}></div>,
+  Container: (props) => <div {...props} />,
+  GridBlock: (props) => <div {...props} />,
+  MarkdownBlock: (props) => <div {...props} />,
 };
 
-import Layout from "@theme/Layout";
-
-const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
-const Container = CompLibrary.Container;
-const GridBlock = CompLibrary.GridBlock;
+const { MarkdownBlock } = CompLibrary; /* Used to read markdown */
+const { Container } = CompLibrary;
+const { GridBlock } = CompLibrary;
 
 class HomeSplash extends React.Component {
   render() {

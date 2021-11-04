@@ -20,21 +20,25 @@ At this time, VoiceOver does not read the column headers in Chrome. However, Voi
 
 ```jsx live
 <table>
-<tr>
-    <td></td>
-    <th>Week1</th>
-    <th>Week2</th>
-</tr>
-<tr>
-    <th>Clicks</th>
-    <td>100</td>
-    <td>90</td>
-</tr>
-<tr>
-    <th>Likes</th>
-    <td>60</td>
-    <td>55</td>
-</tr>
+    <thead>
+        <tr>
+            <td></td>
+            <th>Week1</th>
+            <th>Week2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Clicks</th>
+            <td>100</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <th>Likes</th>
+            <td>60</td>
+            <td>55</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
