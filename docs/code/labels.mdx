@@ -28,7 +28,7 @@ If we put text on the screen near an input such as a text field, the screen read
 
 ```jsx live
 <div>
-  <label for="lastName">Last name:</label>
+  <label htmlFor="lastName">Last name:</label>
   <input id="lastName" type="text" />
 </div>
 ```
@@ -68,7 +68,7 @@ Occasionally, a label by itself is insufficient information. If help text is pre
 
 ```jsx live
 <div>
-  <label for="hikeDate">HIKE completion date</label>
+  <label htmlFor="hikeDate">HIKE completion date</label>
   <input id="hikeDate" aria-describedby="dateFormat" type="text" />
   <p id="dateFormat">Note: This date will be recorded.</p>
 </div>
@@ -87,7 +87,6 @@ import { VerifyButton } from "../_util/VerifyButton.mdx";
 <VerifyButton
   checkExercise={() => {
     const btn = document.querySelector("button.searchBtn");
-    console.log(btn.getAttribute("aria-label"));
     if (!btn.hasAttribute("aria-label")) {
       return "It doesn't look like you added an aria-label to the button";
     }
