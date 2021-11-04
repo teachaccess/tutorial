@@ -6,7 +6,7 @@ const config = {
   organizationName: "Teach Access",
   projectName: "test-site",
   scripts: ["https://buttons.github.io/buttons.js"],
-  favicon: "img/favicon.svg",
+  favicon: "img/logo-teach-access.svg",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   presets: [
@@ -29,7 +29,8 @@ const config = {
   themeConfig: {
     navbar: {
       logo: {
-        src: "img/favicon.svg",
+        src: "img/logo-teach-access.svg",
+        srcDark: "img/logo-teach-access-dark.svg",
         alt: "Teach Access",
       },
       items: [
@@ -50,7 +51,9 @@ const config = {
       links: [],
       copyright: "Copyright © 2021 Teach Access",
       logo: {
-        src: "img/favicon.svg",
+        src: "img/logo-teach-access.svg",
+        srcDark: "img/logo-teach-access-dark.svg",
+        alt: "Teach Access",
       },
     },
   },

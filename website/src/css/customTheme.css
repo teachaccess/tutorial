@@ -6,6 +6,14 @@
   --ifm-color-primary-dark: #554e89;
   --ifm-color-primary-darker: #514a81;
   --ifm-color-primary-darkest: #423d6a;
+  --verify-bg: green;
+  --logo-color: #405865;
+}
+
+html[data-theme="dark"] {
+  --ifm-color-emphasis-0: #121010;
+  --ifm-color-primary: #ad9eff;
+  --verify-bg: #00bb59;
 }
 
 .fakeHeading {
@@ -19,13 +27,13 @@ h3 {
 }
 
 .verify > .button {
-  background: green;
+  background: var(--verify-bg);
 }
 
 .customButton {
-  border: 1px solid black;
+  border: 1px solid var(--ifm-color-emphasis-600);
   width: 65px;
-  background-color: lightgray;
+  background-color: var(--ifm-color-emphasis-200);
   text-align: center;
 }
 
@@ -49,14 +57,14 @@ h3 {
 }
 
 .editorWithPreview > .editor,
-  .editorWithPreview > .preview {
-    width: 50%;
-    max-width: 50%;
-  }
+.editorWithPreview > .preview {
+  width: 50%;
+  max-width: 50%;
+}
 
 table {
-    text-align: center;
-    font-size: 1em;
+  text-align: center;
+  font-size: 1em;
 }
 
 th {
@@ -76,12 +84,13 @@ td {
   display: table-row;
 }
 
-.tableCell, .tableHead {
+.tableCell,
+.tableHead {
   display: table-cell;
   padding: 3px 10px;
 }
 
- .tableHeading {
+.tableHeading {
   display: table-header-group;
   background-color: #ddd;
   font-weight: bold;
