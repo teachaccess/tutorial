@@ -15,6 +15,21 @@ export function onMouseoverMenuItem(event) {
   }
 }
 
+export function findMenuElement(menuWidgetElement) {
+  while (menuWidgetElement.className.indexOf("popupMenuWidget") === -1) {
+    menuWidgetElement = menuWidgetElement.parentNode;
+  }
+  return menuWidgetElement.querySelector('[role="menu"],ul');
+}
+
+export function closeMenu(menuWidgetElement) {
+  const menuElement = findMenuElement(menuWidgetElement);
+  menuElement.style.display = "none";
+  menuElement.setAttribute("data-open", "false");
+  removeMenuItemFocus(menuWidgetElement);
+  return false;
+}
+
 export function onClickMenuItem(event) {
   const menuWidgetElement = event.target.parentNode.parentNode;
   // Some business logic here.
@@ -40,10 +55,10 @@ export function onKeyDown(event) {
     }
   });
 
-  cancelEvent = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
+  const cancelEvent = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
   };
 
   switch (event.keyCode) {
@@ -73,10 +88,8 @@ export function onKeyDown(event) {
       // Stop event propagation for all arrow keys.
       cancelEvent(event);
       break;
-    case 32:
-    // Space bar.
-    case 13:
-      // Return key.
+    case 32: // Space bar
+    case 13: // Return key.
       if (activeIndex > -1) {
         // Some business logic here.
         // {...code...}
@@ -107,14 +120,6 @@ export function openMenu(menuWidgetElement) {
     menuElement.setAttribute("data-open", "true");
   }
   return true;
-}
-
-export function closeMenu(menuWidgetElement) {
-  const menuElement = findMenuElement(menuWidgetElement);
-  menuElement.style.display = "none";
-  menuElement.setAttribute("data-open", "false");
-  removeMenuItemFocus(menuWidgetElement);
-  return false;
 }
 
 export function toggleMenu(menuWidgetElement) {
@@ -153,13 +158,6 @@ export function removeMenuItemFocus(menuWidgetElement) {
   );
 
   findButtonElement(menuWidgetElement).focus();
-}
-
-export function findMenuElement(menuWidgetElement) {
-  while (menuWidgetElement.className.indexOf("popupMenuWidget") === -1) {
-    menuWidgetElement = menuWidgetElement.parentNode;
-  }
-  return menuWidgetElement.querySelector('[role="menu"],ul');
 }
 
 export function findButtonElement(menuWidgetElement) {
