@@ -5,8 +5,8 @@ id: checklist
 
 We've covered a bunch of ground related to improving the accessibility of visual designs. One of the most important steps you can take to ensuring you create accessible experiences is accounting for accessibility at the start and throughout the design process. To that end, use the following checklist when you begin to formalize your visual designs for a website or application:
 
--[] Do I have sufficient contrast between text and my background?
--[] Do I have sufficient contrast between UI elements and my background?
+- Do I have sufficient contrast between text and my background?
+- Do I have sufficient contrast between UI elements and my background?
 
 - Are there any places where I'm color or other visual means alone to indicate something (ie, no text equivalent)?
 - Is my written content simple and easy to understand?

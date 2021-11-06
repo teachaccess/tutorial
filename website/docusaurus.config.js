@@ -1,14 +1,16 @@
 const config = {
-  title: "Teach Access",
-  tagline: "A website for testing",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
-  organizationName: "Teach Access",
-  projectName: "test-site",
+  title: "Teach Access Tutorial",
+  tagline: "Best practices for making accessible mobile and web apps",
+  url: "https://teachaccess.github.io",
+  baseUrl: "/tutorial/",
+  organizationName: "teachaccess",
+  projectName: "tutorial",
+  deploymentBranch: "gh-pages",
   scripts: ["https://buttons.github.io/buttons.js"],
-  favicon: "img/logo-teach-access.svg",
+  favicon: "../img/logo-teach-access.svg",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
+  trailingSlash: false,
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -18,6 +20,7 @@ const config = {
           showLastUpdateTime: true,
           path: "../docs",
           sidebarPath: "../website/sidebars.json",
+          routeBasePath: "/",
         },
         theme: {
           customCss: "../src/css/customTheme.css",
@@ -29,30 +32,30 @@ const config = {
   themeConfig: {
     navbar: {
       logo: {
-        src: "img/logo-teach-access.svg",
-        srcDark: "img/logo-teach-access-dark.svg",
+        src: "../img/logo-teach-access.svg",
+        srcDark: "../img/logo-teach-access-dark.svg",
         alt: "Teach Access",
       },
       items: [
         {
-          to: "docs/introduction/using-this-tutorial",
+          to: "/",
           label: "Tutorial",
           position: "left",
         },
-        // {
-        //   to: "/help",
-        //   label: "Help",
-        //   position: "left",
-        // },
+        {
+          to: "/help",
+          label: "Help",
+          position: "left",
+        },
       ],
     },
-    image: "img/undraw_online.svg",
+    image: "../img/undraw_online.svg",
     footer: {
       links: [],
       copyright: "Copyright © 2021 Teach Access",
       logo: {
-        src: "img/logo-teach-access.svg",
-        srcDark: "img/logo-teach-access-dark.svg",
+        src: "../img/logo-teach-access.svg",
+        srcDark: "../img/logo-teach-access-dark.svg",
         alt: "Teach Access",
       },
     },
