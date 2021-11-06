@@ -1,14 +1,16 @@
 const config = {
-  title: "Teach Access",
-  tagline: "A website for testing",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
-  organizationName: "Teach Access",
-  projectName: "test-site",
+  title: "Teach Access Tutorial",
+  tagline: "Best practices for making accessible mobile and web apps",
+  url: "https://teachaccess.github.io",
+  baseUrl: "/tutorial/",
+  organizationName: "teachaccess",
+  projectName: "tutorial",
+  deploymentBranch: "gh-pages",
   scripts: ["https://buttons.github.io/buttons.js"],
   favicon: "img/logo-teach-access.svg",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
+  trailingSlash: false,
   presets: [
     [
       "@docusaurus/preset-classic",
