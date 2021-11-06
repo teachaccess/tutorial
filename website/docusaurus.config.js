@@ -42,11 +42,11 @@ const config = {
           label: "Tutorial",
           position: "left",
         },
-        // {
-        //   to: "/help",
-        //   label: "Help",
-        //   position: "left",
-        // },
+        {
+          to: "/help",
+          label: "Help",
+          position: "left",
+        },
       ],
     },
     image: "../img/undraw_online.svg",

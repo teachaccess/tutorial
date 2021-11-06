@@ -45,11 +45,26 @@ function Help(props) {
   return (
     <div className="docMainWrapper wrapper">
       <Container className="mainContainer documentContainer postContainer">
-        <div className="post">
+        <div className="post" style={{ textAlign: "center" }}>
           <header className="postHeader">
             <h1>Need help?</h1>
           </header>
-          <p>This project is maintained by a dedicated group of people.</p>
+          <p>
+            Contact us at{" "}
+            <a href="mailto: info@teachaccess.org">info@teachaccess.org</a> or
+            make a{" "}
+            <a
+              href="https://github.com/teachaccess/tutorial/issues"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              GitHub issue
+            </a>
+            .
+          </p>
+          <div>
+            <p>We'd love to improve the tutorial with your feedback</p>
+          </div>
           <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
       </Container>
