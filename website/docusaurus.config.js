@@ -18,6 +18,7 @@ const config = {
           showLastUpdateTime: true,
           path: "../docs",
           sidebarPath: "../website/sidebars.json",
+          routeBasePath: "/",
         },
         theme: {
           customCss: "../src/css/customTheme.css",
