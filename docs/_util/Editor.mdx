@@ -8,56 +8,63 @@ import CodeMirror from "codemirror";
 -->
 
 export const Editor = (props) => {
-  const { className = "", style = {}, label = "" } = props;
+  const {
+    className = "",
+    style = {},
+    label = "",
+    defaultValue = "",
+    mode,
+    config = {},
+  } = props;
   const [showTextarea, setShowTextarea] = React.useState(false);
   const refCodemirror = React.useRef();
   const refTextarea = React.useRef();
-  /*
-  componentDidMount() {
-    this.codeMirror = CodeMirror(
-      // eslint-disable-line new-cap
-      this.refs.cm,
-      {
-        mode: this.props.mode,
-        value: this.props.defaultValue,
-        lineNumbers: true,
-        inputStyle: "contenteditable",
-        ...this.props.config,
-      }
-    );
-    this.codeMirror.getInputField().setAttribute("aria-multiline", "true");
-    if (this.props.onChange) {
-      this.codeMirror.on("change", this._onChange);
-    }
-    // For unknown reasons, Firefox generates a "keypress" event when Tab is
-    // pressed, but only for exerslide content. I was unable to reproduce the
-    // issue with CodeMirror or React alone.
-    //
-    // This keypress event causes CodeMirror to insert an invalid character
-    // instead of ignoring the event and tabbing away from the content (if
-    // tabbing is disabled in the configuration)
-    //
-    // Since it is the normal browser behavior to *not* generate a keypress
-    // event, we can safely prevent it.
-    if (global.document.body.addEventListener) {
-      let wrapper = this.codeMirror.getWrapperElement();
-      wrapper.addEventListener(
-        "keypress",
-        (event) => {
-          if (event.keyCode === 9) {
-            // Tab
-            event.stopPropagation();
-          }
-        },
-        true
+  React.useEffect(() => {
+    if (refCodemirror.current) {
+      const codeMirror = CodeMirror(
+        // eslint-disable-line new-cap
+        refCodemirror.current,
+        {
+          mode,
+          value: defaultValue,
+          lineNumbers: true,
+          inputStyle: "contenteditable",
+          ...config,
+        }
       );
+      codeMirror.getInputField().setAttribute("aria-multiline", "true");
+      if (props.onChange) {
+        codeMirror.on("change", _onChange);
+      }
+      // For unknown reasons, Firefox generates a "keypress" event when Tab is
+      // pressed, but only for exerslide content. I was unable to reproduce the
+      // issue with CodeMirror or React alone.
+      //
+      // This keypress event causes CodeMirror to insert an invalid character
+      // instead of ignoring the event and tabbing away from the content (if
+      // tabbing is disabled in the configuration)
+      //
+      // Since it is the normal browser behavior to *not* generate a keypress
+      // event, we can safely prevent it.
+      if (global.document.body.addEventListener) {
+        let wrapper = codeMirror.getWrapperElement();
+        wrapper.addEventListener(
+          "keypress",
+          (event) => {
+            if (event.keyCode === 9) {
+              // Tab
+              event.stopPropagation();
+            }
+          },
+          true
+        );
+      }
+      let textareaDOMNode = refTextarea.current;
+      if (props.onChange) {
+        textareaDOMNode.oninput = _onChange;
+      }
     }
-    let textareaDOMNode = this.refs.textarea;
-    if (this.props.onChange) {
-      textareaDOMNode.oninput = this._onChange;
-    }
-  }
-  */
+  }, [refCodemirror.current]);
   // componentWillUnmount() {
   //   clearTimeout(this.timer);
   // }
