@@ -38,7 +38,7 @@ const config = {
       },
       items: [
         {
-          to: "docs/introduction/using-this-tutorial",
+          to: "/",
           label: "Tutorial",
           position: "left",
         },
