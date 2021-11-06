@@ -31,6 +31,9 @@ h3 {
 article {
   margin: 1em;
 }
+.menu__link--sublist {
+  font-weight: 600;
+}
 .verify > .button {
   background: var(--verify-bg);
 }
