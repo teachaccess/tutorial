@@ -7,8 +7,97 @@ import CodeMirror from "codemirror";
 - makes it easier for screen reader users to interact with it.
 -->
 
-export class Editor extends React.Component {
-  render() {
-    return <div> component </div>;
+export const Editor = (props) => {
+  const { className = "", style = {}, label = "" } = props;
+  const [showTextarea, setShowTextarea] = React.useState(false);
+  const refCodemirror = React.useRef();
+  const refTextarea = React.useRef();
+  /*
+  componentDidMount() {
+    this.codeMirror = CodeMirror(
+      // eslint-disable-line new-cap
+      this.refs.cm,
+      {
+        mode: this.props.mode,
+        value: this.props.defaultValue,
+        lineNumbers: true,
+        inputStyle: "contenteditable",
+        ...this.props.config,
+      }
+    );
+    this.codeMirror.getInputField().setAttribute("aria-multiline", "true");
+    if (this.props.onChange) {
+      this.codeMirror.on("change", this._onChange);
+    }
+    // For unknown reasons, Firefox generates a "keypress" event when Tab is
+    // pressed, but only for exerslide content. I was unable to reproduce the
+    // issue with CodeMirror or React alone.
+    //
+    // This keypress event causes CodeMirror to insert an invalid character
+    // instead of ignoring the event and tabbing away from the content (if
+    // tabbing is disabled in the configuration)
+    //
+    // Since it is the normal browser behavior to *not* generate a keypress
+    // event, we can safely prevent it.
+    if (global.document.body.addEventListener) {
+      let wrapper = this.codeMirror.getWrapperElement();
+      wrapper.addEventListener(
+        "keypress",
+        (event) => {
+          if (event.keyCode === 9) {
+            // Tab
+            event.stopPropagation();
+          }
+        },
+        true
+      );
+    }
+    let textareaDOMNode = this.refs.textarea;
+    if (this.props.onChange) {
+      textareaDOMNode.oninput = this._onChange;
+    }
   }
-}
+  */
+  // componentWillUnmount() {
+  //   clearTimeout(this.timer);
+  // }
+  const _onChange = () => {
+    // clearTimeout(this.timer);
+    // this.timer = setTimeout(() => this.props.onChange(this.getValue()), 200);
+  };
+  const _toggleEditor = () => {
+    setShowTextarea((prevState) => !prevState);
+  };
+  const buttonTitle = showTextarea ? "Use code editor" : "Use simple editor";
+  return (
+    <div
+      className={"editor " + className}
+      role="region"
+      style={style}
+      aria-label={label}
+    >
+      <button
+        className="editor-toggle-button"
+        title={buttonTitle}
+        aria-label={buttonTitle}
+        onClick={_toggleEditor}
+      >
+        <span className="fa fa-exchange" />
+      </button>
+      <textarea
+        ref={refTextarea}
+        name="simple editor"
+        className="CodeMirror"
+        style={{ display: showTextarea ? "block" : "none" }}
+        defaultValue=""
+      />
+      <div
+        ref={refCodemirror}
+        style={{
+          height: "100%",
+          display: showTextarea ? "none" : "block",
+        }}
+      />
+    </div>
+  );
+};
