@@ -19,7 +19,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           path: "../docs",
-          sidebarPath: "../website/sidebars.json",
+          sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
         },
         theme: {

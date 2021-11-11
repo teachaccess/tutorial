@@ -1,6 +1,6 @@
-{
-  "docs": {
-    "Introduction": ["introduction/using-this-tutorial", "introduction/faq"],
+module.exports = {
+  docs: {
+    "1. Introduction": ["introduction/using-this-tutorial", "introduction/faq"],
     "Writing Code": [
       "code/introduction",
       "code/headings",
@@ -13,7 +13,7 @@
       "code/menus",
       "code/aria-introduction",
       "code/aria",
-      "code/checklist"
+      "code/checklist",
     ],
     "Design Principles": [
       "design/introduction",
@@ -22,7 +22,7 @@
       "design/text",
       "design/site-copy",
       "design/photos",
-      "design/checklist"
-    ]
-  }
-}
+      "design/checklist",
+    ],
+  },
+};
