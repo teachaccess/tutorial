@@ -1,5 +1,6 @@
 ---
 title: Color meaning
+sidebar_label: 3.3. Color meaning
 id: color-meaning
 ---
 

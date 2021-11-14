@@ -1,5 +1,6 @@
 ---
 title: Photos
+sidebar_label: 3.6. Photos
 id: photos
 ---
 

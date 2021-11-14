@@ -1,7 +1,7 @@
-{
-  "docs": {
-    "Introduction": ["introduction/using-this-tutorial", "introduction/faq"],
-    "Writing Code": [
+module.exports = {
+  docs: {
+    "1. Introduction": ["introduction/using-this-tutorial", "introduction/faq"],
+    "2. Writing Code": [
       "code/introduction",
       "code/headings",
       "code/images",
@@ -13,16 +13,16 @@
       "code/menus",
       "code/aria-introduction",
       "code/aria",
-      "code/checklist"
+      "code/checklist",
     ],
-    "Design Principles": [
+    "3. Design Principles": [
       "design/introduction",
       "design/color-contrast",
       "design/color-meaning",
-      "design/text",
+      "design/text-size",
       "design/site-copy",
       "design/photos",
-      "design/checklist"
-    ]
-  }
-}
+      "design/checklist",
+    ],
+  },
+};
