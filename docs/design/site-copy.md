@@ -1,5 +1,6 @@
 ---
 title: Site copy
+sidebar_label: 3.5. Site copy
 id: site-copy
 ---
 
