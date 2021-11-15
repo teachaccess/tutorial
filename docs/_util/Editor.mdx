@@ -7,8 +7,11 @@ import { Helmet } from "react-helmet";
 import parse from "html-react-parser";
 const languageConf = new Compartment();
 
-export const Editor = () => {
+export const Editor = ({
+  initialHtml = '<div class="A fake heading">A fake heading</div>',
+}) => {
   const [view, setView] = React.useState();
+  const [output, setOutput] = React.useState(initialHtml);
   React.useEffect(() => {
     const editorView = new EditorView({
       state: EditorState.create({
@@ -18,7 +21,7 @@ export const Editor = () => {
           html(),
           EditorView.updateListener.of((v) => {
             if (v.docChanged) {
-              console.log("DO SOMETHING WITH THE NEW CODE");
+              setOutput(v.state.doc.toString());
             }
           }),
         ],
@@ -27,11 +30,10 @@ export const Editor = () => {
     });
     setView(editorView);
   }, []);
-  const htmlOutput = view?.state.doc.toString() || "";
   return (
     <div>
       <div id="editor"></div>
-      <div id="html-output">{parse(htmlOutput)}</div>
+      <div id="html-output">{parse(output)}</div>
     </div>
   );
 };
