@@ -13,7 +13,15 @@ export const Editor = () => {
     const editorView = new EditorView({
       state: EditorState.create({
         doc: '<div class="A fake heading">A fake heading</div>',
-        extensions: [basicSetup, languageConf.of(html())],
+        extensions: [
+          basicSetup,
+          html(),
+          EditorView.updateListener.of((v) => {
+            if (v.docChanged) {
+              console.log("DO SOMETHING WITH THE NEW CODE");
+            }
+          }),
+        ],
       }),
       parent: document.querySelector("#editor"),
     });
@@ -23,7 +31,7 @@ export const Editor = () => {
   return (
     <div>
       <div id="editor"></div>
-      <div id="output">{parse(htmlOutput)}</div>
+      <div id="html-output">{parse(htmlOutput)}</div>
     </div>
   );
 };
