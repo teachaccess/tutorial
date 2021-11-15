@@ -1,4 +1,4 @@
-@import "codemirror/lib/codemirror.css";
+@import "./editor.css";
 
 :root {
   --ifm-color-primary-lightest: #8780b6;

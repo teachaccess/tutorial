@@ -1,11 +1,7 @@
 import { EditorView, basicSetup } from "@codemirror/basic-setup";
-import { EditorState, Compartment } from "@codemirror/state";
-import { htmlLanguage, html } from "@codemirror/lang-html";
-import { language } from "@codemirror/language";
-import { javascript } from "@codemirror/lang-javascript";
-import { Helmet } from "react-helmet";
+import { EditorState } from "@codemirror/state";
+import { html } from "@codemirror/lang-html";
 import parse from "html-react-parser";
-const languageConf = new Compartment();
 
 export const Editor = ({
   initialHtml = '<div class="A fake heading">A fake heading</div>',
@@ -31,9 +27,16 @@ export const Editor = ({
     setView(editorView);
   }, []);
   return (
-    <div>
-      <div id="editor"></div>
-      <div id="html-output">{parse(output)}</div>
+    <div className="editor-container">
+      <div>
+        <div className="playground-header">Live editor</div>
+        <div
+          id="editor"
+          className="npm__react-simple-code-editor__textarea"
+        ></div>
+      </div>
+      <div className="playground-header">Result</div>
+      <div className="html-output">{parse(output)}</div>
     </div>
   );
 };
