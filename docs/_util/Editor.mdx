@@ -48,15 +48,16 @@ export const Editor = ({ checkExercise, children: initialHtml = "" }) => {
       </div>
     </div>
   );
+  const renderVerifyButton = checkExercise && (
+    <VerifyButton checkExercise={() => checkExercise(resultRef.current)} />
+  );
   return (
     <>
       <div className="editor-container">
         {renderEditor}
         {renderResult}
       </div>
-      {checkExercise && (
-        <VerifyButton checkExercise={() => checkExercise(resultRef.current)} />
-      )}
+      {renderVerifyButton}
     </>
   );
 };
