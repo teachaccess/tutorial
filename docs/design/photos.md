@@ -7,7 +7,7 @@ id: photos
 While alt-text can make a static photo or graphic accessible to screen reader users, when an image is dynamic (e.g., animated GIF or video) and contains audio, additional support is required for users who are blind or deaf.
 
 <figure>
-  <img src="/static/img/captions.png" alt="Captions displayed over video screen 
+  <img src="/img/captions.png" alt="Captions displayed over video screen 
   shot" />
 </figure>
 
