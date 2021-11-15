@@ -4,7 +4,7 @@ sidebar_label: 2.3. Images
 id: images
 ---
 
-import { VerifyButton } from "../_util/VerifyButton.mdx";
+import { Editor } from "../_util/Editor.mdx";
 
 Screen readers interact with text on the screen. So, to convey the meaning of
 an image to screen reader users, we put an accessible text label in the HTML. If an image is decorative, we can hide it from screen reader users by giving it an empty label (`alt=""`). After completing the exercise below, you can learn a lot more about writing good alt text for images by checking out [WebAIM's resource on the
@@ -17,25 +17,19 @@ to the Editor Output section, and use <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Ri
 to navigate to these images. VoiceOver will announce the `alt` text. For the second image below, VoiceOver
 will not announce anything meaningful since there is no `alt` text.
 
-```jsx live
-<img alt="Teach Access Bridge logo" src="/static/img/inline-image.png" />
-```
+<Editor initialHtml="<img alt='Teach Access Bridge logo' src='/img/inline-image.png' />" />
 
 ## Inaccessible Inline Image exercise
 
 This is an image without `alt` text. Turn on VoiceOver and listen to how it is read. Add an `alt` attribute "Teach Access logo" to this image to make it accessible and test it again with VoiceOver.
 
-```jsx live
-<img src="/static/img/inline-image.png" />
-```
-
-<VerifyButton
-  checkExercise={() => {
-    const exercise = document.querySelectorAll("[class^=playgroundPreview]")[1];
-    const images = Array.from(exercise.getElementsByTagName("img"));
+<Editor
+  initialHtml="<img src='/img/inline-image.png' />"
+  checkExercise={(result) => {
+    const images = Array.from(result.getElementsByTagName("img"));
     const missingAltTag = images.some((image) => !image.hasAttribute("alt"));
     if (missingAltTag) {
       return "It doesn't look like you added an alt to your image.";
     }
   }}
-></VerifyButton>
+/>
