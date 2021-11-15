@@ -20,11 +20,11 @@ screen readers. If you are on a Mac, turn on VoiceOver and tab to the
 button. You will hear the name of the element and the element type announced
 by VoiceOver.
 
-<Editor
-  initialHtml={`<button onclick="alert('Take a HIKE!')">
+<Editor>
+  {`<button onclick="alert('Take a HIKE!')">
   Submit
 </button>`}
-/>
+</Editor>
 
 ## Unsemantic Button exercise
 
@@ -41,9 +41,6 @@ that it is a button element. Note that you would need to add an `onkeypress` or 
 import { Editor } from "../_util/Editor.mdx";
 
 <Editor
-  initialHtml={`<div class='customButton'>
-  Submit
-</div>`}
   checkExercise={(result) => {
     const [button] = document.getElementsByClassName("customButton");
     const isValid =
@@ -54,4 +51,8 @@ import { Editor } from "../_util/Editor.mdx";
       return "It doesn't look like your custom button is accessible yet.";
     }
   }}
-/>
+>
+  {`<div class='customButton'>
+  Submit
+</div>`}
+</Editor>
