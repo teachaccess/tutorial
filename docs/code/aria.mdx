@@ -17,17 +17,12 @@ For this exercise, we will focus on one small part of WAI-ARIA called landmark r
 4. Press down arrow to read the landmark list.
 5. Press enter to move the VoiceOver reading cursor to the beginning of one of the landmark regions.
 
-```jsx live
-<>
-  <h3>ARIA Landmarks Exercise</h3>
+import { Editor } from "../_util/Editor.mdx";
+
+<Editor
+  initialHtml='<h3>ARIA Landmarks Exercise</h3>
   How many landmarks did you find on the page?
-  <input type="text" id="landmarks" />
-</>
-```
-
-import { VerifyButton } from "../_util/VerifyButton.mdx";
-
-<VerifyButton
+  <input type="text" id="landmarks" />'
   checkExercise={() => {
     const { value } = document.getElementById("landmarks");
     const isValid = value === "4" || value === "four";
