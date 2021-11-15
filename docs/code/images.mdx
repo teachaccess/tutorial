@@ -17,14 +17,18 @@ to the Editor Output section, and use <kbd>Ctrl</kbd> + <kbd>Opt</kbd> + <kbd>Ri
 to navigate to these images. VoiceOver will announce the `alt` text. For the second image below, VoiceOver
 will not announce anything meaningful since there is no `alt` text.
 
-<Editor initialHtml="<img alt='Teach Access Bridge logo' src='/img/inline-image.png' />" />
+<Editor>
+  {`<img
+alt='Teach Access Bridge logo'
+src='/img/inline-image.png'
+/>`}
+</Editor>
 
 ## Inaccessible Inline Image exercise
 
 This is an image without `alt` text. Turn on VoiceOver and listen to how it is read. Add an `alt` attribute "Teach Access logo" to this image to make it accessible and test it again with VoiceOver.
 
 <Editor
-  initialHtml="<img src='/img/inline-image.png' />"
   checkExercise={(result) => {
     const images = Array.from(result.getElementsByTagName("img"));
     const missingAltTag = images.some((image) => !image.hasAttribute("alt"));
@@ -32,4 +36,8 @@ This is an image without `alt` text. Turn on VoiceOver and listen to how it is r
       return "It doesn't look like you added an alt to your image.";
     }
   }}
-/>
+>
+  {`<img 
+  src="/img/inline-image.png"
+/>`}
+</Editor>
