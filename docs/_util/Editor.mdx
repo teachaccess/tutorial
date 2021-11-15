@@ -4,7 +4,7 @@ import { html } from "@codemirror/lang-html";
 import parse from "html-react-parser";
 import { VerifyButton } from "../_util/VerifyButton.mdx";
 
-export const Editor = ({ initialHtml = "", checkExercise }) => {
+export const Editor = ({ checkExercise, children: initialHtml = "" }) => {
   const [editorId] = React.useState(Math.round(Math.random() * 100000));
   const [view, setView] = React.useState();
   const [output, setOutput] = React.useState(initialHtml);
