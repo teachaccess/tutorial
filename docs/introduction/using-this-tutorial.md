@@ -1,5 +1,6 @@
 ---
 title: Using this tutorial
+sidebar_label: 1.1. Using this tutorial
 id: using-this-tutorial
 slug: /
 ---

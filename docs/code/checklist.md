@@ -1,5 +1,6 @@
 ---
 title: Checklist
+sidebar_label: 2.12. Checklist
 id: checklist
 ---
 

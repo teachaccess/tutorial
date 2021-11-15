@@ -1,5 +1,6 @@
 ---
 title: FAQs
+sidebar_label: 1.2. FAQs
 id: faq
 ---
 
