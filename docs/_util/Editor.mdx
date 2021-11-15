@@ -2,16 +2,17 @@ import { EditorView, basicSetup } from "@codemirror/basic-setup";
 import { EditorState } from "@codemirror/state";
 import { html } from "@codemirror/lang-html";
 import parse from "html-react-parser";
+import { VerifyButton } from "../_util/VerifyButton.mdx";
 
-export const Editor = ({
-  initialHtml = '<div class="A fake heading">A fake heading</div>',
-}) => {
+export const Editor = ({ initialHtml = "", checkExercise }) => {
+  const [editorId] = React.useState(Math.round(Math.random() * 100000));
   const [view, setView] = React.useState();
   const [output, setOutput] = React.useState(initialHtml);
+  const resultRef = React.useRef();
   React.useEffect(() => {
     const editorView = new EditorView({
       state: EditorState.create({
-        doc: '<div class="A fake heading">A fake heading</div>',
+        doc: initialHtml,
         extensions: [
           basicSetup,
           html(),
@@ -22,21 +23,40 @@ export const Editor = ({
           }),
         ],
       }),
-      parent: document.querySelector("#editor"),
+      parent: document.querySelector(`#editor-${editorId}`),
     });
     setView(editorView);
   }, []);
-  return (
-    <div className="editor-container">
-      <div>
-        <div className="playground-header">Live editor</div>
-        <div
-          id="editor"
-          className="npm__react-simple-code-editor__textarea"
-        ></div>
-      </div>
-      <div className="playground-header">Result</div>
-      <div className="html-output">{parse(output)}</div>
+  const renderEditor = (
+    <div>
+      <div className="playground-header">Live editor</div>
+      <div
+        id={`editor-${editorId}`}
+        className="npm__react-simple-code-editor__textarea"
+      ></div>
     </div>
+  );
+  const renderResult = (
+    <div>
+      <div className="playground-header">Result</div>
+      <div
+        id={checkExercise ? "exercise" : ""}
+        className="html-output"
+        ref={resultRef}
+      >
+        {parse(output)}
+      </div>
+    </div>
+  );
+  return (
+    <>
+      <div className="editor-container">
+        {renderEditor}
+        {renderResult}
+      </div>
+      {checkExercise && (
+        <VerifyButton checkExercise={() => checkExercise(resultRef.current)} />
+      )}
+    </>
   );
 };
