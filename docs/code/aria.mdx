@@ -20,9 +20,6 @@ For this exercise, we will focus on one small part of WAI-ARIA called landmark r
 import { Editor } from "../_util/Editor.mdx";
 
 <Editor
-  initialHtml='<h3>ARIA Landmarks Exercise</h3>
-  How many landmarks did you find on the page?
-  <input type="text" id="landmarks" />'
   checkExercise={() => {
     const { value } = document.getElementById("landmarks");
     const isValid = value === "4" || value === "four";
@@ -30,7 +27,11 @@ import { Editor } from "../_util/Editor.mdx";
       return "That is not the right number of landmarks on the page!";
     }
   }}
-/>
+>
+  {`<h3>ARIA Landmarks Exercise</h3>
+How many landmarks did you find on the page?
+<input type="text" id="landmarks" />`}
+</Editor>
 
 There are several types of landmark roles. Some of them are:
 
