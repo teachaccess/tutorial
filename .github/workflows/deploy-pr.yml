@@ -46,6 +46,7 @@ jobs:
           cd website
           yarn build
           cd ..
+          cd ..
       
       - name: Checkout temporary deployment target repo
         uses: actions/checkout@v2
@@ -56,7 +57,7 @@ jobs:
       
       - name: Push files to target
         run: |
-          cp -r pr-build/dist/* pr-deploy
+          cp -r pr-build/website/build/* pr-deploy
           cd pr-deploy
           touch .nojekyll
           git add .
