@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create new repository for temporary deployment
-        uses: teachaccess/create-repository-action@v1
+        uses: octobay/create-repository-action@v1
         with:
           name: ${{ env.PR_REPO_NAME }}
           org: teachaccess
