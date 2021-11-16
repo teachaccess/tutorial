@@ -1,0 +1,57 @@
+#slide {
+  position: initial;
+}
+#overlay,
+#overlay2 {
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}
+
+#container,
+#container2 {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 15px;
+}
+
+label {
+  float: left;
+  width: 100px;
+  clear: both;
+  text-align: right;
+  margin: 0 10px;
+}
+
+#content,
+#content2 {
+  margin: 20px 0;
+}
+
+#closeButton:focus {
+  outline: 2px solid #4a97f9;
+  outline-offset: 1px;
+}
+
+#closeImg {
+  float: right;
+  margin-top: 9px;
+}
+
+#sourceLink,
+#sourceLink2 {
+  margin: 10px;
+}
+
+#content2 > div {
+  margin: 10px 0;
+}
