@@ -43,7 +43,7 @@ export const Editor = ({ checkExercise, children: initialHtml = "" }) => {
         id={checkExercise ? "exercise" : ""}
         className="html-output"
         ref={resultRef}
-        dangerouslySetInnerHTML={{ __html: output }} // this is not ideal by any means, but was the only way I could find to set html with inline js events (i.e. onclick=""). Other solutions like html-react-parser did not work with inline js events
+        dangerouslySetInnerHTML={{ __html: output }} // this is not ideal by any means, but was the only way I could find to set html with inline js events (i.e. onclick=""). Other solutions like html-react-parser stripped the inline js events
       />
     </div>
   );
