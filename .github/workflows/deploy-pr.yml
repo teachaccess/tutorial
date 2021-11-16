@@ -42,11 +42,11 @@ jobs:
       
       - name: Build Pull Request
         run: |
-          cd pr-build
+          cd pr-build/website
           cd website
+          yarn install
           yarn build
-          cd ..
-          cd ..
+          cd ../..
       
       - name: Checkout temporary deployment target repo
         uses: actions/checkout@v2
