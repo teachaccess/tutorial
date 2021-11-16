@@ -50,7 +50,7 @@ jobs:
       - name: Checkout temporary deployment target repo
         uses: actions/checkout@v2
         with:
-          repository: octobay/${{ env.PR_REPO_NAME }}
+          repository: teachaccess/${{ env.PR_REPO_NAME }}
           path: 'pr-deploy'
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       
