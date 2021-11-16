@@ -1,7 +1,7 @@
 name: Delete Pull Request Deployment
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ docusaurus ]
     types: [ closed ]
     paths-ignore:
       - '.github/workflows/**'
