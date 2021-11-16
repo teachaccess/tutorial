@@ -1,0 +1,66 @@
+name: Pull Request Build and Deploy
+on:
+  pull_request:
+    branches: [docusaurus]
+    paths-ignore:
+      - ".github/workflows/**"
+
+env:
+  PR_REPO_NAME: tutorial-pr-${{ github.event.pull_request.node_id }}
+
+jobs:
+  create-page-host:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create new repository for temporary deployment
+        uses: teachaccess/create-repository-action@v1
+        with:
+          name: ${{ env.PR_REPO_NAME }}
+          org: teachaccess
+          access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+  pr-build-deploy:
+    needs: create-page-host
+    runs-on: ubuntu-latest
+    environment:
+      name: pr-staging
+      url: https://teachaccess.github.io/${{ env.PR_REPO_NAME }}/
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
+      - name: Set GitHub Actions as Commit Author
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          path: "pr-build"
+
+      - name: Build Pull Request
+        run: |
+          cd pr-build
+          cd website
+          yarn build
+          cd ..
+          cd ..
+
+      - name: Checkout temporary deployment target repo
+        uses: actions/checkout@v2
+        with:
+          repository: octobay/${{ env.PR_REPO_NAME }}
+          path: "pr-deploy"
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Push files to target
+        run: |
+          cp -r pr-build/website/build/* pr-deploy
+          cd pr-deploy
+          touch .nojekyll
+          git add .
+          git commit -m $GITHUB_SHA
+          git branch -M gh-pages
+          git push -u origin gh-pages
