@@ -132,3 +132,7 @@ kbd {
   border: thin solid gray;
   margin: 10px;
 }
+
+.postHeader {
+  margin-top: 2rem;
+}
