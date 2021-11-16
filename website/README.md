@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. The staging environment is hosted on [render](https://www.render.com): https://teachaccess-tutorial-staging-env.onrender.com/
 
 ### Installation
 
