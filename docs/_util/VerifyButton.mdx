@@ -16,9 +16,9 @@ export const VerifyButton = ({ checkExercise }) => {
     if (feedback) {
       const isSuccess = feedback === success;
       return (
-        <span className={isSuccess ? "success" : "error"} role="alert">
+        <div className={isSuccess ? "success" : "error"} role="alert">
           {feedback}
-        </span>
+        </div>
       );
     }
   };

@@ -1,3 +1,7 @@
+@import "./editor.css";
+@import "./dialogs.css";
+@import "./menus.css";
+
 :root {
   --ifm-color-primary-lightest: #8780b6;
   --ifm-color-primary-lighter: #7169a9;
@@ -121,4 +125,14 @@ kbd {
   text-shadow: 0px 1px 0px #fff;
   line-height: 1.4;
   white-space: nowrap;
+}
+
+#container {
+  font-size: 100%;
+  border: thin solid gray;
+  margin: 10px;
+}
+
+.postHeader {
+  margin-top: 2rem;
 }

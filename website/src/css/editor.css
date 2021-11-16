@@ -1,0 +1,43 @@
+#editor {
+  white-space: pre;
+  font-family: monospace;
+}
+.cm-editor {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14.4px;
+  height: 100%;
+}
+
+.html-output {
+  padding: 1rem;
+  background-color: var(--ifm-pre-background);
+}
+.cm-editor .cm-gutters {
+  background-color: var(--ifm-pre-background);
+}
+.playground-header {
+  letter-spacing: 0.08rem;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  font-size: var(--ifm-code-font-size);
+}
+
+.playground-header:first-of-type {
+  background: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-content-inverse);
+}
+
+.cm-editor .cm-activeLine,
+.cm-editor .cm-activeLineGutter {
+  background-color: transparent;
+}
+
+.editor-container {
+  margin-bottom: var(--ifm-leading);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+  overflow: hidden;
+}

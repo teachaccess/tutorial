@@ -20,9 +20,11 @@ screen readers. If you are on a Mac, turn on VoiceOver and tab to the
 button. You will hear the name of the element and the element type announced
 by VoiceOver.
 
-```jsx live
-<button onClick={() => alert("Take a HIKE!")}>Submit</button>
-```
+<Editor>
+  {`<button onclick="alert('Take a HIKE!')">
+  Submit
+</button>`}
+</Editor>
 
 ## Unsemantic Button exercise
 
@@ -31,20 +33,15 @@ make this semantic is to use a real `button` or `input` tag. Here is another way
 example below, add
 
 1. `role='button'`
-1. `tabIndex='0'`
+1. `tabindex='0'`
 
 Verify with VoiceOver that you can tab to the button and hear the button name and the fact
-that it is a button element. Note that you would need to add an `onKeyPress` or `onKeyDown` handler to the button so you
-can tab to the button and press <kbd>enter</kbd> to activate it using just the keyboard.
+that it is a button element. Note that you would need to add an `onkeypress` or `onkeydown` handler to the button so you can tab to the button and press <kbd>enter</kbd> to activate it using just the keyboard.
 
-```jsx live
-<div className="customButton">Submit</div>
-```
+import { Editor } from "../_util/Editor.mdx";
 
-import { VerifyButton } from "../_util/VerifyButton.mdx";
-
-<VerifyButton
-  checkExercise={() => {
+<Editor
+  checkExercise={(result) => {
     const [button] = document.getElementsByClassName("customButton");
     const isValid =
       button.hasAttribute("tabindex") &&
@@ -54,4 +51,8 @@ import { VerifyButton } from "../_util/VerifyButton.mdx";
       return "It doesn't look like your custom button is accessible yet.";
     }
   }}
-/>
+>
+  {`<div class='customButton'>
+  Submit
+</div>`}
+</Editor>
