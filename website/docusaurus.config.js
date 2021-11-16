@@ -6,7 +6,7 @@ const config = {
   organizationName: "teachaccess",
   projectName: "tutorial",
   deploymentBranch: "gh-pages",
-  scripts: ["https://buttons.github.io/buttons.js"],
+  scripts: ["https://buttons.github.io/buttons.js", "/js/scriptHelper.js"],
   favicon: "../img/logo-teach-access.svg",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
