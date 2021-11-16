@@ -2,7 +2,7 @@ const config = {
   title: "Teach Access Tutorial",
   tagline: "Best practices for making accessible mobile and web apps",
   url: "https://teachaccess.github.io",
-  baseUrl: "/tutorial/",
+  baseUrl: "/",
   organizationName: "teachaccess",
   projectName: "tutorial",
   deploymentBranch: "gh-pages",
