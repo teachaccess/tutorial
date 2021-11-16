@@ -17,78 +17,62 @@ The example below shows how to apply ARIA attributes to an unordered list elemen
 - <kbd>escape</kbd> closes the menu, returning focus to the button.
 - If actions were implemented, pressing <kbd>enter</kbd> on a menu item would perform the action.
 
-```jsx live
-// `MenuHelpers` is an imported object that contains the behavior methods for the menu interaction.
+import { Editor } from "../_util/Editor.mdx";
 
-function PopUpMenuExample(props) {
-
-  return (
-    <>
-      <div
-        id="popupMenuExample"
-        className="popupMenuWidget"
-        onKeyDown={MenuHelpers.onKeyDown}
-        onClick={MenuHelpers.onClickWidget}
-      >
-        <a
-          href="#"
-          role="button"
-          tabIndex="0"
-          aria-haspopup="true"
-          aria-owns="actionsMenu"
-          onClick={MenuHelpers.onClick}
-        >
-          Actions &#9660;
-        </a>
-        <ul
-          id="actionsMenu"
-          role="menu"
-          data-open="false"
-          onMouseOver={MenuHelpers.onMouseoverMenuItem}
-          onClick={MenuHelpers.onClickMenuItem}
-          style={{ display: "none" }}
-        >
-          <li role="presentation">
-            <a
-              id="action_1"
-              href="#"
-              role="menuitem"
-              tabIndex="-1"
-              data-active="false"
-            >
-              Create
-            </a>
-          </li>
-          <li role="presentation">
-            <a
-              id="action_2"
-              href="#"
-              role="menuitem"
-              tabIndex="-1"
-              data-active="false"
-            >
-              Edit
-            </a>
-          </li>
-          <li role="presentation">
-            <a
-              id="action_3"
-              href="#"
-              role="menuitem"
-              tabIndex="-1"
-              data-active="false"
-            >
-              Delete
-            </a>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-}
-```
+<Editor>
+  {`<!-- 'menuExample' is a global object
+  that contains the behavior
+  methods for the menu interaction. -->
+<div
+  id="popupMenuExample"
+  class="popupMenuWidget"
+  onkeydown="(menuExample.onKeydown.bind(menuExample))(event)"
+  onclick="(menuExample.onClickWidget.bind(menuExample))(event)">
+  <a
+    href="#"
+    role="button"
+    tabindex="0"
+    aria-haspopup="true"
+    aria-owns="actionsMenu"
+    onclick="(menuExample.onClick.bind(menuExample))(event)">Actions &#9660;</a>
+  <ul
+    id="actionsMenu"
+    role="menu"
+    data-open="false"
+    onmouseover="(menuExample.onMouseoverMenuItem.bind(menuExample))(event)"
+    onclick="(menuExample.onClickMenuItem.bind(menuExample))(event)"
+    style="display: none;">
+    <li role="presentation">
+      <a
+        id="action_1"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Create</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_2"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Edit</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_3"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Delete</a>
+    </li>
+  </ul>
+</div>
+  `}
+</Editor>
 
 ## 🔧 Inaccessible Menu exercise
+
 Update the example below to include the necessary markup for making this menu accessible. You should address the following issues.
 
 - The `a` tag with the ID `menuTrigger` has an associated popup. Therefore, it should be marked up with `aria-haspopup` and `aria-owns` to make this relationship explicit.
@@ -98,95 +82,71 @@ Update the example below to include the necessary markup for making this menu ac
 - The `a` tags inside the ul with the ID `actionsMenu` are menu items. Mark them up with the role `menuitem`.
 - The `a` tags inside the ul with the ID `actionsMenu` should not be tabbable. Add an explicit `tabindex="-1"` to each of them.
 
-```jsx live
-// `MenuHelpers` is an imported object that contains the behavior methods for the menu interaction.
-
-function PopUpMenuExample(props) {
-
-  return (
-    <>
-      <div
-        id="popupMenuExampleWithAssertions"
-        class="popupMenuWidget"
-        onKeyDown={MenuHelpers.onKeyDown}
-        onClick={MenuHelpers.onClickWidget}
-      >
-        <a
-          id="menuTrigger"
-          onClick={MenuHelpers.onClick}
-        >
-          Actions &#9660;
-        </a>
-        <ul
-          id="actionsMenu"
-          data-open="false"
-          onMouseOver={MenuHelpers.onMouseoverMenuItem}
-          onClick={MenuHelpers.onClickMenuItem}
-          style={{ display: "none" }}
-        >
-          <li role="presentation">
-            <a id="action_1" href="#" data-active="false">
-              Create
-            </a>
-          </li>
-          <li role="presentation">
-            <a id="action_2" href="#" data-active="false">
-              Edit
-            </a>
-          </li>
-          <li role="presentation">
-            <a id="action_3" href="#" data-active="false">
-              Delete
-            </a>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-}
-```
-
-import { VerifyButton } from "../_util/VerifyButton.mdx";
-
-<VerifyButton
+<Editor
   checkExercise={() => {
-    const menuWidget = document.getElementById('popupMenuExampleWithAssertions');
+    const menuWidget = document.querySelector(
+      "#popupMenuExampleWithAssertions"
+    );
     const menuTrigger = menuWidget.querySelector("#menuTrigger");
     const actionsMenu = menuWidget.querySelector("#actionsMenu");
-    
-    if (menuTrigger.getAttribute("aria-haspopup") !== "true") {
+    // aria-haspopup
+    const ariaHasPopup = menuTrigger.getAttribute("aria-haspopup") === "true";
+    if (!ariaHasPopup) {
       return 'Add the attribute `aria-haspopup="true"` to the element with the ID `menuTrigger`';
     }
-    if (menuTrigger.getAttribute("aria-owns") !== "actionsMenu") {
+    const ariaOwns = menuTrigger.getAttribute("aria-owns") === "actionsMenu";
+    if (!ariaOwns) {
       return 'Add the attribute `aria-owns="actionsMenu"` to the element with the ID `menuTrigger`';
     }
-    if (menuTrigger.getAttribute("role") !== "button") {
+    const hasButtonRole = menuTrigger.getAttribute("role") === "button";
+    if (!hasButtonRole) {
       return 'Add the attribute `role="button"` to the element with the ID `menuTrigger`';
     }
-    if (menuTrigger.getAttribute("tabIndex") !== "0") {
+    const hasButtonTabIndex = menuTrigger.getAttribute("tabIndex") === "0";
+    if (!hasButtonTabIndex) {
       return 'Add the attribute `tabindex="0"` to the element with the ID `menuTrigger`';
     }
-    if (actionsMenu.getAttribute("role") !== "menu") {
+    const hasMenuRole = actionsMenu.getAttribute("role" === "menu");
+    if (!hasMenuRole) {
       return 'Add the attribute `role="menu"` to the element with the ID `actionsMenu`';
     }
-    if (
-      [].slice
-        .call(actionsMenu.querySelectorAll("a"))
-        .every((item) => {
-          return item.getAttribute("role") !== "menuitem";
-        })
-    ) {
-      return 'Add the attribute `role="menuitem"` to each of the `a` tag elements in the element with the ID `actionsMenu`';
-    }
-    if (
-      [].slice
-        .call(actionsMenu.querySelectorAll("a"))
-        .every((item) => {
-          return item.getAttribute("tabIndex") !== "-1";
-        })
-    ) {
-      return 'Add the attribute `tabindex="-1"` to each of the `a` tag elements in the element with the ID `actionsMenu`';
-    }
-    return false;
   }}
-></VerifyButton>
+>
+  {`<!-- 'menuExample' is a global object
+  that contains the behavior
+  methods for the menu interaction. -->
+<div
+  id="popupMenuExampleWithAssertions"
+  class="popupMenuWidget"
+  onclick="(menuExample.onClickWidget.bind(menuExample))(event)"
+  onkeydown="(menuExample.onKeydown.bind(menuExample))(event)">
+  <a
+    id="menuTrigger"
+    onclick="(menuExample.onClick.bind(menuExample))(event)">Actions &#9660;</a>
+  <ul
+    id="actionsMenu"
+    data-open="false"
+    onmouseover="(menuExample.onMouseoverMenuItem.bind(menuExample))(event)"
+    onclick="(menuExample.onClickMenuItem.bind(menuExample))(event)"
+    style="display: none;">
+    <li role='presentation'>
+      <a
+        id="action_1"
+        href="#"
+        data-active="false">Create</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_2"
+        href="#"
+        data-active="false">Edit</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_3"
+        href="#"
+        data-active="false">Delete</a>
+    </li>
+  </ul>
+</div>`}
+</Editor>

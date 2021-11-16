@@ -19,45 +19,39 @@ In the example below, the list is correctly announced by screen readers as a lis
 3. Press `Ctrl` + `Opt` + `Right Arrow`.
 
 VoiceOver will announce ‘List 3 items’.
-```jsx live
-<ul>
+
+import { Editor } from "../_util/Editor.mdx";
+
+<Editor>
+  {`<ul>
   <li>Eggs</li>
   <li>Milk</li>
   <li>Bread</li>
-</ul>
-```
+</ul>`}
+</Editor>
 
 ## Semantic List Using ARIA Roles
+
 The list below uses ARIA roles to express the semantics of a list from a generic `div` structure. This approach to expressing list structure can be used if it is not possible to use the native HTML list tags.
 
 Notice that the default list styling is not applied. That is because the browser’s default stylesheet targets `ul` and `ol` tags.
 
 In the example below, the list is correctly announced by screen readers as a list with three items.
 
-```jsx live
-<div role="list">
+<Editor>
+  {`<div role="list">
   <div role="listitem">Sea</div>
   <div role="listitem">Surf</div>
   <div role="listitem">Sun</div>
-</div>
-```
+</div>`}
+</Editor>
 
 ## Unsemantic List exercise
 
 Update the example below so that the items are expressed as a list. The easiest way to make this semantic is to use a list tag. If that is not possible, wrap the elements in a container and give it a role of `list`. The individual items will need to be identified with a role of `listitem`.
 
-```jsx live
-<div>
-  <span>A house of straw</span>
-  <span>A house of sticks</span>
-  <span>A house of bricks</span>
-</div>
-```
-
-import { VerifyButton } from "../_util/VerifyButton.mdx";
-
-<VerifyButton
-  checkExercise={() => {
+<Editor
+  checkExercise={(result) => {
     const exercise = document.querySelectorAll("[class^=playgroundPreview]")[2];
     const hasWrappingElement =
       exercise.querySelector('[role="list"]') ||
@@ -73,4 +67,10 @@ import { VerifyButton } from "../_util/VerifyButton.mdx";
       return "Wrap the items in an 'li' element or in a 'span' OR 'div' with the role 'listitem'.";
     }
   }}
-></VerifyButton>
+>
+  {`<div>
+  <span>A house of straw</span>
+  <span>A house of sticks</span>
+  <span>A house of bricks</span>
+</div>`}
+</Editor>
