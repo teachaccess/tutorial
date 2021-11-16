@@ -1,4 +1,4 @@
-name: Delete Pull Request Deployment
+name: Delete PR Deployment
 on:
   pull_request:
     branches: [ docusaurus ]

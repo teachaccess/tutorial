@@ -1,4 +1,4 @@
-name: Pull Request Build and Deploy
+name: PR Build and Deploy
 on:
   pull_request:
     branches: [ docusaurus ]
@@ -43,7 +43,6 @@ jobs:
       - name: Build Pull Request
         run: |
           cd pr-build/website
-          cd website
           yarn install
           yarn build
           cd ../..
