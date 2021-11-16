@@ -1,0 +1,20 @@
+name: Delete Pull Request Deployment
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+    paths-ignore:
+      - '.github/workflows/**'
+
+env:
+  PR_REPO_NAME: pr-${{ github.event.pull_request.node_id }}
+
+jobs:
+  delete-page-host:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete repository for temporary deployment
+        uses: octobay/delete-repository-action@v1
+        with:
+          name: octobay/${{ env.PR_REPO_NAME }}
+          access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
