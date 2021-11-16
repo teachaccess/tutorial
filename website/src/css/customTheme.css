@@ -1,5 +1,6 @@
 @import "./editor.css";
 @import "./dialogs.css";
+@import "./menus.css";
 
 :root {
   --ifm-color-primary-lightest: #8780b6;
