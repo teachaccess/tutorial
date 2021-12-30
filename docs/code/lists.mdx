@@ -8,7 +8,7 @@ Semantic lists help screen readers understand the type of the element and the
 number of items in the element, and provide
 easier navigation via list commands specific to screen readers.
 
-## Semantic Lists Using HTML
+## Semantic list using HTML
 
 HTML provides tags that express lists. Most likely you are already familiar with the `ul` (unordered list) and `ol` (ordered list) tags.
 
@@ -30,7 +30,7 @@ import { Editor } from "../_util/Editor.mdx";
 </ul>`}
 </Editor>
 
-## Semantic List Using ARIA Roles
+## Semantic list using ARIA roles
 
 The list below uses ARIA roles to express the semantics of a list from a generic `div` structure. This approach to expressing list structure can be used if it is not possible to use the native HTML list tags.
 
@@ -46,7 +46,7 @@ In the example below, the list is correctly announced by screen readers as a lis
 </div>`}
 </Editor>
 
-## Unsemantic List exercise
+## Exercise: Unsemantic list
 
 Update the example below so that the items are expressed as a list. The easiest way to make this semantic is to use a list tag. If that is not possible, wrap the elements in a container and give it a role of `list`. The individual items will need to be identified with a role of `listitem`.
 

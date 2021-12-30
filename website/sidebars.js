@@ -19,7 +19,7 @@ module.exports = {
       "design/introduction",
       "design/color-contrast",
       "design/color-meaning",
-      "design/text-size",
+      "design/text",
       "design/site-copy",
       "design/photos",
       "design/checklist",
