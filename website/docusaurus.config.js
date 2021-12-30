@@ -28,18 +28,20 @@ const config = {
       },
     ],
   ],
-  plugins: ["@docusaurus/theme-live-codeblock", [
-    '@docusaurus/plugin-client-redirects',
-    {
-      redirects: [
-        {
-          to: '/',
-          from: ['/tutorial', '/tutorial/']
-        },
-      ],
-    },
+  plugins: [
+    "@docusaurus/theme-live-codeblock",
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/",
+            from: ["/tutorial", "/tutorial/"],
+          },
+        ],
+      },
+    ],
   ],
-],
   themeConfig: {
     navbar: {
       logo: {
