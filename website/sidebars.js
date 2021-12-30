@@ -12,7 +12,7 @@ module.exports = {
       "code/tables",
       "code/menus",
       "code/aria-introduction",
-      "code/aria",
+      "code/landmarks",
       "code/checklist",
     ],
     "3. Design Principles": [
