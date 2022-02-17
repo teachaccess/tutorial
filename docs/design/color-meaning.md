@@ -16,11 +16,11 @@ state.
 Here's an example where providing a very simple texture to a bar chart will aid in readability and understanding for someone with decreased color perception.
 
 <figure>
-  <img src="/img/color-meaning-solid.png" alt="Chart showing bar graph without texture"/>
+  <img src="/tutorial/img/color-meaning-solid.png" alt="Chart showing bar graph without texture"/>
   <figcaption>Figure A: Chart without Texture</figcaption>
 </figure>
 
 <figure>
-  <img src="/img/color-meaning-texture.png" alt="Chart showing bar graph with distinct textures for each bar"/>
+  <img src="/tutorial/img/color-meaning-texture.png" alt="Chart showing bar graph with distinct textures for each bar"/>
   <figcaption>Figure B: Chart with Texture </figcaption>
 </figure>
