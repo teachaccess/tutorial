@@ -38,7 +38,7 @@ const config = {
       },
       items: [
         {
-          to: "/tutorial",
+          to: "/",
           label: "Tutorial",
           position: "left",
         },
