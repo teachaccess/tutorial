@@ -38,17 +38,17 @@ example below, add
 Verify with VoiceOver that you can tab to the button and hear the button name and the fact
 that it is a button element. Note that you would need to add an `onkeypress` or `onkeydown` handler to the button so you can tab to the button and press <kbd>enter</kbd> to activate it using just the keyboard.
 
-import { Editor } from "../_util/Editor.mdx";
+import { Editor } from "../_util/Editor.mdx"
 
 <Editor
-  checkExercise={(result) => {
-    const [button] = document.getElementsByClassName("customButton");
+  checkExercise={(exercise) => {
+    const [button] = exercise.getElementsByClassName("customButton")
     const isValid =
       button.hasAttribute("tabindex") &&
       button.getAttribute("tabindex") === "0" &&
-      button.getAttribute("role") === "button";
+      button.getAttribute("role") === "button"
     if (!isValid) {
-      return "It doesn't look like your custom button is accessible yet.";
+      return "It doesn't look like your custom button is accessible yet."
     }
   }}
 >

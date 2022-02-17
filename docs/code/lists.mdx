@@ -51,17 +51,17 @@ In the example below, the list is correctly announced by screen readers as a lis
 Update the example below so that the items are expressed as a list. The easiest way to make this semantic is to use a list tag. If that is not possible, wrap the elements in a container and give it a role of `list`. The individual items will need to be identified with a role of `listitem`.
 
 <Editor
-  checkExercise={(result) => {
+  checkExercise={(exercise) => {
     const hasWrappingElement =
-      result.querySelector('[role="list"]') ||
-      result.querySelector("ul") ||
-      result.querySelector("ol")
+      exercise.querySelector('[role="list"]') ||
+      exercise.querySelector("ul") ||
+      exercise.querySelector("ol")
     if (!hasWrappingElement) {
       return "You should create a wrapping element for the list. Either a 'ul', 'ol' OR a 'div' with the role 'list'."
     }
     const areItemsValid =
-      result.querySelectorAll('[role="listitem"]').length === 3 ||
-      result.querySelectorAll("li").length === 3
+      exercise.querySelectorAll('[role="listitem"]').length === 3 ||
+      exercise.querySelectorAll("li").length === 3
     if (!areItemsValid) {
       return "Wrap the items in an 'li' element or in a 'span' OR 'div' with the role 'listitem'."
     }

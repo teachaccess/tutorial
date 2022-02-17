@@ -14,14 +14,14 @@ For this exercise, we will focus on one small part of WAI-ARIA called landmark r
 
 ## Exercise: ARIA landmarks
 
-import { Editor } from "../_util/Editor.mdx";
+import { Editor } from "../_util/Editor.mdx"
 
 <Editor
-  checkExercise={() => {
-    const { value } = document.getElementById("landmarks");
-    const isValid = value === "4" || value === "four";
+  checkExercise={(exercise) => {
+    const { value } = exercise.getElementById("landmarks")
+    const isValid = value === "4" || value === "four"
     if (!isValid) {
-      return "That is not the right number of landmarks on the page!";
+      return "That is not the right number of landmarks on the page!"
     }
   }}
 >

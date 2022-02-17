@@ -29,15 +29,15 @@ will notice that the words bleed outside the box below. Try fixing this example
 by specifying the width and height as relative units, such as ems. Set the height
 to 3em and width to 10em and verify your answers.
 
-import { Editor } from "../_util/Editor.mdx";
+import { Editor } from "../_util/Editor.mdx"
 
 <Editor
-  checkExercise={(result) => {
-    var container = document.querySelector("#container");
+  checkExercise={(exercise) => {
+    const container = exercise.querySelector("#container")
     const isValid =
-      container.style.height === "3em" && container.style.width === "10em";
+      container.style.height === "3em" && container.style.width === "10em"
     if (!isValid) {
-      return "It doesn't seem like the height and width are set to the right ems";
+      return "It doesn't seem like the height and width are set to the right ems"
     }
   }}
 >

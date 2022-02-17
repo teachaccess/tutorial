@@ -23,8 +23,8 @@ import { Editor } from "../_util/Editor.mdx"
 The heading below is a fake heading made to look like a heading with an unsemantic `<div>`. Change the `<div>` below to use an `<h3>` tag. Now verify your semantic heading using the Verify button as well as with VoiceOver.
 
 <Editor
-  checkExercise={(result) => {
-    const h3s = result.querySelectorAll("h3")
+  checkExercise={(exercise) => {
+    const h3s = exercise.querySelectorAll("h3")
     if (h3s.length !== 1) {
       return "It doesn't look like you converted the div to a real heading."
     }

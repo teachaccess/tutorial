@@ -4,7 +4,7 @@ sidebar_label: 2.8. Tables
 id: tables
 ---
 
-import { VerifyButton } from "../_util/VerifyButton.mdx";
+import { VerifyButton } from "../_util/VerifyButton.mdx"
 
 Tables help screen readers process information presented in a tabular format.
 When information is presented using table markup, screen reader users can read down columns and across rows, and even hear column and row headings as they do so.
@@ -21,7 +21,7 @@ arrow key navigation of the table content. To test the table below with VoiceOve
 
 At this time, VoiceOver does not read the column headers in Chrome. However, VoiceOver does read them in Safari. Windows screen readers typically read column and row headers as well.
 
-import { Editor } from "../_util/Editor.mdx";
+import { Editor } from "../_util/Editor.mdx"
 
 <Editor>
   {`<table>
@@ -56,21 +56,21 @@ into an accessible HTML table.
 
 <Editor
   checkExercise={(exercise) => {
-    const elementTable = exercise.querySelector("table");
+    const elementTable = exercise.querySelector("table")
     if (!elementTable) {
-      return "Use a semantic table element.";
+      return "Use a semantic table element."
     }
-    const elementTR = exercise.querySelectorAll("tr");
+    const elementTR = exercise.querySelectorAll("tr")
     if (elementTR.length !== 2) {
-      return "Are you using semantic tr tags?";
+      return "Are you using semantic tr tags?"
     }
-    const elementTH = exercise.querySelectorAll("th");
+    const elementTH = exercise.querySelectorAll("th")
     if (elementTH.length !== 2) {
-      return "Are you using semantic th tags?";
+      return "Are you using semantic th tags?"
     }
-    const elementTD = exercise.querySelectorAll("td");
+    const elementTD = exercise.querySelectorAll("td")
     if (elementTD.length !== 2) {
-      return "Are you using semantic td tags?";
+      return "Are you using semantic td tags?"
     }
   }}
 >

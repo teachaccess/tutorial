@@ -70,10 +70,10 @@ The dialog below is unsemantic:
    Verify with VoiceOver.
 
 <Editor
-  checkExercise={(result) => {
-    const dialog = result.querySelector("#container2")
-    const title = result.querySelector("#dialog-title")
-    const heading = result.querySelector("h2")
+  checkExercise={(exercise) => {
+    const dialog = exercise.querySelector("#container2")
+    const title = exercise.querySelector("#dialog-title")
+    const heading = exercise.querySelector("h2")
     const assertion1 =
       dialog.hasAttribute("role") && dialog.getAttribute("role") === "dialog"
     if (!assertion1) {
