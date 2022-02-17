@@ -8,7 +8,7 @@ const config = {
   deploymentBranch: "gh-pages",
   scripts: [
     "https://buttons.github.io/buttons.js",
-    "/tutorial/js/scriptHelper.js",
+    "https://teachaccess.github.io/tutorial/js/scriptHelper.js",
   ],
   favicon: "img/logo-teach-access.svg",
   onBrokenLinks: "throw",
