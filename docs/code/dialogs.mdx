@@ -16,8 +16,9 @@ You will notice that:
 2. When the dialog opens, focus lands in the first focusable element in the dialog.
 3. Tabbing keeps focus within the dialog. Note that you have to write code to restrict the tab sequence to the dialog.
 4. Closing the dialog places focus back on the source button.
-5. Pressing the `esc` key closes the dialog and places the focus back on the source button. Note that for widgets like typeaheads, pressing `esc` should close the typeahead and not the dialog.
-   Note that if you have textual content in the dialog besides labels, you should associate it with an `aria-describedby` to the right input field so it gets announced when you tab to the input field.
+5. Pressing the `esc` key closes the dialog and places the focus back on the source button.
+   - Note that for widgets like typeaheads, pressing `esc` should close the typeahead and not the dialog.
+   - Note that if you have textual content in the dialog besides labels, you should associate it with an `aria-describedby` to the right input field so it gets announced when you tab to the input field.
 
 import { Editor } from "../_util/Editor.mdx";
 
