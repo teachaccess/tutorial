@@ -29,7 +29,6 @@
     "@codemirror/state": "^0.19.5",
     "@codemirror/view": "^0.19.16",
     "@docusaurus/core": "^2.0.0-beta.15",
-    "@docusaurus/plugin-client-redirects": "^2.0.0-beta.15",
     "@docusaurus/preset-classic": "^2.0.0-beta.15",
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.15",
     "clsx": "^1.1.1",
