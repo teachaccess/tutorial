@@ -56,20 +56,20 @@ into an accessible HTML table.
 
 <Editor
   checkExercise={(exercise) => {
-    const elementTable = exercise.querySelector("table")
-    if (!elementTable) {
+    const tableElement = exercise.querySelector("table")
+    if (!tableElement) {
       return "Use a semantic table element."
     }
-    const elementTR = exercise.querySelectorAll("tr")
-    if (elementTR.length !== 2) {
+    const trElements = exercise.querySelectorAll("tr")
+    if (!trElements.length) {
       return "Are you using semantic tr tags?"
     }
-    const elementTH = exercise.querySelectorAll("th")
-    if (elementTH.length !== 2) {
+    const thElements = exercise.querySelectorAll("th")
+    if (!thElements.length) {
       return "Are you using semantic th tags?"
     }
-    const elementTD = exercise.querySelectorAll("td")
-    if (elementTD.length !== 2) {
+    const tdElements = exercise.querySelectorAll("td")
+    if (!tdElements.length) {
       return "Are you using semantic td tags?"
     }
   }}
