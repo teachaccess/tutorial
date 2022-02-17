@@ -34,10 +34,12 @@ const config = {
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
-          {
-            to: "/",
-            from: ["/tutorial", "/tutorial/"],
-          },
+          /* redirect logic works locally but fails on `yarn build`
+            {
+              to: "/",
+              from: ["/tutorial", "/tutorial/"],
+            },
+          */
         ],
       },
     ],
