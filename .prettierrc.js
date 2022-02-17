@@ -1,3 +1,3 @@
 module.exports = {
-    semi: false
+    semi: false // needed due to Prettier/MDX incompatability
 };
