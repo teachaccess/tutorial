@@ -2,7 +2,7 @@ const config = {
   title: "Teach Access Tutorial",
   tagline: "Best practices for making accessible mobile and web apps",
   url: "https://teachaccess.github.io",
-  baseUrl: "/",
+  baseUrl: "/tutorial/",
   organizationName: "teachaccess",
   projectName: "tutorial",
   deploymentBranch: "gh-pages",
@@ -28,22 +28,7 @@ const config = {
       },
     ],
   ],
-  plugins: [
-    "@docusaurus/theme-live-codeblock",
-    [
-      "@docusaurus/plugin-client-redirects",
-      {
-        redirects: [
-          /* redirect logic works locally but fails on `yarn build`
-            {
-              to: "/",
-              from: ["/tutorial", "/tutorial/"],
-            },
-          */
-        ],
-      },
-    ],
-  ],
+  plugins: ["@docusaurus/theme-live-codeblock"],
   themeConfig: {
     navbar: {
       logo: {
@@ -53,7 +38,7 @@ const config = {
       },
       items: [
         {
-          to: "/",
+          to: "/tutorial",
           label: "Tutorial",
           position: "left",
         },
