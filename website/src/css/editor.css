@@ -15,6 +15,9 @@
 .cm-editor .cm-gutters {
   background-color: var(--ifm-pre-background);
 }
+.cm-gutterElement {
+  color: var(--ifm-color-emphasis-600);
+}
 .playground-header {
   letter-spacing: 0.08rem;
   padding: 0.75rem;
