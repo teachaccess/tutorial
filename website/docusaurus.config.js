@@ -10,7 +10,7 @@ const config = {
     "https://buttons.github.io/buttons.js",
     "/tutorial/js/scriptHelper.js",
   ],
-  favicon: "../img/logo-teach-access.svg",
+  favicon: "img/logo-teach-access.svg",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   trailingSlash: false,
@@ -35,8 +35,8 @@ const config = {
   themeConfig: {
     navbar: {
       logo: {
-        src: "../img/logo-teach-access.svg",
-        srcDark: "../img/logo-teach-access-dark.svg",
+        src: "img/logo-teach-access.svg",
+        srcDark: "img/logo-teach-access-dark.svg",
         alt: "Teach Access",
       },
       items: [
@@ -52,13 +52,13 @@ const config = {
         },
       ],
     },
-    image: "../img/undraw_online.svg",
+    image: "img/undraw_online.svg",
     footer: {
       links: [],
       copyright: "Copyright © 2022 Teach Access",
       logo: {
-        src: "../img/logo-teach-access.svg",
-        srcDark: "../img/logo-teach-access-dark.svg",
+        src: "img/logo-teach-access.svg",
+        srcDark: "img/logo-teach-access-dark.svg",
         alt: "Teach Access",
       },
     },
