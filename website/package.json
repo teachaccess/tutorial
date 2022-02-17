@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "examples": "docusaurus-examples",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "publish-gh-pages": "docusaurus-publish",
+    "write-translations": "docusaurus-write-translations",
+    "version": "docusaurus-version",
+    "rename-version": "docusaurus-rename-version",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus",
+    "lint": "npx eslint --fix ."
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "2.4.1"
+  },
+  "dependencies": {
+    "@codemirror/basic-setup": "^0.19.0",
+    "@codemirror/lang-html": "^0.19.3",
+    "@codemirror/state": "^0.19.5",
+    "@codemirror/view": "^0.19.16",
+    "@docusaurus/core": "^2.0.0-beta.15",
+    "@docusaurus/plugin-client-redirects": "^2.0.0-beta.15",
+    "@docusaurus/preset-classic": "^2.0.0-beta.15",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.15",
+    "clsx": "^1.1.1",
+    "html-react-parser": "^1.4.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

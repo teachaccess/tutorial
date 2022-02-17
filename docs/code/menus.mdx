@@ -1,0 +1,152 @@
+---
+title: Menus
+sidebar_label: 2.9. Menus
+id: menus
+---
+
+Menus, like dialogs, rely on a few key principles to render them usable with
+the keyboard or screen reader.
+
+## Accessible menu
+
+The example below shows how to apply ARIA attributes to an unordered list element to give it the semantics screen readers need to announce it as a menu. It also demonstrates the JavaScript functionality you need to create the appropriate keyboard interaction.
+
+- You can move focus to the button by pressing <kbd>tab</kbd>.
+- Pressing <kbd>enter</kbd> with focus on the button opens the menu and moves focus to the first menu item.
+- Up and down arrows navigate the menu.
+- <kbd>escape</kbd> closes the menu, returning focus to the button.
+- If actions were implemented, pressing <kbd>enter</kbd> on a menu item would perform the action.
+
+import { Editor } from "../_util/Editor.mdx"
+
+<Editor>
+  {`<!-- 'menuExample' is a global object
+  that contains the behavior
+  methods for the menu interaction. -->
+<div
+  id="popupMenuExample"
+  class="popupMenuWidget"
+  onkeydown="(menuExample.onKeydown.bind(menuExample))(event)"
+  onclick="(menuExample.onClickWidget.bind(menuExample))(event)">
+  <a
+    href="#"
+    role="button"
+    tabindex="0"
+    aria-haspopup="true"
+    aria-owns="actionsMenu"
+    onclick="(menuExample.onClick.bind(menuExample))(event)">Actions &#9660;</a>
+  <ul
+    id="actionsMenu"
+    role="menu"
+    data-open="false"
+    onmouseover="(menuExample.onMouseoverMenuItem.bind(menuExample))(event)"
+    onclick="(menuExample.onClickMenuItem.bind(menuExample))(event)"
+    style="display: none;">
+    <li role="presentation">
+      <a
+        id="action_1"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Create</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_2"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Edit</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_3"
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+        data-active="false">Delete</a>
+    </li>
+  </ul>
+</div>
+  `}
+</Editor>
+
+## Exercise: Inaccessible menu
+
+Update the example below to include the necessary markup for making this menu accessible. You should address the following issues.
+
+- The `a` tag with the ID `menuTrigger` has an associated popup. Therefore, it should be marked up with `aria-haspopup` and `aria-owns` to make this relationship explicit.
+- The `a` tag with the ID `menuTrigger` should be marked up as a button with the role `button`.
+- The `a` tag with the ID `menuTrigger` should be tabbable. Add an explicit `tabindex="0"` to it.
+- The `ul` tag with the ID `actionsMenu` should be marked up as a menu with the role `menu`.
+- The `a` tags inside the ul with the ID `actionsMenu` are menu items. Mark them up with the role `menuitem`.
+- The `a` tags inside the ul with the ID `actionsMenu` should not be tabbable. Add an explicit `tabindex="-1"` to each of them.
+
+<Editor
+  checkExercise={(exercise) => {
+    const menuWidget = exercise.querySelector(
+      "#popupMenuExampleWithAssertions"
+    );
+    const menuTrigger = menuWidget.querySelector("#menuTrigger");
+    const actionsMenu = menuWidget.querySelector("#actionsMenu");
+    // aria-haspopup
+    const ariaHasPopup = menuTrigger.getAttribute("aria-haspopup") === "true";
+    if (!ariaHasPopup) {
+      return 'Add the attribute `aria-haspopup="true"` to the element with the ID `menuTrigger`';
+    }
+    const ariaOwns = menuTrigger.getAttribute("aria-owns") === "actionsMenu";
+    if (!ariaOwns) {
+      return 'Add the attribute `aria-owns="actionsMenu"` to the element with the ID `menuTrigger`';
+    }
+    const hasButtonRole = menuTrigger.getAttribute("role") === "button";
+    if (!hasButtonRole) {
+      return 'Add the attribute `role="button"` to the element with the ID `menuTrigger`';
+    }
+    const hasButtonTabIndex = menuTrigger.getAttribute("tabIndex") === "0";
+    if (!hasButtonTabIndex) {
+      return 'Add the attribute `tabindex="0"` to the element with the ID `menuTrigger`';
+    }
+    const hasMenuRole = actionsMenu.getAttribute("role" === "menu");
+    if (!hasMenuRole) {
+      return 'Add the attribute `role="menu"` to the element with the ID `actionsMenu`';
+    }
+  }}
+>
+  {`<!-- 'menuExample' is a global object
+  that contains the behavior
+  methods for the menu interaction. -->
+<div
+  id="popupMenuExampleWithAssertions"
+  class="popupMenuWidget"
+  onclick="(menuExample.onClickWidget.bind(menuExample))(event)"
+  onkeydown="(menuExample.onKeydown.bind(menuExample))(event)">
+  <a
+    id="menuTrigger"
+    onclick="(menuExample.onClick.bind(menuExample))(event)">Actions &#9660;</a>
+  <ul
+    id="actionsMenu"
+    data-open="false"
+    onmouseover="(menuExample.onMouseoverMenuItem.bind(menuExample))(event)"
+    onclick="(menuExample.onClickMenuItem.bind(menuExample))(event)"
+    style="display: none;">
+    <li role='presentation'>
+      <a
+        id="action_1"
+        href="#"
+        data-active="false">Create</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_2"
+        href="#"
+        data-active="false">Edit</a>
+    </li>
+    <li role='presentation'>
+      <a
+        id="action_3"
+        href="#"
+        data-active="false">Delete</a>
+    </li>
+  </ul>
+</div>`}
+</Editor>

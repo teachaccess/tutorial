@@ -1,40 +1,34 @@
-# ! Framework migration in progress! All new content updates / dev work should go on `docusaurus` branch, not `master`
+# Website
 
-# Teach Access Tutorial
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. The staging environment is hosted on [render](https://www.render.com): https://teachaccess-tutorial-staging-env.onrender.com/
 
-This resource is part of the [Teach Access Initiative](http://teachaccess.org/), and provides best practices for making 
-accessible mobile and web apps. You can view the tutorial at <https://teachaccess.github.io/tutorial/>.
+### Installation
 
----
+```
+cd website
+yarn
+```
 
-This tutorial was built with [exerslide](https://facebookincubator.github.io/exerslide/).
+### Local development
 
-The content is located in `slides/`. You can make changes to the content 
-without having to generate the presentation, just by cloning this repository 
-and editing the files in `slides/`.
+```
+yarn start
+```
 
----
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-If you want to generate the presentation on your compute, you need to
+### Build
 
-1. Install exerslide globally. Exerslide is using Node, you can install it via 
-   [npm](https://www.npmjs.com/):
+```
+yarn build
+```
 
-   ```
-   npm install -g exerslide-cli
-   ```
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-2. Clone this repository
+### Deployment
 
-   ```
-   git clone https://github.com/teachaccess/tutorial.git
-   ```
+```
+$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
 
-3. Install the project's dependencies via
-
-   ```
-   npm install
-   ```
-
-Now you can generate the presentation. `exerslide serve` will start local 
-webserver and automatically regenerate the presentation when you update slides.
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

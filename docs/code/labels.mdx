@@ -1,0 +1,119 @@
+---
+title: Labels
+sidebar_label: 2.5. Labels
+id: labels
+---
+
+Accessible labels are necessary to make several other types of elements
+understandable, such as inputs, widgets, and ARIA landmark regions.
+Accessible labels that create a delightful experience are:
+
+1. Concise -- 1 to 3 simple words. Only occasionally as many as 5 words.
+1. Meaningful -- accurately convey the purpose of the element.
+
+There are many ways to label an interactive element such as a button or an input field, which you will see below. You can check the results of adding the various label types by testing in your screen reader too!
+
+## Self-labeled
+
+Some elements, like links and buttons with display text, label themselves. In this case, screen reader users and all other users can perceive the label.
+
+import { Editor } from "../_util/Editor.mdx"
+
+<Editor>
+  {`<button>
+  button
+</button>`}
+</Editor>
+
+## Using `<label>`
+
+If we put text on the screen near an input such as a text field, the screen reader cannot reliably pick up on that visual association. It needs to be told which nearby text is the associated label. One way to do this is with the `label` element.
+
+<Editor>
+  {`<div>
+  <label for="lastName">Last name:</label>
+  <input id="lastName" type="text" />
+</div>`}
+</Editor>
+
+## Using 'aria-labelledby'
+
+The HTML label works only for HTML inputs. If we make a control out of other elements by using ARIA, we can instead use `aria-labelledby`.
+
+<Editor>
+  {`<div>
+  <div id="status">What's on your mind?</div>
+  <div
+    aria-labelledby="status"
+    contenteditable
+    id="composer"
+    role="textbox"
+  ></div>
+</div>`}
+</Editor>
+
+## Using 'aria-label'
+
+In rare cases, the purpose of the input is visually obvious in context, but it's not obvious to someone using a screen reader. We can provide contextual detail with `aria-label`.
+
+<Editor>
+  {`<fieldset>
+  <legend>Telephone</legend>
+  <input id="one" type="number" aria-label="Area Code" />
+  <input type="number" aria-label="Exchange Code" />
+  <input type="number" aria-label="Line Number" />
+</fieldset>`}
+</Editor>
+
+## Using 'aria-describedby'
+
+Occasionally, a label by itself is insufficient information. If help text is present in the UI, we can identify it as an accessible description by using `aria-describedby`.
+
+<Editor>
+  {`<div>
+  <label for="hikeDate">HIKE completion date</label>
+  <input id="hikeDate" aria-describedby="dateFormat" type="text" />
+  <p id="dateFormat">Note: This date will be recorded.</p>
+</div>`}
+</Editor>
+
+## Exercise: Inaccessible button
+
+Add an `aria-label` to the button below and label it 'search' to make it accessible.
+
+<Editor
+  checkExercise={(exercise) => {
+    const btn = exercise.querySelector("button.searchBtn")
+    if (!btn.hasAttribute("aria-label")) {
+      return "It doesn't look like you added an aria-label to the button"
+    }
+  }}
+>
+  {`<button class="searchBtn"></button>`}
+</Editor>
+
+## Exercise: Inaccessible interactive elements
+
+Add an `aria-labelledby` to the input field below and point it to the `id` of the prompt span.
+Also, add an `aria-describedby` to the input field and point it to the description below to
+make it accessible.
+
+<Editor
+  checkExercise={(exercise) => {
+    const btn = exercise.querySelector("input.checkbox")
+    const hasLabelledBy =
+      btn.hasAttribute("aria-labelledby") &&
+      btn.getAttribute("aria-labelledby") === "prompt"
+    const hasDescribedBy =
+      btn.hasAttribute("aria-describedby") &&
+      btn.getAttribute("aria-describedby") === "description"
+    if (!hasLabelledBy)
+      return "It doesn't look like you added an aria-labelledby to the input field"
+    if (!hasDescribedBy)
+      return "It doesn't look like you added an aria-describedby to the input field"
+  }}
+>
+  {`<input type="checkbox" class="checkbox" />
+<span id="prompt">Save Password</span>
+<p id="description">Your credentials will not be stored.</p>`}
+</Editor>

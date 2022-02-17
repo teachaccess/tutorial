@@ -1,0 +1,8 @@
+previewsEnabled: true
+services:
+  - type: web
+    name: teachaccess-tutorial-staging-env
+    env: static
+    buildCommand: cd website; yarn install; yarn build;
+    staticPublishPath: ./website/build
+    pullRequestPreviewsEnabled: true

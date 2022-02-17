@@ -1,0 +1,62 @@
+import { EditorView, basicSetup } from "@codemirror/basic-setup";
+import { EditorState } from "@codemirror/state";
+import { html } from "@codemirror/lang-html";
+import parse from "html-react-parser";
+import { VerifyButton } from "../_util/VerifyButton.mdx";
+
+export const Editor = ({ checkExercise, children: initialHtml = "" }) => {
+  const [editorId] = React.useState(Math.round(Math.random() * 100000));
+  const [view, setView] = React.useState();
+  const [output, setOutput] = React.useState(initialHtml);
+  const resultRef = React.useRef();
+  React.useEffect(() => {
+    const editorView = new EditorView({
+      state: EditorState.create({
+        doc: initialHtml,
+        extensions: [
+          basicSetup,
+          html(),
+          EditorView.updateListener.of((v) => {
+            if (v.docChanged) {
+              setOutput(v.state.doc.toString());
+            }
+          }),
+        ],
+      }),
+      parent: document.querySelector(`#editor-${editorId}`),
+    });
+    setView(editorView);
+  }, []);
+  const renderEditor = (
+    <div>
+      <div className="playground-header">Live editor</div>
+      <div
+        id={`editor-${editorId}`}
+        className="npm__react-simple-code-editor__textarea"
+      ></div>
+    </div>
+  );
+  const renderResult = (
+    <div>
+      <div className="playground-header">Result</div>
+      <div
+        id={checkExercise ? "exercise" : ""}
+        className="html-output"
+        ref={resultRef}
+        dangerouslySetInnerHTML={{ __html: output }} // this is not ideal by any means, but was the only way I could find to set html with inline js events (i.e. onclick=""). Other solutions like html-react-parser stripped the inline js events
+      />
+    </div>
+  );
+  const renderVerifyButton = checkExercise && (
+    <VerifyButton checkExercise={() => checkExercise(resultRef.current)} />
+  );
+  return (
+    <>
+      <div className="editor-container">
+        {renderEditor}
+        {renderResult}
+      </div>
+      {renderVerifyButton}
+    </>
+  );
+};
