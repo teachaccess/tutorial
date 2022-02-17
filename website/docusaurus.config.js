@@ -28,7 +28,22 @@ const config = {
       },
     ],
   ],
-  plugins: ["@docusaurus/theme-live-codeblock"],
+  plugins: [
+    "@docusaurus/theme-live-codeblock",
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          /* redirect logic works locally but fails on `yarn build`
+            {
+              to: "/",
+              from: ["/tutorial", "/tutorial/"],
+            },
+          */
+        ],
+      },
+    ],
+  ],
   themeConfig: {
     navbar: {
       logo: {
@@ -52,7 +67,7 @@ const config = {
     image: "../img/undraw_online.svg",
     footer: {
       links: [],
-      copyright: "Copyright © 2021 Teach Access",
+      copyright: "Copyright © 2022 Teach Access",
       logo: {
         src: "../img/logo-teach-access.svg",
         srcDark: "../img/logo-teach-access-dark.svg",
