@@ -17,7 +17,7 @@ There are many ways to label an interactive element such as a button or an input
 
 Some elements, like links and buttons with display text, label themselves. In this case, screen reader users and all other users can perceive the label.
 
-import { Editor } from "../_util/Editor.mdx";
+import { Editor } from "../_util/Editor.mdx"
 
 <Editor>
   {`<button>
@@ -82,10 +82,10 @@ Occasionally, a label by itself is insufficient information. If help text is pre
 Add an `aria-label` to the button below and label it 'search' to make it accessible.
 
 <Editor
-  checkExercise={(result) => {
-    const btn = result.querySelector("button.searchBtn");
+  checkExercise={(exercise) => {
+    const btn = exercise.querySelector("button.searchBtn")
     if (!btn.hasAttribute("aria-label")) {
-      return "It doesn't look like you added an aria-label to the button";
+      return "It doesn't look like you added an aria-label to the button"
     }
   }}
 >
@@ -99,18 +99,18 @@ Also, add an `aria-describedby` to the input field and point it to the descripti
 make it accessible.
 
 <Editor
-  checkExercise={(result) => {
-    const btn = result.querySelector("input.checkbox");
+  checkExercise={(exercise) => {
+    const btn = exercise.querySelector("input.checkbox")
     const hasLabelledBy =
       btn.hasAttribute("aria-labelledby") &&
-      btn.getAttribute("aria-labelledby") === "prompt";
+      btn.getAttribute("aria-labelledby") === "prompt"
     const hasDescribedBy =
       btn.hasAttribute("aria-describedby") &&
-      btn.getAttribute("aria-describedby") === "description";
+      btn.getAttribute("aria-describedby") === "description"
     if (!hasLabelledBy)
-      return "It doesn't look like you added an aria-labelledby to the input field";
+      return "It doesn't look like you added an aria-labelledby to the input field"
     if (!hasDescribedBy)
-      return "It doesn't look like you added an aria-describedby to the input field";
+      return "It doesn't look like you added an aria-describedby to the input field"
   }}
 >
   {`<input type="checkbox" class="checkbox" />
