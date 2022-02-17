@@ -15,18 +15,20 @@
 .cm-editor .cm-gutters {
   background-color: var(--ifm-pre-background);
 }
+.cm-gutterElement {
+  color: var(--ifm-color-emphasis-600);
+}
 .playground-header {
   letter-spacing: 0.08rem;
   padding: 0.75rem;
   text-transform: uppercase;
   font-weight: bold;
-  background: var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-600);
   color: var(--ifm-color-content);
   font-size: var(--ifm-code-font-size);
 }
 
 .playground-header:first-of-type {
-  background: var(--ifm-color-emphasis-600);
   color: var(--ifm-color-content-inverse);
 }
 
