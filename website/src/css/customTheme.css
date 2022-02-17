@@ -3,10 +3,10 @@
 @import "./menus.css";
 
 :root {
-  --ifm-color-primary-lightest: #8780b6;
-  --ifm-color-primary-lighter: #7169a9;
-  --ifm-color-primary-light: #6a62a5;
-  --ifm-color-primary: #5f5798;
+  --ifm-color-primary-lightest: #5900b4;
+  --ifm-color-primary-lighter: #5900b4;
+  --ifm-color-primary-light: #5900b4;
+  --ifm-color-primary: #5900b4;
   --ifm-color-primary-dark: #554e89;
   --ifm-color-primary-darker: #514a81;
   --ifm-color-primary-darkest: #423d6a;
