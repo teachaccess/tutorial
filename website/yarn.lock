@@ -2292,21 +2292,6 @@
     url-loader "^4.1.1"
     webpack "^5.61.0"
 
-"@docusaurus/plugin-client-redirects@^2.0.0-beta.15":
-  version "2.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-client-redirects/-/plugin-client-redirects-2.0.0-beta.15.tgz#ccee67923e7e80ef76a995d7b495a42a1449ae2c"
-  integrity sha512-FcH1y+a+Bmc5x50kZn5RvLr2a6iPiGnRK4iUP7G1eNozJC+8+93OwyZYSCdEOf2LyoVOtEq06xlfORFP2mfQDQ==
-  dependencies:
-    "@docusaurus/core" "2.0.0-beta.15"
-    "@docusaurus/logger" "2.0.0-beta.15"
-    "@docusaurus/utils" "2.0.0-beta.15"
-    "@docusaurus/utils-common" "2.0.0-beta.15"
-    "@docusaurus/utils-validation" "2.0.0-beta.15"
-    eta "^1.12.3"
-    fs-extra "^10.0.0"
-    lodash "^4.17.20"
-    tslib "^2.3.1"
-
 "@docusaurus/plugin-content-blog@2.0.0-beta.15":
   version "2.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-blog/-/plugin-content-blog-2.0.0-beta.15.tgz#6d4bf532ad3dedb4f9fd6398b0fbe481af5b77a9"
