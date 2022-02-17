@@ -16,7 +16,7 @@ The Teach Access Tutorial is a hands-on tutorial that covers some best practices
 
 **What assistive technologies can I use with this tutorial?**
 
-The tutorial should work with most assistive technologies, but Apple's VoiceOver is the recommended desktop screen reader for the training exercises.
+The tutorial should work with most assistive technologies, but Apple's VoiceOver is the recommended screen reader for the training exercises.
 
 **Where can I find more information on accessibility?**
 
